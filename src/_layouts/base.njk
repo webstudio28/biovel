@@ -143,6 +143,47 @@
                     header.classList.add('bg-transparent', 'border-transparent');
                 }
             });
+
+            // Drag-to-scroll for horizontal lists
+            (function() {
+              const containers = document.querySelectorAll('.drag-scroll');
+              containers.forEach((el) => {
+                let isDown = false;
+                let startX = 0;
+                let scrollLeftStart = 0;
+
+                const onDown = (clientX) => {
+                  isDown = true;
+                  startX = clientX;
+                  scrollLeftStart = el.scrollLeft;
+                  el.classList.add('dragging');
+                };
+                const onMove = (clientX) => {
+                  if (!isDown) return;
+                  const dx = clientX - startX;
+                  el.scrollLeft = scrollLeftStart - dx;
+                };
+                const onUp = () => {
+                  isDown = false;
+                  el.classList.remove('dragging');
+                };
+
+                // Mouse events
+                el.addEventListener('mousedown', (e) => {
+                  // left button only
+                  if (e.button !== 0) return;
+                  onDown(e.clientX);
+                  e.preventDefault();
+                });
+                window.addEventListener('mousemove', (e) => onMove(e.clientX));
+                window.addEventListener('mouseup', onUp);
+
+                // Touch events
+                el.addEventListener('touchstart', (e) => onDown(e.touches[0].clientX), { passive: true });
+                window.addEventListener('touchmove', (e) => onMove(e.touches[0].clientX), { passive: true });
+                window.addEventListener('touchend', onUp);
+              });
+            })();
         </script>
     </body>
 </html>

@@ -70,9 +70,9 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
 <!-- Services Section -->
 <section class="py-12 bg-primary-sand/30">
-    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-4 md:gap-12">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-12">
         <!-- Header -->
-        <div class="text-center mb-8">
+        <div class="text-center">
 
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
                 Услуги
@@ -91,10 +91,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
             <!-- Services Grid -->
             <div class="w-full overflow-hidden">
-              <div class="flex gap-8 overflow-x-auto pb-4 custom-scrollbar">
+              <div class="flex gap-8 overflow-x-auto pb-4 custom-scrollbar no-scrollbar drag-scroll">
                   {% for service in category.services %}
                   <div class="group relative flex-shrink-0">
-                      <div class="bg-primary-sand/80 w-[300px] backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-sand/50 hover:border-primary-evergreen/20 h-full">
+                      <div class="clipped-card bg-white/10 backdrop-blur-lg w-[280px] md:w-[300px] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-white/80 hover:border-primary-evergreen/20 h-full">
                           <div class="relative z-10 w-16 h-16 bg-primary-evergreen/20 rounded-2xl flex items-center justify-center mb-6">
                               <span class="text-3xl">{{ category.icon }}</span>
                           </div>

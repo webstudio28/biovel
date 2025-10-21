@@ -216,6 +216,23 @@ html {
     }
 }
 
+.clipped-card {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+}
+
+.drag-scroll {
+  cursor: grab;
+}
+.drag-scroll:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Text animations */
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
