@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Project One",
+        "description": "A successful project showcasing our expertise and capabilities.",
+        "category": "Category A",
+        "images": ["/assets/images/project-1.jpg"],
+        "alt": "Project One"
+    },
+    {
+        "title": "Project Two",
+        "description": "Innovative solution that exceeded client expectations and delivered outstanding results.",
+        "category": "Category B",
+        "images": ["/assets/images/project-2.jpg"],
+        "alt": "Project Two"
+    },
+    {
+        "title": "Project Three",
+        "description": "Complex project demonstrating our technical skills and attention to detail.",
+        "category": "Category A",
+        "images": ["/assets/images/project-3.jpg"],
+        "alt": "Project Three"
+    },
+    {
+        "title": "Project Four",
+        "description": "Strategic partnership that created lasting value and measurable impact.",
+        "category": "Category C",
+        "images": ["/assets/images/project-4.jpg"],
+        "alt": "Project Four"
+    },
+    {
+        "title": "Project Five",
+        "description": "Transformative project that set new standards in the industry.",
+        "category": "Category B",
+        "images": ["/assets/images/project-5.jpg"],
+        "alt": "Project Five"
+    }
+]

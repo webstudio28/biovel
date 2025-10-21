@@ -1,0 +1,222 @@
+/* Custom Styles for Vega Test Holistic Website */
+
+body {
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Optional: Add a subtle background pattern */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 20% 80%, rgba(97, 100, 79, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(63, 77, 89, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(150, 89, 57, 0.07) 0%, transparent 50%);
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Image hover effects */
+.img-box {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.img-box:hover {
+    transform: scale(1.02);
+}
+
+.img-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(156, 175, 136, 0.1);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.img-box:hover::after {
+    background-color: rgba(156, 175, 136, 0.2);
+}
+
+.img {
+    position: relative;
+    z-index: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #EAE5E1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #61644F;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #CFC5B8;
+}
+
+/* Custom animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Button hover effects */
+.btn-hover {
+    transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(97, 100, 79, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(97, 100, 79, 0.15);
+}
+
+/* Gradient text effect */
+.gradient-text {
+    background: linear-gradient(135deg, #61644F 0%, #3F4D59 50%, #965939 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section spacing */
+.section-padding {
+    padding: 5rem 0;
+}
+
+/* Container max width */
+.container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .text-responsive {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .text-responsive {
+        font-size: 2rem;
+    }
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.hero-lottie-animation {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 120%;
+    z-index: 1;
+}
+
+.hero-animation-container {
+    min-width: 500px;
+    min-height: 500px;
+    max-width: 600px;
+    max-height: 700px;
+}
+
+.dec-leaf {
+    top: 10%;
+    left: 20%;
+    opacity: 0.03;
+    rotate: -50deg;
+    width: 300px;
+    height: 450px;
+}
+
+@media (max-width: 768px) {
+    .hero-lottie-animation {
+        width: 100% !important;
+        height: 90% !important;
+    }
+
+    .hero-animation-container {
+        min-width: 300px;
+        min-height: 280px;
+        max-width: 400px;
+        max-height: 300px;
+    }
+
+    .hero-blob {
+        top: -5%;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .hero-cta a {
+        vertical-align: middle;
+        padding: 1em 1.6em;
+        font-size: 0.8em;
+    }
+
+    .hero-cta a:first-child {
+        flex: 1;
+    }
+
+    .dec-leaf {
+        height: 300px;
+        width: 200px;
+        rotate: -30deg;
+        left: 10%;
+        top: 30%;
+        opacity: 0.08;
+    }
+}
+
+/* Text animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}

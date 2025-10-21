@@ -1,0 +1,462 @@
+---
+layout: base.njk
+title: Начало
+description: ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене с най-подходящите храни за вашия организъм
+---
+
+<!-- Hero Section Only -->
+<section class="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden pt-2">
+  <div class="absolute inset-0"></div>
+  <div class="max-w-7xl w-full mx-auto px-4 relative z-10 flex flex-col-reverse md:flex-row items-center justify-evenly md:justify-center min-h-[60vh]">
+    <!-- Left: Text -->
+    <div class="flex-1 flex flex-col justify-center items-start text-left md:pr-12 z-20 relative mt-0 md:mt-0 w-full">
+      <!-- Decorative elements -->
+      <div class="absolute -top-10 -left-10 w-32 h-32 bg-primary-dune/20 rounded-full blur-2xl z-0"></div>
+      <div class="absolute top-24 -left-16 w-16 h-16 bg-primary-evergreen/10 rounded-full blur-lg z-0"></div>
+      <div class="absolute -bottom-8 -right-8 w-24 h-24 bg-primary-evergreen/5 rounded-full blur-xl z-0"></div>
+      
+      <!-- Health Element: Leaf Image -->
+      <img src="assets/images/leaf-dec.png" alt="Decorative leaf" class="dec-leaf absolute transform -translate-x-1/2 -translate-y-1/2  z-0 pointer-events-none" />
+      
+      <!-- Subtle decorative line -->
+      <div class="absolute top-0 left-0 w-16 h-0.5 bg-gradient-to-r from-primary-evergreen/60 to-transparent z-10"></div>
+    
+      
+      <h1 class="text-2xl  w-full md:text-left text-primary-dark-gray md:text-4xl lg:text-5xl font-bold mb-4 relative z-10">
+        <span>Открий пътя към</span>
+        <span class="block text-primary-evergreen  relative text-xl lg:text-4xl mt-2">
+          Твоето оптимално здраве
+        </span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-primary-deepsea mb-4 md:mb-8 max-w-lg relative z-10 leading-relaxed">
+        Създаваме персонализирани решения, холистични терапии и продукти, които поддържат твоето естествено равновесие.
+      </p>
+      
+      <div class="hero-cta flex flex-row gap-2 md:gap-4 relative z-10 w-full">
+        <a href="/contact" class="btn-primary flex justify-center items-center">
+          Запази час
+        </a>
+        <a href="/about" class="btn-secondary flex justify-center items-center">
+          Научи повече
+        </a>
+      </div>
+    </div>
+    <!-- Right: Playful Blob Card with Lottie Animation -->
+    <div class="flex-1 flex justify-center items-center w-full h-full relative md:mt-0 max-w-full overflow-hidden">
+      <div class="relative flex items-center justify-center w-full h-full hero-animation-container">
+        <!-- Playful SVG blob background with wavy outline -->
+        <svg class="hero-blob absolute w-full h-full z-0" viewBox="0 0 420 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="blobGradient" x1="0" y1="0" x2="420" y2="480" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#EAE5E1"/>
+              <stop offset="1" stop-color="#CFC5B8"/>
+            </linearGradient>
+          </defs>
+          <path d="M80,120 Q40,260 180,420 Q340,400 380,220 Q400,80 220,40 Q120,20 80,120 Z" fill="url(#blobGradient)" opacity="0.95"/>
+          <path d="M80,120 Q40,260 180,420 Q340,400 380,220 Q400,80 220,40 Q120,20 80,120 Z" fill="none" stroke="#965939" stroke-width="6" opacity="0.25"/>
+        </svg>
+        <!-- Lottie: centered, responsive sizing -->
+        <lottie-player 
+          src="assets/3d/hero1.json" 
+          background="transparent" 
+          speed="1" 
+          autoplay 
+          loop 
+          class="hero-lottie-animation">
+        </lottie-player>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Services Section -->
+<section class="py-20 bg-primary-sand/30">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-evergreen/10 rounded-full border border-primary-evergreen/20 mb-6">
+                <div class="w-2 h-2 bg-primary-evergreen rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-primary-evergreen">Какво предлагам</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">
+                Моите услуги
+            </h2>
+            <p class="text-xl text-primary-deepsea max-w-2xl mx-auto leading-relaxed">
+                Цялостен подход към вашето здраве чрез модерни диагностични методи и персонализирани терапии.
+            </p>
+        </div>
+        
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1: Diagnostics -->
+            <div class="group relative">
+                <div class="bg-primary-sand/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-sand/50 hover:border-primary-evergreen/20 h-full">
+                    <div class="relative z-10 w-16 h-16 bg-primary-evergreen/20 rounded-2xl flex items-center justify-center mb-6">
+                        <!-- Icon Placeholder -->
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Диагностика</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Използвам ВЕГА ТЕСТ и БИОСКЕНЕР за точна и безболезнена диагностика на състоянието на вашия организъм.</p>
+                </div>
+            </div>
+            
+            <!-- Service 2: Personalized Plans -->
+            <div class="group relative">
+                <div class="bg-primary-sand/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-sand/50 hover:border-primary-evergreen/20 h-full">
+                    <div class="relative z-10 w-16 h-16 bg-primary-evergreen/20 rounded-2xl flex items-center justify-center mb-6">
+                        <!-- Icon Placeholder -->
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Персонализирани планове</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Изготвям индивидуални хранителни режими, ДЕТОКС програми, включително лимфодренаж и антипаразитни програми.</p>
+                </div>
+            </div>
+            
+            <!-- Service 3: Holistic Therapies -->
+            <div class="group relative">
+                <div class="bg-primary-sand/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-sand/50 hover:border-primary-evergreen/20 h-full">
+                    <div class="relative z-10 w-16 h-16 bg-primary-evergreen/20 rounded-2xl flex items-center justify-center mb-6">
+                        <!-- Icon Placeholder -->
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Холистични терапии</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Предлагам консултации с австралийски цветни есенции БУШ и препоръки за хранителни добавки BIO VEL.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Elena Hristova Section -->
+<section class="py-20 bg-primary-sand/30">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <!-- Left: Image -->
+            <div class="flex-1 relative">
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <img src="assets/images/male-profile.jpg" alt="Елена Христова - консултант Vega Test" class="w-full h-[400px] md:h-[500px] object-cover">
+                    <!-- Overlay gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary-evergreen/10 rounded-full blur-xl"></div>
+                <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary-dune/20 rounded-full blur-lg"></div>
+            </div>
+            
+            <!-- Right: Content -->
+            <div class="flex-1 flex flex-col justify-center">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-evergreen/10 rounded-full border border-primary-evergreen/20 mb-6 w-fit">
+                    <div class="w-2 h-2 bg-primary-evergreen rounded-full"></div>
+                    <span class="text-sm font-medium text-primary-evergreen">Вашият водач към здравето</span>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">
+                    Запознайте се с <span class="text-primary-evergreen italic">Елена Христова</span>
+                </h2>
+                
+                <p class="text-lg text-primary-deepsea mb-4 leading-relaxed">
+                    С повече от 9 години опит в сферата на холистичната диагностика и превенция, аз съм тук, за да Ви напътствам по пътя към по-добро здраве и да Ви помогна да поддържате оптимално състояние САМИ.
+                </p>
+                <p class="text-lg text-primary-deepsea mb-8 leading-relaxed">
+                    Като сертифициран специалист по нутрициология и консултант по хранителни добавки, моята мисия е да Ви помогна да постигнете цялостен рестарт и обновяване на естествените процеси в тялото.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- My Philosophy Section -->
+<section class="py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">Моята философия</h2>
+        <p class="text-2xl md:text-3xl text-primary-deepsea leading-relaxed italic">
+            "Вярвам, че здравето е <span class="font-semibold text-primary-evergreen">инвестиция</span>, не разход."
+        </p>
+    </div>
+</section>
+
+
+
+<!-- How It Works Section -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-evergreen/10 rounded-full border border-primary-evergreen/20 mb-6">
+                <div class="w-2 h-2 bg-primary-evergreen rounded-full"></div>
+                <span class="text-sm font-medium text-primary-evergreen">Процесът</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">
+                Как работи?
+            </h2>
+            <p class="text-xl text-primary-deepsea max-w-2xl mx-auto leading-relaxed">
+                Вашият път към по-добро здраве в три лесни стъпки.
+            </p>
+        </div>
+
+        <!-- Steps -->
+        <div class="relative">
+            <!-- Connecting line -->
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-primary-evergreen/20 hidden md:block"></div>
+
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-primary-sand rounded-full flex items-center justify-center text-primary-evergreen font-bold text-2xl shadow-lg border-2 border-primary-evergreen/30">01</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Първоначална консултация</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Започваме с разговор, за да разбера вашите нужди и цели.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                     <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-primary-sand rounded-full flex items-center justify-center text-primary-evergreen font-bold text-2xl shadow-lg border-2 border-primary-evergreen/30">02</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Диагностика и анализ</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Провеждаме необходимите тестове, за да получим ясна картина на вашето състояние.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                     <div class="relative inline-block mb-6">
+                        <div class="w-20 h-20 bg-primary-sand rounded-full flex items-center justify-center text-primary-evergreen font-bold text-2xl shadow-lg border-2 border-primary-evergreen/30">03</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-evergreen mb-3">Персонален план</h3>
+                    <p class="text-primary-deepsea leading-relaxed">Изготвяме индивидуален план за хранене и терапии, съобразен с вас.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="py-20 bg-primary-sand/30">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <!-- Left: Content -->
+            <div class="flex-1 flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-evergreen/10 rounded-full border border-primary-evergreen/20 mb-6 w-fit">
+                    <div class="w-2 h-2 bg-primary-evergreen rounded-full"></div>
+                    <span class="text-sm font-medium text-primary-evergreen">Подкрепете тялото си</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">
+                    Хранителни добавки <span class="text-primary-evergreen italic">BIO VEL</span>
+                </h2>
+                <p class="text-lg text-primary-deepsea mb-8 leading-relaxed">
+                    Като лицензиран производител, предлагам и собствена линия хранителни добавки BIO VEL, които да подпомогнат вашия път към по-добро здраве.
+                </p>
+            </div>
+            <!-- Right: Image -->
+            <div class="flex-1 relative">
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <img src="assets/images/coffee-house.jpg" alt="Хранителни добавки BIO VEL" class="w-full h-[400px] md:h-[500px] object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-sand/30 rounded-full border border-primary-dune/20 mb-6">
+                <div class="w-2 h-2 bg-primary-dune rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-primary-deepsea">Отзиви от клиенти</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen font-['Playfair_Display'] mb-6">
+                Какво казват <span class="text-primary-dune italic">нашите клиенти</span>
+            </h2>
+            <p class="text-xl text-primary-deepsea max-w-2xl mx-auto leading-relaxed">
+                Реални истории от хора, които промениха живота си с ВЕГА ТЕСТ
+            </p>
+        </div>
+        
+        <!-- Testimonials Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="group relative">
+                <div class="bg-gradient-to-br from-primary-sand/40 to-primary-dune/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-dune/20">
+                    <!-- Quote icon -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center shadow-lg">
+                        <svg class="w-6 h-6 text-primary-deepsea" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="mt-4">
+                        <p class="text-primary-deepsea leading-relaxed mb-6 italic">
+                            "ВЕГА ТЕСТ промени живота ми напълно. Открих кои храни ми вредят и кои ми помагат. Сега се чувствам много по-добре и имам повече енергия!"
+                        </p>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center">
+                                <span class="text-primary-deepsea font-bold text-lg">М</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-deepsea">Мария Петрова</h4>
+                                <p class="text-primary-deepsea/70 text-sm">Клиент от 3 месеца</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="group relative">
+                <div class="bg-gradient-to-br from-primary-sand/40 to-primary-dune/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-dune/20">
+                    <!-- Quote icon -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center shadow-lg">
+                        <svg class="w-6 h-6 text-primary-deepsea" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="mt-4">
+                        <p class="text-primary-deepsea leading-relaxed mb-6 italic">
+                            "Диагностиката беше безболезнена и бърза. Резултатите ми помогнаха да разбера защо имам проблеми с храносмилането. Сега ям правилно!"
+                        </p>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center">
+                                <span class="text-primary-deepsea font-bold text-lg">Г</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-deepsea">Георги Иванов</h4>
+                                <p class="text-primary-deepsea/70 text-sm">Клиент от 6 месеца</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="group relative">
+                <div class="bg-gradient-to-br from-primary-sand/40 to-primary-dune/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-dune/20">
+                    <!-- Quote icon -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center shadow-lg">
+                        <svg class="w-6 h-6 text-primary-deepsea" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="mt-4">
+                        <p class="text-primary-deepsea leading-relaxed mb-6 italic">
+                            "Препоръчвам ВЕГА ТЕСТ на всички! Професионален подход, точни резултати и персонализирани препоръки. Наистина работи!"
+                        </p>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-dune/60 rounded-full flex items-center justify-center">
+                                <span class="text-primary-deepsea font-bold text-lg">Е</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-deepsea">Елена Димитрова</h4>
+                                <p class="text-primary-deepsea/70 text-sm">Клиент от 1 година</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom CTA -->
+        <div class="text-center mt-12">
+            <a href="/testimonials" class="inline-flex items-center gap-2 text-primary-deepsea font-semibold hover:text-accent-terracotta transition-colors duration-300">
+                Вижте всички отзиви
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="relative shadow-xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary-sand/60 via-primary-dune/40 to-primary-dune/30 p-12 md:p-16 border border-primary-dune/20">
+            <!-- Decorative elements -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary-dune/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-primary-dune/15 rounded-full blur-2xl"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary-dune/5 rounded-full blur-3xl"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 text-center">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-sand/90 backdrop-blur-sm rounded-full border border-primary-sand/60 mb-6">
+                    <div class="w-2 h-2 bg-primary-deepsea rounded-full animate-pulse"></div>
+                    <span class="text-sm font-medium text-primary-deepsea">Готови за промяна?</span>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-deepsea font-['Playfair_Display'] mb-6">
+                    Открийте <span class="text-accent-terracotta italic">вашият път</span> към здраве
+                </h2>
+                
+                <p class="text-xl text-primary-deepsea/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Запазете час за ВЕГА ТЕСТ диагностика и открийте кои храни са най-подходящи за вашия организъм. Първата стъпка към по-добър живот е тук.
+                </p>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-2xl mx-auto relative z-50">
+                    <div class="text-center bg-primary-sand rounded-xl p-6 shadow-lg border-2 border-primary-dune">
+                        <div class="text-4xl font-bold text-primary-deepsea mb-2">500+</div>
+                        <div class="text-primary-deepsea font-medium">Доволни клиенти</div>
+                    </div>
+                    <div class="text-center bg-primary-sand rounded-xl p-6 shadow-lg border-2 border-primary-dune">
+                        <div class="text-4xl font-bold text-primary-deepsea mb-2">45мин</div>
+                        <div class="text-primary-deepsea font-medium">Продължителност</div>
+                    </div>
+                    <div class="text-center bg-primary-sand rounded-xl p-6 shadow-lg border-2 border-primary-dune">
+                        <div class="text-4xl font-bold text-primary-deepsea mb-2">100%</div>
+                        <div class="text-primary-deepsea font-medium">Безболезнено</div>
+                    </div>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/contact" class="btn-primary">
+                        Запази час сега
+                        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                    <a href="tel:0885415300" class="btn-secondary">
+                        <span class="inline-block mr-2">📞</span>
+                        0885 415 300
+                    </a>
+                </div>
+                
+                <!-- Trust indicators -->
+                <div class="flex flex-wrap justify-center items-center gap-6 mt-8 text-primary-deepsea/60 text-sm">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Безболезнено
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Веднага резултати
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Професионално
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- tailwind-safelist -->
+<div class="text-primary-moss text-primary-sage text-primary-ceramic text-primary-forest text-primary-cream text-primary-olive text-primary-dark-gray bg-primary-moss bg-primary-sage bg-primary-ceramic bg-primary-forest bg-primary-cream bg-primary-olive bg-gradient-primary bg-gradient-hero border-primary-moss border-primary-sage border-primary-ceramic border-primary-forest border-primary-cream border-primary-olive hidden"></div>
