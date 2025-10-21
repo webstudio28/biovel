@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0);
     
     // Badge animation
+    /*
     heroTimeline.from(".inline-flex.items-center.gap-2.px-4.py-2", { 
         opacity: 0, 
         y: -30, 
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1, 
         ease: "back.out(1.7)" 
     }, 0.3);
+    */
     
     // Main heading animation
     heroTimeline.from("h1", { 
@@ -90,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power2.out" 
     }, 0.2);
     
+    /*
     // About section animations - target the flex container children
     gsap.from("section.py-20 .flex.flex-col.lg\\:flex-row > div", {
         opacity: 0,
@@ -173,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleActions: "play none none none",
         }
     });
+    */
     
     // Continuous floating animation for decorative elements
     gsap.to(".absolute.-top-10.-left-10", {
@@ -199,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: -1
     });
     
+    /*
     // Subtle pulse animation for the badge dot
     gsap.to(".w-2.h-2.bg-primary-accent.rounded-full.animate-pulse", {
         scale: 1.2,
@@ -207,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
         yoyo: true,
         repeat: -1
     });
+    */
     
     // Gentle rotation for the blob
     gsap.to("svg.absolute.w-full.h-full", {
