@@ -70,39 +70,47 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
 <!-- Services Section -->
 <section class="py-12 bg-primary-sand/30">
-    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-12">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
         <!-- Header -->
-        <div class="text-center">
+        <div class="w-full text-left">
 
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
                 Услуги
             </h2>
-            <p class="text-medium md:text-lg	 text-primary-deepsea max-w-5xl mx-auto leading-relaxed">
+            <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
                 Цялостен подход към вашето здраве чрез модерни диагностични методи и персонализирани терапии.
             </p>
         </div>
 
         {% for category in homepageServices.categories %}
-            <div class="w-full flex flex-col justify-center items-center gap-6">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-sand/80 rounded-full border border-primary-evergreen/20 mb-6">
-                    <div class="w-2 h-2 bg-primary-evergreen rounded-full animate-pulse"></div>
+            <div class="w-full flex flex-col justify-center items-center gap-2 ">
+                <div class="inline-flex w-full items-left mb-6">
+                    
                     <span class="text-xl md:text-xl font-semibold text-primary-evergreen">{{ category.name }}</span>
                 </div>
 
                 <!-- Services Grid -->
                 <div class="w-full overflow-hidden">
-                    <div class="flex gap-8 overflow-x-auto pb-4 custom-scrollbar no-scrollbar drag-scroll">
+                    <div class="flex gap-8 overflow-x-auto pb-8 custom-scrollbar no-scrollbar drag-scroll">
                         {% for service in category.services %}
                             <div class="group relative flex-shrink-0">
 
-                                <div class="bg-primary-sage/40 backdrop-blur-lg w-[260px] md:w-[300px] rounded-2xl p-8 pt-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-400 h-full">
-                                    <div class="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-xl bg-primary-evergreen/20 backdrop-blur-lg border-2 border-white/80 flex items-center justify-center overflow-hidden">
+                                <div class=" home-service-card relative bg-primary-sage/80 backdrop-blur-lg w-[260px] md:w-[300px] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                                    <div class="absolute w-full h-[70%] rounded-xl bg-primary-evergreen/20 backdrop-blur-lg flex items-center justify-center overflow-hidden">
                                         <img src="{{ service.image }}" alt="{{ service.name }}" class="w-full h-full object-cover"/>
                                     </div>
 
-                                    <h3 class=" text-xl font-bold text-primary-evergreen mb-3">{{ service.name }}</h3>
-                                    <p class="text-primary-deepsea leading-relaxed">{{ service.description }}</p>
+                                    {# <h3 class=" text-sm max-w-[95%] absolute top-2 left-[-6%] p-2 pl-6 rounded-3xl text-primary-volcanic font-bold service-card-overlay bg-primary-cream text-shadow-lg">
+                                        {{ service.name }}
+                                    </h3> #}
+
+                                    <div class="flex flex-col justify-between absolute bottom-0 service-card-description p-4 pt-14 z-100 ">
+                                        <h3 class="text-white font-bold">{{ service.name }}</h3>
+                                        <p class="">{{ service.description }}</p>
+                                        <a href="{{ service.link }}" class="rounded-full font-semibold  service-card-button">Научи повече</a>
+                                    </div>
                                 </div>
+
                             </div>
                         {% endfor %}
                     </div>

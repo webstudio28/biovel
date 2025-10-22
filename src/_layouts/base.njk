@@ -184,6 +184,36 @@
                 window.addEventListener('touchend', onUp);
               });
             })();
+
+            {# // Equalize description heights
+            (function(){
+              function equalizeDescriptions() {
+                document.querySelectorAll('.drag-scroll').forEach(row => {
+                  const descriptions = row.querySelectorAll('.service-card-description');
+                  if (!descriptions.length) return;
+
+                  // Reset heights to get natural size
+                  descriptions.forEach(desc => { desc.style.height = 'auto'; });
+                  
+                  // Force reflow before measuring
+                  void descriptions[0].offsetHeight;
+
+                  let maxHeight = 0;
+                  descriptions.forEach(desc => {
+                    maxHeight = Math.max(maxHeight, desc.offsetHeight);
+                  });
+
+                  descriptions.forEach(desc => {
+                    desc.style.height = `${maxHeight}px`;
+                  });
+                });
+              }
+              
+              window.addEventListener('load', equalizeDescriptions);
+              window.addEventListener('resize', equalizeDescriptions);
+              const ro = new ResizeObserver(equalizeDescriptions);
+              document.querySelectorAll('.drag-scroll').forEach(el => ro.observe(el));
+            })(); #}
         </script>
     </body>
 </html>
