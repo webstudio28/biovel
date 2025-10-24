@@ -1,5 +1,69 @@
 [
   {
+    "title": "БИО ВЕЛ РАСТИТЕЛЕН СИЛИЦИЙ капки",
+    "meta_title": "bio-vel-rastitelen-silitsiy",
+    "short_description": "Капки с растителен силиций за подкрепа на организма.",
+    "long_description": "БИО ВЕЛ Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
+    "images": ["/assets/images/products/sicily-plant34.png", ""],
+    "package": "30 мл",
+    "sustavki": ["Растителен силиций"],
+    "benefits": [
+      {
+        "benefit_name": "Артерии",
+        "benefit_icon": "/assets/images/products/icons/vessels.png"
+      },
+      {
+        "benefit_name": "Коса",
+        "benefit_icon": "/assets/images/products/icons/hair.png"
+      },
+      {
+        "benefit_name": "Кожа",
+        "benefit_icon": "/assets/images/products/icons/skin.png"
+      },
+      {
+        "benefit_name": "Нокти",
+        "benefit_icon": "/assets/images/products/icons/nails.png"
+      }
+    ],
+    "used_for": "При симптоми на...",
+    "how_to_use": "Приемайте по следния начин...",
+    "dosage": "Препоръчителна доза...",
+    "contraindications": "Не използвайте при...",
+    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+  },
+  {
+    "title": "Zn (Цинк)",
+    "meta_title": "zn-tsink",
+    "short_description": "Капки или капсули с цинк за подпомагане на кожата и борба с акне.",
+    "long_description": "Цинкът е важен минерал за здравето на кожата и имунната система. Подпомага борбата с акне и поддържа организма в баланс.",
+    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg"],
+    "package": "30 капсули",
+    "sustavki": ["Zinc"],
+    "benefits": [
+      {
+        "benefit_name": "Имунна система",
+        "benefit_icon": "/assets/images/products/icons/immune-system.png"
+      },
+      {
+        "benefit_name": "Коса",
+        "benefit_icon": "/assets/images/products/icons/hair.png"
+      },
+      {
+        "benefit_name": "Кожа",
+        "benefit_icon": "/assets/images/products/icons/skin.png"
+      },
+      {
+        "benefit_name": "Нокти",
+        "benefit_icon": "/assets/images/products/icons/nails.png"
+      }
+    ],
+    "used_for": "При симптоми на...",
+    "how_to_use": "Приемайте по следния начин...",
+    "dosage": "Препоръчителна доза...",
+    "contraindications": "Не използвайте при...",
+    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+  },
+  {
     "title": "Cu Мед (Copper Honey)",
     "meta_title": "cu-med-copper-honey",
     "short_description": "10 ml капки с мед и меден комплекс за подсилване на имунната система.",
@@ -99,70 +163,6 @@
       {
         "benefit_name": "Храносмилане",
         "benefit_icon": "/assets/images/products/icons/stomach.png"
-      }
-    ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
-  },
-  {
-    "title": "БИО ВЕЛ РАСТИТЕЛЕН СИЛИЦИЙ капки",
-    "meta_title": "bio-vel-rastitelen-silitsiy",
-    "short_description": "Капки с растителен силиций за подкрепа на организма.",
-    "long_description": "БИО ВЕЛ Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
-    "images": ["/assets/images/products/sicily-plant34.png", ""],
-    "package": "30 мл",
-    "sustavki": ["Растителен силиций"],
-    "benefits": [
-      {
-        "benefit_name": "Артерии",
-        "benefit_icon": "/assets/images/products/icons/vessels.png"
-      },
-      {
-        "benefit_name": "Коса",
-        "benefit_icon": "/assets/images/products/icons/hair.png"
-      },
-      {
-        "benefit_name": "Кожа",
-        "benefit_icon": "/assets/images/products/icons/skin.png"
-      },
-      {
-        "benefit_name": "Нокти",
-        "benefit_icon": "/assets/images/products/icons/nails.png"
-      }
-    ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
-  },
-  {
-    "title": "Zn (Цинк)",
-    "meta_title": "zn-tsink",
-    "short_description": "Капки или капсули с цинк за подпомагане на кожата и борба с акне.",
-    "long_description": "Цинкът е важен минерал за здравето на кожата и имунната система. Подпомага борбата с акне и поддържа организма в баланс.",
-    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg"],
-    "package": "30 капсули",
-    "sustavki": ["Zinc"],
-    "benefits": [
-      {
-        "benefit_name": "Имунна система",
-        "benefit_icon": "/assets/images/products/icons/immune-system.png"
-      },
-      {
-        "benefit_name": "Коса",
-        "benefit_icon": "/assets/images/products/icons/hair.png"
-      },
-      {
-        "benefit_name": "Кожа",
-        "benefit_icon": "/assets/images/products/icons/skin.png"
-      },
-      {
-        "benefit_name": "Нокти",
-        "benefit_icon": "/assets/images/products/icons/nails.png"
       }
     ],
     "used_for": "При симптоми на...",

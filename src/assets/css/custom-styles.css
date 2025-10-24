@@ -23,6 +23,10 @@ body::before {
     pointer-events: none;
 }
 
+main {
+    overflow-x: hidden;
+}
+
 /* Image hover effects */
 .img-box {
     position: relative;
