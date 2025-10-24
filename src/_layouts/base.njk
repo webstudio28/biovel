@@ -39,6 +39,9 @@
 
         <!-- Home Animations -->
         <script src="{{ 'assets/js/home-animations.js' }}"></script>
+        {% if page.url == "/" %}
+        <script src="{{ 'assets/js/approach-animations.js' | url }}"></script>
+        {% endif %}
 
 
     </head>
