@@ -4,9 +4,23 @@
     "meta_title": "cu-med-copper-honey",
     "short_description": "10 ml капки с мед и меден комплекс за подсилване на имунната система.",
     "long_description": "Cu Мед е натурален концентрат с мед и меден комплекс, който стимулира имунната система и спомага за неутрализирането на свободните радикали. Подходящ е за ежедневна подкрепа на организма.",
-    "image-array": ["cu_med_1.jpg", "cu_med_2.jpg"],
+    "images": ["/assets/images/products/med1.png", "/assets/images/products/cu_med_2.jpg"],
+    "package": "10 ml",
     "sustavki": ["Мед (Honey)", "Cu (Copper)"],
-    "polzi": ["Стимулира имунната система", "Спомага за неутрализирането на свободните радикали"],
+    "benefits": [
+      {
+        "benefit_name": "Нервна система",
+        "benefit_icon": "/assets/images/products/icons/nerve-system.png"
+      },
+      {
+        "benefit_name": "Образуване на колаген",
+        "benefit_icon": "/assets/images/products/icons/colagen.png"
+      },
+      {
+        "benefit_name": "Съединителни тъкани",
+        "benefit_icon": "/assets/images/products/icons/metabolism.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",
@@ -18,9 +32,19 @@
     "meta_title": "parakokteyl",
     "short_description": "Мощна комбинация от студено пресовани масла за общо благополучие.",
     "long_description": "Паракоктейл комбинира синчено масло, тиквено масло и масло от семена на невен в едно мощно натурално решение. Поддържа организма и подпомага естествените процеси на детоксикация и подхранване.",
-    "image-array": ["parakokteyl_1.jpg", "parakokteyl_2.jpg"],
+    "images": ["/assets/images/products/parakokteil.png", "/assets/images/products/parakokteyl_2.jpg"],
+    "package": "100 ml",
     "sustavki": ["Синчено масло", "Тиквено масло", "Масло от семена на невен"],
-    "polzi": ["Мощна комбинация от студено пресовани натурални масла"],
+    "benefits": [
+      {
+        "benefit_name": "Имунна система",
+        "benefit_icon": "/assets/images/products/icons/immune-system.png"
+      },
+      {
+        "benefit_name": "Метаболизъм",
+        "benefit_icon": "/assets/images/products/icons/metabolism.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",
@@ -32,9 +56,23 @@
     "meta_title": "karamfil",
     "short_description": "Натурално масло с карамфил за антибактериални и аналгетични свойства.",
     "long_description": "Карамфиловото масло е естествен антиоксидант с противогъбични, антибактериални и аналгетични свойства. Подходящо за локална употреба и за поддържане на здравето на организма.",
-    "image-array": ["karamfil_1.jpg", "karamfil_2.jpg"],
+    "images": ["/assets/images/products/carnation4.png", "/assets/images/products/karamfil_2.jpg"],
+    "package": "10 ml",
     "sustavki": ["Clove (Карамфил)"],
-    "polzi": ["Антиоксидантни", "Противогъбични", "Антибактериални", "Аналгетични"],
+    "benefits": [
+      {
+        "benefit_name": "Стомах и черва",
+        "benefit_icon": "/assets/images/products/icons/stomach.png"
+      },
+      {
+        "benefit_name": "Имунна система",
+        "benefit_icon": "/assets/images/products/icons/immune-system.png"
+      },
+      {
+        "benefit_name": "Тонизиращо действие",
+        "benefit_icon": "/assets/images/products/icons/tonus.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",
@@ -46,9 +84,23 @@
     "meta_title": "bial-tran-maslo",
     "short_description": "100% натурално масло от Бял Трън без добавени консерванти.",
     "long_description": "Бял Трън масло е натурално средство за подкрепа на черния дроб и организма като цяло. Подходящо за ежедневна употреба без добавени консерванти.",
-    "image-array": ["bial_tran_1.jpg", "bial_tran_2.jpg"],
+    "images": ["/assets/images/products/bql-trun1.png", "/assets/images/products/bial_tran_2.jpg"],
+    "package": "100 ml",
     "sustavki": ["Milk thistle (Бял Трън)"],
-    "polzi": ["100% натурално", "Без добавени консерванти"],
+    "benefits": [
+      {
+        "benefit_name": "Имунна система",
+        "benefit_icon": "/assets/images/products/icons/immune-system.png"
+      },
+      {
+        "benefit_name": "Кръвоносни съдове",
+        "benefit_icon": "/assets/images/products/icons/vessels.png"
+      },
+      {
+        "benefit_name": "Храносмилане",
+        "benefit_icon": "/assets/images/products/icons/stomach.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",
@@ -56,13 +108,23 @@
     "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
   },
   {
-    "title": "Бял Трън масло (студено пресовано)",
-    "meta_title": "bial-tran-maslo-cold-pressed",
-    "short_description": "Натурално студено пресовано масло от Бял Трън.",
-    "long_description": "Студено пресованото Бял Трън масло запазва всички полезни вещества и подпомага организма по естествен начин. Идеално за всекидневна подкрепа и здравословен начин на живот.",
-    "image-array": ["bial_tran_cold_1.jpg", "bial_tran_cold_2.jpg"],
-    "sustavki": ["Milk thistle (Бял Трън)"],
-    "polzi": ["Натурално студено пресовано масло"],
+    "title": "БИО ВЕЛ РАСТИТЕЛЕН СИЛИЦИЙ капки",
+    "meta_title": "bio-vel-rastitelen-silitsiy",
+    "short_description": "Капки с растителен силиций за подкрепа на организма.",
+    "long_description": "БИО ВЕЛ Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
+    "images": ["/assets/images/products/sicily-plant34.png", ""],
+    "package": "30 мл",
+    "sustavki": ["Растителен силиций"],
+    "benefits": [
+      {
+        "benefit_name": "Артерии",
+        "benefit_icon": "/assets/images/products/icons/vessels.png"
+      },
+      {
+        "benefit_name": "Коса, кожа и нокти",
+        "benefit_icon": "/assets/images/products/icons/hair.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",
@@ -74,9 +136,19 @@
     "meta_title": "zn-tsink",
     "short_description": "Капки или капсули с цинк за подпомагане на кожата и борба с акне.",
     "long_description": "Цинкът е важен минерал за здравето на кожата и имунната система. Подпомага борбата с акне и поддържа организма в баланс.",
-    "image-array": ["zn_1.jpg", "zn_2.jpg"],
+    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg"],
+    "package": "30 капсули",
     "sustavki": ["Zinc"],
-    "polzi": ["Преборете акнето"],
+    "benefits": [
+      {
+        "benefit_name": "Имунна система",
+        "benefit_icon": "/assets/images/products/icons/immune-system.png"
+      },
+      {
+        "benefit_name": "Коса, кожа и нокти",
+        "benefit_icon": "/assets/images/products/icons/skin.png"
+      }
+    ],
     "used_for": "При симптоми на...",
     "how_to_use": "Приемайте по следния начин...",
     "dosage": "Препоръчителна доза...",

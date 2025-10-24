@@ -207,6 +207,30 @@ html {
     color: #262627;
 }
 
+.home-product-card {
+    width: 280px;
+}
+
+.home-product-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #CFC5B8;
+}
+
+.home-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card-button a {
+    background-color: #61644F;
+}
 
 @media (max-width: 768px) {
     .hero-lottie-animation {
