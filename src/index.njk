@@ -37,7 +37,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
           Запази час
         </a>
                 <a href="/about" class="btn-secondary flex justify-center items-center">
-          Научи повече
+          Виж всички услуги
         </a>
             </div>
         </div>
@@ -65,6 +65,64 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
           class="hero-lottie-animation"></lottie-player>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Why choose us Section -->
+<section class="py-12 bg-primary-sand/30">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
+        <!-- Header -->
+        <div class="w-full text-left">
+
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
+                Подход
+            </h2>
+            <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
+„Ще бъдете посрещнати с внимание още при пристигането. На всяка стъпка – от кабинета до диагностиката – вниманието и грижата са водещи.“
+            </p>
+        </div>
+
+        <div class="approach-container grid lg:grid-cols-2 gap-12 items-center">
+
+            
+            <!-- Left Side: Features -->
+            <div class="flex flex-col gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
+                    <img src="assets/images/practice.png" alt="Кабинет" class="w-16 h-16 mt-1">
+                    <div>
+                        <h3 class="text-md font-bold text-primary-deepsea mb-2">Кабинет</h3>
+                        <p class="text-primary-dark-gray text-sm">„Ще бъдете посрещнати топло и спокойно. Всичко е подготвено за вашия комфорт още от първата минута.“</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
+                    <img src="assets/images/care.png" alt="Отношение и внимание" class="w-16 h-16 mt-1">
+                    <div>
+                        <h3 class="text-md font-bold text-primary-deepsea mb-2">Отношение и внимание</h3>
+                        <p class="text-primary-dark-gray text-sm">„Внимателно изслушваме нуждите и въпросите ви. Подходът е индивидуален, за да получите грижа, която наистина ви пасва.“</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
+                    <img src="assets/images/lab-machine.png" alt="Професионална техника за диагностика" class="w-12 h-12 mt-1">
+                    <div>
+                        <h3 class="text-md font-bold text-primary-deepsea mb-2">Професионална техника за диагностика</h3>
+                        <p class="text-primary-dark-gray text-sm">„Използваме точни и съвременни методи за оценка на здравето. Всичко е безопасно и прецизно, за да получите ясна картина на организма си.“</p>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Right Side: Image -->
+            <div class="relative hidden lg:block h-full">
+                <img src="assets/images/leaves-branch-top.png" alt="Подход листа декорация" class="w-40 h-40 absolute top-[-25px] left-[-50px] object-cover">
+                <img src="assets/images/leaves-branch.png" alt="Подход листа декорация" class="w-40 h-40 absolute bottom-[-25px] right-[-50px] object-cover">
+                <div class="h-full rounded-2xl overflow-hidden shadow-xl">
+                    <img src="assets/images/kabinet.webp" alt="Кабинетът на БиоВел" class=" border-primary-dune rounded-2xl w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -157,9 +215,9 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
                                     <div class="benefit-icons flex flex-col  gap-2">
                                         {% for benefit in product.benefits %}
-                                            <div class="flex flex-row gap-2">
+                                            <div class="flex flex-row items-center gap-2">
                                                 <img src="{{ benefit.benefit_icon }}" alt="{{ benefit.benefit_name }}" class="w-6 h-6">
-                                                <span class="text-sm">{{ benefit.benefit_name }}</span>
+                                                <span class="text-sm ">{{ benefit.benefit_name }}</span>
                                             </div>
                                         {% endfor %}
                                     </div>
