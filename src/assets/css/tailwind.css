@@ -22,7 +22,7 @@
     }
     
     .btn-primary {
-        @apply bg-primary-evergreen text-primary-sand font-semibold px-8 py-4 rounded-full hover:bg-accent-terracotta hover:text-primary-sand hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block;
+        @apply bg-primary-moss text-primary-sand font-semibold px-8 py-4 rounded-full hover:bg-accent-terracotta hover:text-primary-sand hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block;
     }
       
     .btn-secondary {

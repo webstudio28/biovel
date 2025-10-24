@@ -197,18 +197,13 @@ html {
 }
 
 .service-card-button {
-    padding: 0.5em 1em;
-    width: 100%;
+    /* width: 100%;
     text-align: center;
     margin-top: 10px;
     background-color: #F5F5DC;
     text-shadow: none;
     border: none;
-    color: #262627;
-}
-
-.home-product-card {
-    width: 280px;
+    color: #262627; */
 }
 
 .home-product-image {
@@ -229,7 +224,8 @@ html {
 }
 
 .product-card-button a {
-    background-color: #61644F;
+
+    
 }
 
 @media (max-width: 768px) {

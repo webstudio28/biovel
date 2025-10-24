@@ -18,7 +18,7 @@
       },
       {
         "benefit_name": "Съединителни тъкани",
-        "benefit_icon": "/assets/images/products/icons/metabolism.png"
+        "benefit_icon": "/assets/images/products/icons/dna.png"
       }
     ],
     "used_for": "При симптоми на...",
@@ -121,8 +121,16 @@
         "benefit_icon": "/assets/images/products/icons/vessels.png"
       },
       {
-        "benefit_name": "Коса, кожа и нокти",
+        "benefit_name": "Коса",
         "benefit_icon": "/assets/images/products/icons/hair.png"
+      },
+      {
+        "benefit_name": "Кожа",
+        "benefit_icon": "/assets/images/products/icons/skin.png"
+      },
+      {
+        "benefit_name": "Нокти",
+        "benefit_icon": "/assets/images/products/icons/nails.png"
       }
     ],
     "used_for": "При симптоми на...",
@@ -145,8 +153,16 @@
         "benefit_icon": "/assets/images/products/icons/immune-system.png"
       },
       {
-        "benefit_name": "Коса, кожа и нокти",
+        "benefit_name": "Коса",
+        "benefit_icon": "/assets/images/products/icons/hair.png"
+      },
+      {
+        "benefit_name": "Кожа",
         "benefit_icon": "/assets/images/products/icons/skin.png"
+      },
+      {
+        "benefit_name": "Нокти",
+        "benefit_icon": "/assets/images/products/icons/nails.png"
       }
     ],
     "used_for": "При симптоми на...",
