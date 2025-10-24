@@ -40,18 +40,21 @@ document.addEventListener("DOMContentLoaded", function() {
     mm.add("(max-width: 1023px)", () => {
         const triggerEl = document.querySelector("#approach-media") || document.querySelector(".approach-container");
 
+        // Top leaf: start centered in the viewport, then fly to final spot
         gsap.from("#leaf-branch-top", {
             scrollTrigger: {
                 trigger: triggerEl,
-                start: "top 90%",
-                end: "top 30%",
+                start: "top 130%",
+                end: "top 50%",
                 scrub: 1,
             },
-            x: -200,
-            y: -150,
-            scale: 4.5,
+            left: "50%",
+            top: "-30vh",
+            xPercent: -50,
+            yPercent: -200,
+            scale: 2,
             rotation: -90,
-            opacity: 0.25,
+            opacity: 0.15,
             ease: "power2.out"
         });
 
