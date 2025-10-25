@@ -299,3 +299,9 @@ html {
 .stylish-quote p {
     position: relative;
 }
+
+.benefit-icon-wrapper.is-active .benefit-tooltip,
+.benefit-icon-wrapper:hover .benefit-tooltip {
+    opacity: 1;
+    visibility: visible;
+}

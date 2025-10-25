@@ -22,11 +22,11 @@
     }
     
     .btn-primary {
-        @apply bg-primary-moss text-primary-sand font-semibold px-8 py-4 rounded-full hover:bg-accent-terracotta hover:text-primary-sand hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block;
+        @apply bg-primary-accent text-white font-semibold px-8 py-4 rounded-full hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block;
     }
       
     .btn-secondary {
-        @apply border-2 border-primary-deepsea text-primary-deepsea font-semibold px-8 py-4 rounded-full hover:bg-primary-deepsea hover:text-primary-sand transition-all duration-300 inline-block;
+        @apply border-2 border-primary-moss text-primary-moss font-semibold px-8 py-4 rounded-full hover:bg-primary-accent hover:text-white transition-all duration-300 inline-block;
     }
     
     .card-hover {
