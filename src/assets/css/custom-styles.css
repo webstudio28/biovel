@@ -289,3 +289,13 @@ html {
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
 }
+
+.home-gallery-container .swiper-slide-thumb-active {
+    border: 2px solid #9CAF88;
+}
+
+
+
+.stylish-quote p {
+    position: relative;
+}

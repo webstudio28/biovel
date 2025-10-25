@@ -77,7 +77,6 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
         <div class="approach-container grid lg:grid-cols-2 gap-12 items-center">
 
-            
             <!-- Left Side: Features -->
             <div class="order-2 sm:order-1 flex flex-col gap-6">
                 <!-- Feature 1 -->
@@ -104,7 +103,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                         <p class="text-primary-dark-gray text-sm">„Използваме точни и съвременни методи за оценка на здравето. Всичко е безопасно и прецизно, за да получите ясна картина на организма си.“</p>
                     </div>
                 </div>
-                
+
             </div>
             <!-- Right Side: Image -->
             <div id="approach-media" class="order-1 sm:order-2 relative">
@@ -119,6 +118,54 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
         </div>
 
     </div>
+</section>
+
+<!-- Why choose us Section -->
+<section class="py-12 bg-primary-sand/30 flex">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-8 md:gap-14">
+
+        <div class="w-full text-left">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen">
+                За мен
+            </h2>
+        </div>
+
+        <div class="about-me-container flex flex-col md:flex-row gap-8 ">
+
+            <div class="about-me-left shadow-md bg-[#fafafa] py-16 flex flex-col  items-center justify-center text-center w-full md:w-1/2 rounded-3xl">
+
+                <img src="assets/images/elena-hristova.png" alt="Елена Христова - консултант Vega Test" class="w-[40%] h-auto object-contain">
+                <h4 class="text-lg mt-4 font-bold text-primary-evergreen">Елена Христова</h4>
+                <p class="text-sm text-primary-deepsea">Професионален нутрициолог и <br>консултант по хранителни добавки</p>
+
+            </div>
+
+            <div class="about-me-right flex flex-col gap-8 w-full md:w-1/2">
+
+                <div class="about-me-text-container w-full shadow-md bg-[#fafafa] p-8 rounded-3xl flex flex-col gap-4">
+
+                    <div class="flex flex-row items-center gap-2">
+                        <img src="assets/images/tick.png" alt="Опит" class="inline align-middle w-8 h-8">
+                        <span class="text-xl font-semibold text-primary-accent">10 години опит<span></div>
+                            <p class="text-sm text-primary-deepsea">С моя натрупан опит в сферата на холистичната диагностика и превенция, аз съм тук, за да Ви напътствам по пътя към по-добро здраве и да Ви помогна да поддържате оптимално състояние САМИ.</p>
+
+                            <p class="text-sm text-primary-deepsea">Като сертифициран специалист по нутрициология и консултант по хранителни добавки, моята мисия е да Ви помогна да постигнете цялостен рестарт и обновяване на естествените процеси в тялото.</p>
+
+                        </div>
+
+                        <div class="about-me-sertificates-container shadow-md bg-[#fafafa] p-8 rounded-3xl flex flex-col gap-4 flex-grow">
+                            
+                            <blockquote class="mt-4 italic text-gray-600">
+                                <p class="text-normal">"Вярвам, че здравето е инвестиция, не разход."</p>
+                            </blockquote>
+                            <a href="/about" class="mt-6 inline-block bg-primary-accent text-white font-bold py-3 px-6 rounded-full transition duration-300 self-end">
+                                Научи повече
+                            </a>
+                        </div>
+                    
+                    </div>
+
+
 </section>
 
 <!-- Services Section -->
@@ -194,7 +241,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             <div class="flex gap-8 overflow-x-auto pb-8 custom-scrollbar no-scrollbar drag-scroll">
                 {% for product in products %}
                     <div class="group relative flex-shrink-0">
-                        <div class="home-product-card h-full p-2 bg-white rounded-3xl relative flex flex-col w-[260px] md:w-[300px] overflow-hidden transition-all duration-300">
+                        <div class="home-product-card h-full p-4 bg-white rounded-3xl relative flex flex-col w-[260px] md:w-[300px] overflow-hidden transition-all duration-300">
 
                             <div class="home-product-image flex items-center justify-center overflow-hidden">
                                 <img src="{{ product.images[0] }}" alt="{{ product.title }}" class=""/>
@@ -230,7 +277,8 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
     </div>
 </section>
 
-{# <!-- About Elena Hristova Section -->
+
+                {# <!-- About Elena Hristova Section -->
 <section class="py-20 bg-primary-sand/30">
     <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -562,5 +610,5 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
     </div>
 </section> #}
 
-<!-- tailwind-safelist -->
-<div class="text-primary-moss text-primary-sage text-primary-ceramic text-primary-forest text-primary-cream text-primary-olive text-primary-dark-gray bg-primary-moss bg-primary-sage bg-primary-ceramic bg-primary-forest bg-primary-cream bg-primary-olive bg-gradient-primary bg-gradient-hero border-primary-moss border-primary-sage border-primary-ceramic border-primary-forest border-primary-cream border-primary-olive hidden"></div>
+                <!-- tailwind-safelist -->
+                <div class="text-primary-moss text-primary-sage text-primary-ceramic text-primary-forest text-primary-cream text-primary-olive text-primary-dark-gray bg-primary-moss bg-primary-sage bg-primary-ceramic bg-primary-forest bg-primary-cream bg-primary-olive bg-gradient-primary bg-gradient-hero border-primary-moss border-primary-sage border-primary-ceramic border-primary-forest border-primary-cream border-primary-olive hidden"></div>
