@@ -7,6 +7,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 <!-- Hero Section Only -->
 <section class="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden pt-2">
     <div class="absolute inset-0"></div>
+    <img src="assets/images/cta.jpg" alt="CTA Image" class="top-0 left-0 absolute w-full h-auto">
     <div class="max-w-7xl w-full mx-auto px-4 relative z-10 flex flex-col-reverse md:flex-row items-center justify-evenly md:justify-center min-h-[60vh]">
         <!-- Left: Text -->
         <div class="flex-1 flex flex-col justify-center items-start text-left md:pr-12 z-20 relative mt-0 md:mt-0 w-full">
@@ -282,13 +283,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
                 {{ faq.title }}
             </h2>
-            <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
-                Нашите продукти са разработени с цел да подпомогнат вашето здраве и да поддържат оптималното ви състояние.
-            </p>
         </div>
 
         <div class="faq-container grid md:grid-cols-2 gap-12 w-full items-start">
-            <div class="faq-left-side flex flex-col justify-center gap-6">
+            <div class="faq-left-side flex flex-col justify-center gap-6 order-2 md:order-1">
                 {% for item in faq.faqs %}
                 <details class="group bg-white p-6 rounded-3xl shadow-sm" {% if loop.first %}open{% endif %}>
                     <summary class="flex justify-between items-center cursor-pointer font-semibold text-primary-deepsea">
@@ -302,13 +300,37 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 {% endfor %}
             </div>
 
-            <div class="faq-right-side flex items-center justify-center rounded-3xl overflow-hidden">
+            <div class="faq-right-side rounded-3xl overflow-hidden order-1 md:order-2 md:sticky md:top-24">
                 <img src="assets/images/faq.jpg" alt="FAQ Image" class=" object-cover w-full h-auto">
             </div>
         </div>
 
         
     </div>
+</section>
+
+<section class="border-2 py-12"> 
+
+    <div class="realative max-w-7xl h-[600px] md:h-[300px] w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
+        
+        
+
+        <div class="cta-left-side">
+
+            <h2 class="">
+                За
+            </h2>
+
+        </div>
+
+        <div class="cta-right-side">
+
+
+
+        </div>
+
+    </div>
+
 </section>
 
 
