@@ -214,6 +214,8 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 </section>
 
 <!-- Products Section -->
+
+
 <section class="py-12 bg-primary-sand/30">
     <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
         <!-- Header -->
@@ -269,6 +271,46 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
         </div>
     </div>
 </section>
+
+
+<!-- Faq -->
+<section class="py-12 bg-primary-sand/30">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
+        <!-- Header -->
+        <div class="w-full text-left">
+
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
+                {{ faq.title }}
+            </h2>
+            <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
+                Нашите продукти са разработени с цел да подпомогнат вашето здраве и да поддържат оптималното ви състояние.
+            </p>
+        </div>
+
+        <div class="faq-container grid md:grid-cols-2 gap-12 w-full">
+           <div class="faq-left-side space-y-4">
+                {% for item in faq.faqs %}
+                <details class="group bg-white p-6 rounded-lg shadow-sm" {% if loop.first %}open{% endif %}>
+                    <summary class="flex justify-between items-center cursor-pointer font-semibold text-primary-deepsea">
+                        {{ item.question }}
+                        <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="mt-4 text-primary-dark-gray">
+                        {{ item.answer }}
+                    </div>
+                </details>
+                {% endfor %}
+            </div>
+
+            <div class="faq-right-side">
+                <img src="assets/images/faq.jpg" alt="FAQ Image" class="rounded-lg shadow-lg object-cover w-full h-full">
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+
 
 
                 {# <!-- About Elena Hristova Section -->

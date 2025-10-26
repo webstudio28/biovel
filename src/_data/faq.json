@@ -1,0 +1,29 @@
+{
+    "title": "Често задавани въпроси",
+    "faqs": [
+      {
+        "question": "Какво представлява Вега тестът и как протича?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesua."
+      },
+      {
+        "question": "Подходящ ли е Вега тестът за всеки?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mal."
+      },
+      {
+        "question": "Колко време отнема една диагностика и кога се виждат резултати?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mal."
+      },
+      {
+        "question": "Могат ли продуктите БИО ВЕЛ да се комбинират помежду си?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mal."
+      },
+      {
+        "question": "Безопасни ли са продуктите и има ли противопоказания?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mal."
+      },
+      {
+        "question": "Как да избера правилната терапия или продукт за мен?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mal."
+      }
+    ]
+  }
