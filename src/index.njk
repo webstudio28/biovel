@@ -287,10 +287,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             </p>
         </div>
 
-        <div class="faq-container grid md:grid-cols-2 gap-12 w-full">
-           <div class="faq-left-side space-y-4">
+        <div class="faq-container grid md:grid-cols-2 gap-12 w-full items-start">
+            <div class="faq-left-side flex flex-col justify-center gap-6">
                 {% for item in faq.faqs %}
-                <details class="group bg-white p-6 rounded-lg shadow-sm" {% if loop.first %}open{% endif %}>
+                <details class="group bg-white p-6 rounded-3xl shadow-sm" {% if loop.first %}open{% endif %}>
                     <summary class="flex justify-between items-center cursor-pointer font-semibold text-primary-deepsea">
                         {{ item.question }}
                         <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -302,8 +302,8 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 {% endfor %}
             </div>
 
-            <div class="faq-right-side">
-                <img src="assets/images/faq.jpg" alt="FAQ Image" class="rounded-lg shadow-lg object-cover w-full h-full">
+            <div class="faq-right-side flex items-center justify-center rounded-3xl overflow-hidden">
+                <img src="assets/images/faq.jpg" alt="FAQ Image" class=" object-cover w-full h-auto">
             </div>
         </div>
 
