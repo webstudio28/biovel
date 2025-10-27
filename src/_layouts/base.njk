@@ -117,7 +117,7 @@
                     <a href="/" class="text-2xl font-bold text-primary-evergreen font-['Playfair_Display']">
                         <span class="text-primary-evergreen">Вега</span>Тест
                     </a>
-                    <div class="hidden lg:flex lg:items-center space-x-8">
+                    <div class="desktop-nav items-center space-x-8">
                         <a href="/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Начало</a>
                         <a href="/za-men/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">За мен</a>
                         <div class="relative group">
@@ -156,11 +156,11 @@
                     </div>
                 </div>
 
-                <a href="/contact" class="hidden sm:inline-block btn-primary">
+                <a href="/contact" class="header-cta btn-primary">
                     Запази час
                 </a>
                 
-                <button id="mobile-menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-8 h-8 relative">
+                <button id="mobile-menu-toggle" class="mobile-burger flex-col justify-center items-center w-8 h-8 relative">
                     <span class="burger-line w-6 h-0.5 bg-primary-volcanic transition-all duration-300 ease-in-out mb-1"></span>
                     <span class="burger-line w-6 h-0.5 bg-primary-volcanic transition-all duration-300 ease-in-out mb-1"></span>
                     <span class="burger-line w-6 h-0.5 bg-primary-volcanic transition-all duration-300 ease-in-out"></span>
@@ -169,27 +169,27 @@
         </header>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-0 top-20 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-hidden">
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 top-20 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out overflow-hidden">
             <div class="h-full flex flex-col">
                 <div class="flex-1 overflow-y-auto p-6">
                     <nav class="flex flex-col space-y-4">
-                        <a href="/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-3 px-4 bg-primary-sand/20 rounded-lg">Начало</a>
-                        <a href="/za-men/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-3 px-4 bg-primary-sand/20 rounded-lg">За мен</a>
+                        <a href="/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Начало</a>
+                        <a href="/za-men/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">За мен</a>
                         
                          <!-- Services section -->
                         <div class="accordion-section">
-                            <button class="mobile-accordion-toggle w-full text-left flex items-center justify-between text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-3 px-4 bg-primary-sand/20 rounded-lg mb-2" data-target="services-list">
+                            <button class="mobile-accordion-toggle w-full text-left flex items-center justify-between text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl mb-2" data-target="services-list">
                                 <span>Услуги</span>
-                                <svg class="w-4 h-4 transition-transform duration-300 ease-in-out" viewBox="0 0 20 20" fill="currentColor">
+                                <svg class="w-6 h-6 transition-transform duration-300 ease-in-out" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
                                 </svg>
                             </button>
-                            <div id="services-list" class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <div class="p-4 bg-primary-sand/10 rounded-lg space-y-3">
-                                    <a href="/uslugi/" class="block text-md text-primary-evergreen font-semibold hover:text-primary-volcanic transition-colors">→ Виж всички услуги</a>
-                                    <div class="space-y-2">
+                            <div id="services-list" class="accordion-content max-h-0 overflow-hidden overflow-x-hidden transition-all duration-500 ease-in-out">
+                                <div class="p-4 bg-primary-sand/10 rounded-2xl space-y-3">
+                                    <a href="/uslugi/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички услуги</a>
+                                    <div class="space-y-4">
                                         {% for s in services %}
-                                        <a href="/uslugi/{{ s.slug }}/" class="block text-base text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ s.name }}</a>
+                                        <a href="/uslugi/{{ s.slug }}/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ s.name }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -198,30 +198,30 @@
                         
                         <!-- Products section -->
                         <div class="accordion-section">
-                            <button class="mobile-accordion-toggle w-full text-left flex items-center justify-between text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-3 px-4 bg-primary-sand/20 rounded-lg mb-2" data-target="products-list">
+                            <button class="mobile-accordion-toggle w-full text-left flex items-center justify-between text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl mb-2" data-target="products-list">
                                 <span>Продукти</span>
-                                <svg class="w-4 h-4 transition-transform duration-300 ease-in-out" viewBox="0 0 20 20" fill="currentColor">
+                                <svg class="w-6 h-6 transition-transform duration-300 ease-in-out" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
                                 </svg>
                             </button>
-                            <div id="products-list" class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <div class="p-4 bg-primary-sand/10 rounded-lg space-y-3">
-                                    <a href="/produkti/" class="block text-md text-primary-evergreen font-semibold hover:text-primary-volcanic transition-colors">→ Виж всички продукти</a>
-                                    <div class="space-y-2">
+                            <div id="products-list" class="accordion-content max-h-0 overflow-hidden overflow-x-hidden transition-all duration-500 ease-in-out">
+                                <div class="p-4 bg-primary-sand/10 rounded-2xl space-y-3">
+                                    <a href="/produkti/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички продукти</a>
+                                    <div class="space-y-4">
                                         {% for product in products %}
-                                        <a href="/produkti/{{ product.meta_title }}/" class="block text-base text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ product.title }}</a>
+                                        <a href="/produkti/{{ product.meta_title }}/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ product.title }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <a href="/kontakti" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-3 px-4 bg-primary-sand/20 rounded-lg">Контакти</a>
+                        <a href="/kontakti" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Контакти</a>
                     </nav>
                 </div>
                 
                 <!-- CTA Button - Fixed at bottom -->
-                <div class="border-t border-primary-dune/20 p-6">
+                <div class="p-6">
                     <a href="/contact" class="btn-primary w-full text-center">Запази час</a>
                 </div>
             </div>

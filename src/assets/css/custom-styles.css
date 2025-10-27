@@ -339,3 +339,57 @@ html {
 .mobile-accordion-content {
     transition: max-height 0.3s ease-in-out;
 }
+
+/* Hide scrollbars in mobile menu */
+#mobile-menu {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#mobile-menu::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+#mobile-menu .flex-1 {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#mobile-menu .flex-1::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+/* Custom 800px breakpoint for menu */
+.desktop-nav {
+    display: none;
+}
+
+.mobile-burger {
+    display: flex;
+}
+
+.mobile-menu {
+    display: block;
+}
+
+.header-cta {
+    display: none;
+}
+
+@media (min-width: 800px) {
+    .desktop-nav {
+        display: flex;
+    }
+    
+    .mobile-burger {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: none;
+    }
+    
+    .header-cta {
+        display: inline-block;
+    }
+}
