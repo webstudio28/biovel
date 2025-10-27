@@ -1,6 +1,11 @@
 // GSAP Animations
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Refresh ScrollTrigger after everything loads
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
 
     const faqContainer = document.querySelector('.faq-container');
     if (faqContainer) {

@@ -15,17 +15,39 @@ pagination:
             <p class="mt-3 text-primary-deepsea max-w-3xl">Разгледайте всички продукти BIO VEL.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8">
             {% for product in allProducts %}
-            <a href="/produkti/{{ product.meta_title }}/" class="group rounded-3xl bg-white shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div class="w-full h-48 overflow-hidden flex items-center justify-center bg-white">
-                    <img src="{{ product.images[0] }}" alt="{{ product.title }}" class="max-h-40 object-contain group-hover:scale-[1.03] transition-transform duration-300">
+            <div class="group relative">
+                <div class="home-product-card h-full p-2 bg-white rounded-3xl relative flex flex-col w-full transition-all duration-300">
+                    <div class="home-product-image flex items-center justify-center overflow-hidden">
+                        <img src="{{ product.images[0] }}" alt="{{ product.title }}" class=""/>
+                    </div>
+
+                    <div class="py-2 flex flex-col gap-4 flex-grow">
+                        <div class="flex flex-col gap-2 justify-between">
+                            <h3 class="text-md font-bold">{{ product.title }}</h3>
+                            <p class="text-sm">{{ product.short_description }}</p>
+                        </div>
+
+                        <div class="product-card-benefits">
+                            <div class="benefit-icons flex flex-row gap-2">
+                                {% for benefit in product.benefits %}
+                                    <div class="relative group benefit-icon-wrapper">
+                                        <img src="{{ benefit.benefit_icon }}" alt="{{ benefit.benefit_name }}" class="bg-primary-ceramic rounded-full h-8 w-8 object-contain">
+                                        <span class="benefit-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-primary-deepsea text-white text-xs rounded opacity-0 invisible transition-opacity duration-300 pointer-events-none">
+                                            {{ benefit.benefit_name }}
+                                        </span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-2 product-card-button flex flex-col flex-grow">
+                            <a href="/produkti/{{ product.meta_title }}/" class="block text-center btn-primary font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-6 flex flex-col gap-2">
-                    <h3 class="text-lg font-bold text-primary-deepsea">{{ product.title }}</h3>
-                    <p class="text-sm text-primary-dark-gray">{{ product.short_description }}</p>
-                </div>
-            </a>
+            </div>
             {% endfor %}
         </div>
     </div>

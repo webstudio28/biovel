@@ -38,7 +38,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 <a href="/contact" class="btn-primary flex justify-center items-center">
           Запази час
         </a>
-                <a href="/about" class="btn-secondary flex justify-center items-center">
+                <a href="/uslugi/" class="btn-secondary flex justify-center items-center">
           Виж всички услуги
         </a>
             </div>
@@ -80,7 +80,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 Подход
             </h2>
             <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
-„Ще бъдете посрещнати с внимание още при пристигането. На всяка стъпка – от кабинета до диагностиката – вниманието и грижата са водещи.“
+Ще бъдете посрещнати с внимание още при пристигането. На всяка стъпка – от кабинета до диагностиката – вниманието и грижата са водещи.
             </p>
         </div>
 
@@ -93,7 +93,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     <img src="assets/images/practice.png" alt="Кабинет" class="w-16 h-16 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Кабинет</h3>
-                        <p class="text-primary-dark-gray text-sm">„Ще бъдете посрещнати топло и спокойно. Всичко е подготвено за вашия комфорт още от първата минута.“</p>
+                        <p class="text-primary-dark-gray text-sm">Всичко е подготвено за вашия комфорт още от първата минута.</p>
                     </div>
                 </div>
                 <!-- Feature 2 -->
@@ -101,7 +101,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     <img src="assets/images/care.png" alt="Отношение и внимание" class="w-16 h-16 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Отношение и внимание</h3>
-                        <p class="text-primary-dark-gray text-sm">„Внимателно изслушваме нуждите и въпросите ви. Подходът е индивидуален, за да получите грижа, която наистина ви пасва.“</p>
+                        <p class="text-primary-dark-gray text-sm">Внимателно изслушваме нуждите и въпросите ви. Подходът е индивидуален, за да получите грижа, която наистина е за вас.</p>
                     </div>
                 </div>
                 <!-- Feature 3 -->
@@ -109,7 +109,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     <img src="assets/images/lab-machine.png" alt="Професионална техника за диагностика" class="w-12 h-12 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Професионална техника за диагностика</h3>
-                        <p class="text-primary-dark-gray text-sm">„Използваме точни и съвременни методи за оценка на здравето. Всичко е безопасно и прецизно, за да получите ясна картина на организма си.“</p>
+                        <p class="text-primary-dark-gray text-sm">Използваме точни и съвременни методи за оценка на здравето. Всичко е безопасно и прецизно, за да получите ясна картина на организма си.</p>
                     </div>
                 </div>
 
@@ -167,7 +167,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                             <blockquote class="mt-4 italic text-gray-600">
                                 <p class="text-normal">"Вярвам, че здравето е инвестиция, не разход."</p>
                             </blockquote>
-                            <a href="/about" class="mt-6 inline-block bg-primary-accent text-white font-bold py-3 px-6 rounded-full transition duration-300 self-end">
+                            <a href="/za-men/" class="mt-6 inline-block bg-primary-accent text-white font-bold py-3 px-6 rounded-full transition duration-300 self-end">
                                 Научи повече
                             </a>
                         </div>
@@ -202,13 +202,19 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                     <div class="flex gap-8 overflow-x-auto pb-8 custom-scrollbar no-scrollbar drag-scroll">
                                         {% if category.services %}
                                             {% for service in category.services %}
-                                                <div class="home-service-card flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300">
-                                                    <img src="{{ service.image }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-3xl shadow-md"/>
+                                                <div class="home-service-card bg-white p-2 flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300 shadow-md">
+                                                    <img src="{{ service.image }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
                                                     <div class="flex flex-col flex-grow">
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
                                                         <div class="mt-4 ">
-                                                            <a href="{{ service.link }}" class="block w-full text-center btn-primary text-white font-semibold rounded-full py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
+                                                            {% set serviceSlug = '' %}
+                                                            {% for s in services %}
+                                                                {% if s.name == service.name %}
+                                                                    {% set serviceSlug = s.slug %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            <a href="/uslugi/{{ serviceSlug }}/" class="block w-full text-center btn-primary text-white font-semibold rounded-3xl py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -241,16 +247,16 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                             <div class="flex gap-8 overflow-x-auto pb-8 custom-scrollbar no-scrollbar drag-scroll">
                                 {% for product in products %}
                                     <div class="group relative flex-shrink-0">
-                                        <div class="home-product-card h-full p-4 bg-white rounded-3xl relative flex flex-col w-[260px] md:w-[300px]  transition-all duration-300">
+                                        <div class="home-product-card h-full p-2 bg-white rounded-3xl relative flex flex-col w-[260px] md:w-[300px]  transition-all duration-300 shadow-md">
 
                                             <div class="home-product-image flex items-center justify-center overflow-hidden">
                                                 <img src="{{ product.images[0] }}" alt="{{ product.title }}" class=""/>
                                             </div>
 
-                                            <div class="py-2 flex flex-col gap-4 flex-grow">
+                                            <div class="pt-2 flex flex-col gap-4 flex-grow">
                                                 <div class="flex flex-col gap-2 justify-between ">
                                                     <h3 class=" text-md font-bold">{{ product.title }}</h3>
-                                                    <p class=" text-sm font-semibold ">{{ product.short_description }}</p>
+                                                    <p class=" text-sm ">{{ product.short_description }}</p>
                                                 </div>
 
                                                 <div class="product-card-benefits">
@@ -268,7 +274,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
                                                 </div>
                                                 <div class="mt-2 product-card-button flex flex-col flex-grow ">
-                                                    <a href="#" class="block text-center btn-primary  font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
+                                                    <a href="/produkti/{{ product.meta_title }}/" class="block text-center btn-primary  font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -344,7 +350,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         <a href="/contact" class="text-primary-evergreen flex items-center justify-center gap-2 btn-primary w-full text-center rounded-3xl">
                                             <img src="assets/images/booking.png" alt="Clock" class="w-6 h-6 object-contain "> Запази час</a>
 
-                                        <a href="/contact" class="flex items-center justify-center gap-2 btn-secondary hover:scale-105 transition-all duration-300 w-full text-center rounded-3xl  !hover:text-accent-evergreen">
+                                        <a href="/produkti/" class="flex items-center justify-center gap-2 btn-secondary hover:scale-105 transition-all duration-300 w-full text-center rounded-3xl  !hover:text-accent-evergreen">
                                             <img src="assets/images/products.png" alt="Clock" class=" w-6 h-6 object-contain ">Продукти</a>
                                     </div>
 

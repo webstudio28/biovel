@@ -62,12 +62,10 @@
                             <a href="/uslugi/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Услуги
                                 <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
                             </a>
-                            <div class="absolute top-full left-0 mt-2 w-64 rounded-xl bg-white shadow-lg border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
-                                <div class="py-2">
+                            <div class="absolute top-full left-0 w-64 rounded-xl bg-white shadow-xl border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+                                <div class="py-2 mt-2">
                                     {% for s in services %}
-                                    {% if loop.index <= 6 %}
                                     <a href="/uslugi/{{ s.slug }}/" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ s.name }}</a>
-                                    {% endif %}
                                     {% endfor %}
                                     <div class="px-4 py-2 border-t border-primary-dune/20">
                                         <a href="/uslugi/" class="text-sm text-primary-evergreen font-medium">Виж всички услуги →</a>
@@ -75,7 +73,23 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/produkti/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Продукти</a>
+                        <div class="relative group">
+                            <a href="/produkti/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Продукти
+                                <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+                            </a>
+                            <div class="absolute top-full left-0 w-64 rounded-xl bg-white shadow-lg border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+                                <div class="py-2 mt-2">
+                                    {% for product in products %}
+                                    {% if loop.index <= 6 %}
+                                    <a href="/produkti/{{ product.meta_title }}/" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ product.title }}</a>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <div class="px-4 py-2 border-t border-primary-dune/20">
+                                        <a href="/produkti/" class="text-sm text-primary-evergreen font-medium">Виж всички продукти →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <a href="/kontakti" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Контакти</a>
                     </div>
                 </div>

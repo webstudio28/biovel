@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
     
+    // Refresh ScrollTrigger after everything loads
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
+    
     // Hero section comprehensive load animations
     const heroTimeline = gsap.timeline();
     
