@@ -1,14 +1,40 @@
 module.exports = () => {
 	const data = require('./homepageServices.json');
 
+	function transliterateCyrillic(text) {
+		const cyrillicMap = {
+			'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
+			'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+			'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+			'ф': 'f', 'х': 'h', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'sht', 'ъ': 'a',
+			'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+		};
+		
+		return text.split('').map(char => {
+			const lower = char.toLowerCase();
+			return cyrillicMap[lower] || char;
+		}).join('');
+	}
+
 	function baseSlug(text) {
 		return String(text || '')
 			.trim()
 			.toLowerCase()
-			// replace whitespace with hyphens first
+			// transliterate Cyrillic to Latin
+			.replace(/[\u0400-\u04FF]/g, (match) => {
+				const cyrillicMap = {
+					'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
+					'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+					'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+					'ф': 'f', 'х': 'h', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'sht', 'ъ': 'a',
+					'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+				};
+				return cyrillicMap[match] || match;
+			})
+			// replace whitespace with hyphens
 			.replace(/\s+/g, '-')
-			// allow latin, digits, hyphen, and Cyrillic range \u0400-\u04FF
-			.replace(/[^a-z0-9\u0400-\u04FF-]+/g, '')
+			// keep only latin letters, digits, and hyphens
+			.replace(/[^a-z0-9-]+/g, '')
 			// collapse multiple hyphens
 			.replace(/-+/g, '-')
 			.replace(/(^-+|-+$)/g, '');

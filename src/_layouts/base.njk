@@ -25,14 +25,8 @@
 
         <!-- External Scripts -->
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <script src="{{ '/assets/js/gsap.min.js' | url }}"></script>
-        <script src="{{ '/assets/js/ScrollTrigger.min.js' | url }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
         <script>
-          if (window.gsap && window.ScrollTrigger) {
+            if (window.gsap && window.ScrollTrigger) {
             gsap.registerPlugin(ScrollTrigger);
           }
         </script>
@@ -70,8 +64,10 @@
                             </a>
                             <div class="absolute top-full left-0 mt-2 w-64 rounded-xl bg-white shadow-lg border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
                                 <div class="py-2">
-                                    {% for s in services | slice(0,6) %}
+                                    {% for s in services %}
+                                    {% if loop.index <= 6 %}
                                     <a href="/uslugi/{{ s.slug }}/" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ s.name }}</a>
+                                    {% endif %}
                                     {% endfor %}
                                     <div class="px-4 py-2 border-t border-primary-dune/20">
                                         <a href="/uslugi/" class="text-sm text-primary-evergreen font-medium">Виж всички услуги →</a>

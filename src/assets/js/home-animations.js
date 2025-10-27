@@ -8,29 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero section comprehensive load animations
     const heroTimeline = gsap.timeline();
     
-    // Background decorative elements animation
-    heroTimeline.from(".absolute.-top-10.-left-10", { 
-        opacity: 0, 
-        scale: 0.5, 
-        duration: 1.5, 
-        ease: "power2.out" 
-    }, 0);
-    
-    heroTimeline.from(".absolute.top-24.-left-16", { 
-        opacity: 0, 
-        scale: 0.5, 
-        duration: 1.5, 
-        delay: 0.2, 
-        ease: "power2.out" 
-    }, 0);
-    
-    heroTimeline.from(".absolute.-bottom-8.-right-8", { 
-        opacity: 0, 
-        scale: 0.5, 
-        duration: 1.5, 
-        delay: 0.4, 
-        ease: "power2.out" 
-    }, 0);
+    // Background decorative elements animation (removed - elements don't exist)
     
     // Badge animation
     /*
@@ -178,30 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     */
     
-    // Continuous floating animation for decorative elements
-    gsap.to(".absolute.-top-10.-left-10", {
-        y: -10,
-        duration: 3,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1
-    });
-    
-    gsap.to(".absolute.top-24.-left-16", {
-        y: 8,
-        duration: 2.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1
-    });
-    
-    gsap.to(".absolute.-bottom-8.-right-8", {
-        y: -6,
-        duration: 3.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1
-    });
+    // Continuous floating animation for decorative elements (removed - elements don't exist)
     
     /*
     // Subtle pulse animation for the badge dot

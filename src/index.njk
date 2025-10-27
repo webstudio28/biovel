@@ -4,6 +4,14 @@ title: Начало
 description: ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене с най-подходящите храни за вашия организъм
 ---
 
+<script src="{{ '/assets/js/gsap.min.js' | url }}"></script>
+<script src="{{ '/assets/js/ScrollTrigger.min.js' | url }}"></script>
+<script>
+    if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+</script>
+
 <!-- Hero Section Only -->
 <section class="relative min-h-[calc(100vh-5rem)] flex items-center pt-2">
     <div class="absolute inset-0"></div>
