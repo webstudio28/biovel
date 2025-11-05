@@ -61,7 +61,12 @@ module.exports = () => {
 					services.push({
 						name: svc.name,
 						description: svc.description,
-						image: svc.image,
+						longDescription: svc.longDescription || '',
+						image: svc.image || (svc.images && svc.images[0]), // Fallback to first image from array
+						images: svc.images || (svc.image ? [svc.image] : []), // Use images array or create one from single image
+						time: svc.time || '',
+						howItWorks: svc.howItWorks || [],
+						benefits: svc.benefits || [],
 						slug: ensureUniqueSlug(svc.name)
 					});
 				}

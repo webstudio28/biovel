@@ -10,127 +10,65 @@ eleventyComputed:
   description: "{{ service.description }}"
 ---
 
-<!-- Hero / Intro -->
-<section class="py-12 bg-primary-sand/30">
-	<div class="max-w-7xl w-full mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-		<!-- Left: Image -->
-		<div class="relative rounded-3xl overflow-hidden shadow-xl">
-			{% if service.image %}
-				<img src="/{{ service.image }}" alt="{{ service.name }}" class="w-full h-80 md:h-[26rem] object-cover">
-			{% endif %}
-			<!-- Subtle corner badge -->
-			<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary-deepsea text-xs font-semibold px-3 py-1 rounded-full shadow">
-				Холистичен подход
-			</div>
-			<!-- Soft gradient overlay bottom -->
-			<div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary-ceramic/70 to-transparent"></div>
-		</div>
-
-		<!-- Right: Content Card -->
-		<div class="bg-white rounded-3xl p-8 shadow-md">
+<!-- Hero Section with Image Carousel -->
+<section class="relative pb-16 pt-10 bg-primary-sand/30">
+	<div class="max-w-7xl w-full mx-auto px-4">
+		<div class="flex flex-col gap-2 md:gap-4">
+			<!-- Title -->
 			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen">{{ service.name }}</h1>
-			<p class="text-primary-deepsea mt-4 leading-relaxed">
+			
+			<!-- Description -->
+			<p class="text-lg text-primary-deepsea leading-relaxed">
 				{{ service.description }}
 			</p>
 
-			<!-- Quick facts -->
-			<div class="mt-6 flex flex-wrap gap-3">
-				<span class="inline-flex items-center gap-2 bg-primary-sand/60 text-primary-deepsea text-sm px-3 py-1.5 rounded-full">
-					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg>
-					~ 45 мин
-				</span>
-				<span class="inline-flex items-center gap-2 bg-primary-sand/60 text-primary-deepsea text-sm px-3 py-1.5 rounded-full">
-					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.567 3-3.5S13.657 1 12 1 9 2.567 9 4.5 10.343 8 12 8zM19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/></svg>
-					Персонален подход
-				</span>
-				<span class="inline-flex items-center gap-2 bg-primary-sand/60 text-primary-deepsea text-sm px-3 py-1.5 rounded-full">
-					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-					Безболезнено
-				</span>
-			</div>
-
-			<!-- Feature list -->
-			<div class="mt-6 grid sm:grid-cols-2 gap-3">
-				<div class="flex items-start gap-3">
-					<img src="/assets/images/tick.png" alt="Tick" class="w-5 h-5 mt-1">
-					<p class="text-primary-dark-gray text-sm">Ясни и лесни за следване препоръки.</p>
+			<!-- Image Carousel - Full Width -->
+			<div class="relative rounded-3xl overflow-hidden shadow-xl w-full">
+				<div id="service-hero-carousel" class="relative w-full h-80 md:h-[500px]">
+					{% if service.images and service.images.length > 0 %}
+						{% for image in service.images %}
+							<div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out {% if loop.first %}opacity-100{% endif %}">
+								<img src="/{{ image }}" alt="{{ service.name }}" class="w-full h-full object-cover">
+							</div>
+						{% endfor %}
+					{% elif service.image %}
+						<div class="carousel-slide opacity-100">
+							<img src="/{{ service.image }}" alt="{{ service.name }}" class="w-full h-full object-cover">
+						</div>
+					{% endif %}
+					
+					<!-- Bottom Gradient Overlay -->
+					<div class="absolute bottom-0 left-0 right-0 h-[20%] bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-[5]"></div>
+					
+					<!-- Navigation Arrows -->
+					{% if service.images and service.images.length > 1 %}
+						<button class="carousel-arrow carousel-arrow-prev absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full p-2 transition-all duration-300 shadow-lg hover:shadow-xl" aria-label="Previous image">
+							<svg class="w-6 h-6 text-primary-deepsea" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+							</svg>
+						</button>
+						<button class="carousel-arrow carousel-arrow-next absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full p-2 transition-all duration-300 shadow-lg hover:shadow-xl" aria-label="Next image">
+							<svg class="w-6 h-6 text-primary-deepsea" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</button>
+					{% endif %}
 				</div>
-				<div class="flex items-start gap-3">
-					<img src="/assets/images/tick.png" alt="Tick" class="w-5 h-5 mt-1">
-					<p class="text-primary-dark-gray text-sm">Съвременни методи и сигурни резултати.</p>
-				</div>
-				<div class="flex items-start gap-3">
-					<img src="/assets/images/tick.png" alt="Tick" class="w-5 h-5 mt-1">
-					<p class="text-primary-dark-gray text-sm">Подход, съобразен с вашите цели.</p>
-				</div>
-				<div class="flex items-start gap-3">
-					<img src="/assets/images/tick.png" alt="Tick" class="w-5 h-5 mt-1">
-					<p class="text-primary-dark-gray text-sm">Грижа и подкрепа на всяка стъпка.</p>
-				</div>
-			</div>
-
-			<!-- CTAs -->
-			<div class="mt-8 flex flex-col sm:flex-row gap-3">
-				<a href="/contact" class="btn-primary inline-flex justify-center">Запази час</a>
-				<a href="/uslugi/" class="btn-secondary inline-flex justify-center">Всички услуги</a>
+				
+				<!-- Carousel Dots -->
+				{% if service.images and service.images.length > 1 %}
+					<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+						{% for image in service.images %}
+							<button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300 {% if loop.first %}bg-white w-6{% endif %}" data-index="{{ loop.index0 }}" aria-label="Go to slide {{ loop.index }}"></button>
+						{% endfor %}
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- How it works -->
-<section class="py-12 bg-primary-sand/30">
-	<div class="max-w-7xl w-full mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-		<!-- Left: Stepper -->
-		<div class="bg-white rounded-3xl p-8 shadow-md order-2 md:order-1">
-			<h2 class="text-2xl md:text-3xl font-semibold text-primary-evergreen">Как протича услугата</h2>
-			<div class="mt-6 space-y-5">
-				<div class="flex items-start gap-4">
-					<div class="w-9 h-9 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-semibold">1</div>
-					<div>
-						<h3 class="text-primary-deepsea font-semibold">Кратък разговор и подготовка</h3>
-						<p class="text-sm text-primary-dark-gray mt-1">Попълвате кратък въпросник и уточняваме очакванията.</p>
-					</div>
-				</div>
-				<div class="flex items-start gap-4">
-					<div class="w-9 h-9 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-semibold">2</div>
-					<div>
-						<h3 class="text-primary-deepsea font-semibold">Диагностика и анализ</h3>
-						<p class="text-sm text-primary-dark-gray mt-1">Провеждаме изследване според услугата и събираме данни.</p>
-					</div>
-				</div>
-				<div class="flex items-start gap-4">
-					<div class="w-9 h-9 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-semibold">3</div>
-					<div>
-						<h3 class="text-primary-deepsea font-semibold">Резултати и насоки</h3>
-						<p class="text-sm text-primary-dark-gray mt-1">Получавате ясни стъпки и препоръки за подобрение.</p>
-					</div>
-				</div>
-				<div class="flex items-start gap-4">
-					<div class="w-9 h-9 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-semibold">4</div>
-					<div>
-						<h3 class="text-primary-deepsea font-semibold">Проследяване и подкрепа</h3>
-						<p class="text-sm text-primary-dark-gray mt-1">По желание планираме последваща среща.</p>
-					</div>
-				</div>
-			</div>
 
-			<!-- Inline CTA -->
-			<div class="mt-8 flex flex-col sm:flex-row gap-3">
-				<a href="/contact" class="btn-primary inline-flex justify-center">Запази час</a>
-				<a href="/produkti/" class="btn-secondary inline-flex justify-center">Препоръчани продукти</a>
-			</div>
-		</div>
 
-		<!-- Right: Image -->
-		<div class="relative rounded-3xl overflow-hidden shadow-xl order-1 md:order-2">
-			{% if service.image %}
-				<img src="/{{ service.image }}" alt="{{ service.name }}" class="w-full h-80 md:h-[26rem] object-cover">
-			{% endif %}
-			<!-- Decorative whisper -->
-			<div class="absolute -top-6 -right-6 w-24 h-24 bg-primary-sand/40 rounded-full blur-2xl"></div>
-		</div>
-	</div>
-</section>
-
+<script src="{{ '/assets/js/service-carousel.js' | url }}"></script>
 

@@ -196,7 +196,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         {% if category.services %}
                                             {% for service in category.services %}
                                                 <div class="home-service-card bg-white p-2 flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300 shadow-md">
-                                                    <img src="{{ service.image }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
+                                                    <img src="{{ service.images[0] }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
                                                     <div class="flex flex-col flex-grow">
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
@@ -228,7 +228,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                         <div class="w-full text-left">
 
                             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
-                100% натурални хранителни продукти
+                100% натурални хранителни добавки
             </h2>
                             <p class="w-full text-medium md:text-lg	 text-primary-deepsea max-w-5xl leading-relaxed">
                 Нашите продукти са разработени с цел да подпомогнат вашето здраве и да поддържат оптималното ви състояние.
