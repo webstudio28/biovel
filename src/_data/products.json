@@ -1,10 +1,10 @@
 [
   {
-    "title": "БИО ВЕЛ РАСТИТЕЛЕН СИЛИЦИЙ капки",
+    "title": "Био вел растителен силиций капки",
     "meta_title": "bio-vel-rastitelen-silitsiy",
     "short_description": "Капки с растителен силиций за подкрепа на организма.",
     "long_description": "БИО ВЕЛ Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
-    "images": ["/assets/images/products/sicily-plant34.png", ""],
+    "images": ["/assets/images/products/sicily-plant34.png", "/assets/images/products/sicily-plant34.png", "/assets/images/products/sicily-plant34.png"],
     "package": "30 мл",
     "sustavki": ["Растителен силиций"],
     "benefits": [
@@ -32,11 +32,11 @@
     "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
   },
   {
-    "title": "Zn (Цинк)",
+    "title": "Zn (цинк)",
     "meta_title": "zn-tsink",
     "short_description": "Капки или капсули с цинк за подпомагане на кожата и борба с акне.",
     "long_description": "Цинкът е важен минерал за здравето на кожата и имунната система. Подпомага борбата с акне и поддържа организма в баланс.",
-    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg"],
+    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg", "/assets/images/products/cink1.png"],
     "package": "30 капсули",
     "sustavki": ["Zinc"],
     "benefits": [
@@ -64,11 +64,11 @@
     "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
   },
   {
-    "title": "Cu Мед (Copper Honey)",
+    "title": "Cu мед (copper honey)",
     "meta_title": "cu-med-copper-honey",
     "short_description": "10 ml капки с мед и меден комплекс за подсилване на имунната система.",
     "long_description": "Cu Мед е натурален концентрат с мед и меден комплекс, който стимулира имунната система и спомага за неутрализирането на свободните радикали. Подходящ е за ежедневна подкрепа на организма.",
-    "images": ["/assets/images/products/med1.png", "/assets/images/products/cu_med_2.jpg"],
+    "images": ["/assets/images/products/med1.png", "/assets/images/products/cu_med_2.jpg", "/assets/images/products/med1.png"],
     "package": "10 ml",
     "sustavki": ["Мед (Honey)", "Cu (Copper)"],
     "benefits": [
@@ -96,7 +96,7 @@
     "meta_title": "parakokteyl",
     "short_description": "Мощна комбинация от студено пресовани масла за общо благополучие.",
     "long_description": "Паракоктейл комбинира синчено масло, тиквено масло и масло от семена на невен в едно мощно натурално решение. Поддържа организма и подпомага естествените процеси на детоксикация и подхранване.",
-    "images": ["/assets/images/products/parakokteil.png", "/assets/images/products/parakokteyl_2.jpg"],
+    "images": ["/assets/images/products/parakokteil.png", "/assets/images/products/parakokteyl_2.jpg", "/assets/images/products/parakokteil.png"],
     "package": "100 ml",
     "sustavki": ["Синчено масло", "Тиквено масло", "Масло от семена на невен"],
     "benefits": [
@@ -120,7 +120,7 @@
     "meta_title": "karamfil",
     "short_description": "Натурално масло с карамфил за антибактериални и аналгетични свойства.",
     "long_description": "Карамфиловото масло е естествен антиоксидант с противогъбични, антибактериални и аналгетични свойства. Подходящо за локална употреба и за поддържане на здравето на организма.",
-    "images": ["/assets/images/products/carnation4.png", "/assets/images/products/karamfil_2.jpg"],
+    "images": ["/assets/images/products/carnation4.png", "/assets/images/products/karamfil_2.jpg", "/assets/images/products/carnation4.png"],
     "package": "10 ml",
     "sustavki": ["Clove (Карамфил)"],
     "benefits": [
@@ -144,11 +144,11 @@
     "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
   },
   {
-    "title": "Бял Трън масло",
+    "title": "Бял трън масло",
     "meta_title": "bial-tran-maslo",
     "short_description": "100% натурално масло от Бял Трън без добавени консерванти.",
     "long_description": "Бял Трън масло е натурално средство за подкрепа на черния дроб и организма като цяло. Подходящо за ежедневна употреба без добавени консерванти.",
-    "images": ["/assets/images/products/bql-trun1.png", "/assets/images/products/bial_tran_2.jpg"],
+    "images": ["/assets/images/products/bql-trun1.png", "/assets/images/products/bial_tran_2.jpg", "/assets/images/products/bql-trun1.png"],
     "package": "100 ml",
     "sustavki": ["Milk thistle (Бял Трън)"],
     "benefits": [
