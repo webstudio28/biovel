@@ -32,7 +32,9 @@ Desktop.ini
 
 # Local env files
 .env
-.env.*.local
+.env.*
 
 # GitHub Pages deployment (optional)
 gh-pages/
+
+local_docs/

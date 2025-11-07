@@ -13,22 +13,77 @@ description: Свържете се с нас за въпроси или за д�
 
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-white p-8 rounded-3xl shadow-md">
-                <h2 class="text-2xl font-bold text-primary-deepsea mb-4">Форма за контакт</h2>
-                <p>Тук ще бъде добавена форма за контакт.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-md">
                 <h2 class="text-2xl font-bold text-primary-deepsea mb-4">Информация</h2>
                 <div class="space-y-4 text-primary-dark-gray">
-                    <p><strong>Адрес:</strong> гр. Пловдив, Хотел SPS, ет.13, офис 1302</p>
-                    <p><strong>Телефон:</strong> 0885 415 300</p>
-                    <p><strong>Имейл:</strong> e_hrisi@abv.bg</p>
+                    <div class="flex items-center gap-2">
+                        <span class="flex items-center justify-center w-8 h-8">
+                            <img src="/assets/images/location.png" alt="Адрес" class="w-5 h-5 object-contain">
+                        </span>
+                        <p class="leading-relaxed">гр. Пловдив, Хотел SPS, ет.13, офис 1302</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="flex items-center justify-center w-8 h-8">
+                            <img src="/assets/images/phone.png" alt="Телефон" class="w-5 h-5 object-contain">
+                        </span>
+                        <p class="leading-relaxed"><a href="tel:+359885415300" class="text-primary-evergreen hover:underline">0885 415 300</a></p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="flex items-center justify-center w-8 h-8">
+                            <img src="/assets/images/mail.png" alt="Имейл" class="w-5 h-5 object-contain">
+                        </span>
+                        <p class="leading-relaxed">e_hrisi@abv.bg</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="flex items-center justify-center w-8 h-8 text-primary-evergreen">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.99 3.64 9.14 8.4 9.93v-7.03H7.92v-2.9h2.34V9.97c0-2.31 1.37-3.59 3.48-3.59.99 0 2.02.18 2.02.18v2.22h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.9h-2.1V22c4.76-.79 8.4-4.94 8.4-9.93Z" />
+                        </svg>
+                        </span>
+                        <p class="leading-relaxed"><a href="https://www.facebook.com/biovell?locale=bg_BG" class="text-primary-evergreen hover:underline" target="_blank" rel="noopener">Био Вел</a></p>
+                    </div>
                     <div>
                         <h3 class="font-semibold text-primary-deepsea mt-6 mb-2">Работно време:</h3>
-                        <p>Понеделник - Петък: 9:00 - 18:00</p>
-                        <p>Събота: 9:00 - 14:00</p>
+                        <p>Понеделник - Петък: 8:30 - 18:00</p>
+                        <p>Събота и Неделя: Почивен ден</p>
                     </div>
                 </div>
             </div>
+            <div class="bg-white overflow-hidden p-6 rounded-3xl shadow-md">
+                <h2 class="text-2xl font-bold text-primary-deepsea mb-4">Локация</h2>
+                <iframe class="rounded-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.272267170527!2d24.7858008!3d42.14446019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd17de3dceb1b%3A0x2b5bcce11414e8ab!2z0JLQtdCz0LAg0YLQtdGB0YIsINCR0LjQvtGA0LXQt9C-0L3QsNC90YEsINCR0LjQvtGB0LrQtdC90LXRgA!5e0!3m2!1sbg!2sbg!4v1762508212799!5m2!1sbg!2sbg" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-primary-sand/30">
+    <div class="max-w-7xl w-full mx-auto px-4">
+        <div class="bg-white/80 rounded-3xl shadow-md p-8 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6">Форма за контакт</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5" id="contact-form">
+                {% if mailKey %}
+                    <input type="hidden" name="access_key" value="{{ mailKey | escape }}">
+                {% endif %}
+                <input type="hidden" name="subject" value="Ново запитване от сайта">
+                <input type="hidden" name="redirect" value="{{ '/blagodarya/' | url }}">
+                <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+                <div class="">
+                    <label for="contact-name" class="text-sm font-semibold text-primary-deepsea">Име и фамилия</label>
+                    <input id="contact-name" name="name" type="text"  class="w-full rounded-2xl border border-primary-sand/70 bg-white/70 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 focus:border-primary-evergreen transition" required>
+                </div>
+                <div class="">
+                    <label for="contact-email" class="text-sm font-semibold text-primary-deepsea">Имейл</label>
+                    <input id="contact-email" name="email" type="email"  class="w-full rounded-2xl border border-primary-sand/70 bg-white/70 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 focus:border-primary-evergreen transition" required>
+                </div>
+                <div class="">
+                    <label for="contact-message" class="text-sm font-semibold text-primary-deepsea">Вашето запитване</label>
+                    <textarea id="contact-message" name="message" rows="5"  class="w-full rounded-2xl border border-primary-sand/70 bg-white/70 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 focus:border-primary-evergreen transition resize-none" required></textarea>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="btn-primary w-full md:w-auto px-8 py-3 rounded-3xl">Изпрати</button>
+                </div>
+                <p class="text-sm text-primary-dune/80" id="contact-form-result"></p>
+            </form>
         </div>
     </div>
 </section>

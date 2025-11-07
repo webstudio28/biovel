@@ -1,10 +1,17 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  
-  
-  // Set input and output directories
+
+  // expose env vars if needed in templates (keep debug optional)
+  if (process.env.MAIL_KEY) {
+    console.log("Loaded API key:", process.env.MAIL_KEY);
+  }
+  eleventyConfig.addGlobalData("mailKey", process.env.MAIL_KEY || "");
+
   return {
     dir: {
       input: "src",
@@ -15,8 +22,6 @@ module.exports = function(eleventyConfig) {
     templateFormats: ["njk", "md", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    // Remove specific path prefix - add back if needed for GitHub Pages
-    // pathPrefix: "/your-repo-name/",
+    dataTemplateEngine: "njk"
   };
-}; 
+};
