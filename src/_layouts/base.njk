@@ -9,7 +9,7 @@
         <meta name="description" content="{% if description %}{{ description }}{% else %}ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене с най-подходящите храни за вашия организъм{% endif %}">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | url }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,55 +146,55 @@
         <div class="fixed inset-0 bg-gradient-to-br from-primary-ceramic  to-primary-ceramic -z-20"></div>
 
         <!-- Background Image Container -->
-        <div class="fixed opacity-20 inset-0 bg-[url('/assets/images/base-bg.jpg')] bg-cover bg-center bg-no-repeat -z-10"></div>
+        <div class="fixed opacity-20 inset-0 bg-no-repeat bg-cover bg-center -z-10" style="background-image: url('{{ '/assets/images/base-bg.jpg' | url }}');"></div>
 
         <!-- Header -->
         <header class="fixed w-full z-50 bg-transparent backdrop-blur-sm border-b border-transparent transition-all duration-300" id="header">
             <nav class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4">
                 <div class="flex items-center gap-8">
-                    <a href="/" class="flex items-center">
-                        <img src="/assets/images/logo.png" alt="Вега Тест" class="h-12 w-auto">
+                    <a href="{{ '/' | url }}" class="flex items-center">
+                        <img src="{{ '/assets/images/logo.png' | url }}" alt="Вега Тест" class="h-12 w-auto">
                     </a>
                     <div class="desktop-nav items-center space-x-8">
-                        <a href="/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Начало</a>
-                        <a href="/za-men/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">За мен</a>
+                        <a href="{{ '/' | url }}" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Начало</a>
+                        <a href="{{ '/za-men/' | url }}" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">За мен</a>
                         <div class="relative group">
-                            <a href="/uslugi/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Услуги
+                            <a href="{{ '/uslugi/' | url }}" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Услуги
                                 <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
                             </a>
                             <div class="absolute top-full left-0 w-64 rounded-xl bg-white shadow-xl border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
                                 <div class="py-2 mt-2">
                                     {% for s in services %}
-                                        <a href="/uslugi/{{ s.slug }}/" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ s.name }}</a>
+                                        <a href="{{ ('/uslugi/' ~ s.slug ~ '/') | url }}" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ s.name }}</a>
                                     {% endfor %}
                                     <div class="px-4 py-2 border-t border-primary-dune/20">
-                                        <a href="/uslugi/" class="text-sm text-primary-evergreen font-medium">Виж всички услуги →</a>
+                                        <a href="{{ '/uslugi/' | url }}" class="text-sm text-primary-evergreen font-medium">Виж всички услуги →</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="relative group">
-                            <a href="/produkti/" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Продукти
+                            <a href="{{ '/produkti/' | url }}" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic inline-flex items-center gap-1">Продукти
                                 <svg class="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
                             </a>
                             <div class="absolute top-full left-0 w-64 rounded-xl bg-white shadow-lg border border-primary-dune/20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
                                 <div class="py-2 mt-2">
                                     {% for product in products %}
                                         {% if loop.index <= 6 %}
-                                            <a href="/produkti/{{ product.meta_title }}/" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ product.title }}</a>
+                                            <a href="{{ ('/produkti/' ~ product.meta_title ~ '/') | url }}" class="block px-4 py-2 text-sm text-primary-volcanic hover:bg-primary-sand/50">{{ product.title }}</a>
                                         {% endif %}
                                     {% endfor %}
                                     <div class="px-4 py-2 border-t border-primary-dune/20">
-                                        <a href="/produkti/" class="text-sm text-primary-evergreen font-medium">Виж всички продукти →</a>
+                                        <a href="{{ '/produkti/' | url }}" class="text-sm text-primary-evergreen font-medium">Виж всички продукти →</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a href="/kontakti" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Контакти</a>
+                        <a href="{{ '/kontakti' | url }}" class="hover:text-primary-evergreen transition-colors font-medium text-primary-volcanic">Контакти</a>
                     </div>
                 </div>
 
-                <a href="/kontakti" class="header-cta btn-primary">
+                <a href="{{ '/kontakti' | url }}" class="header-cta btn-primary">
                     Запази час
                 </a>
 
@@ -211,8 +211,8 @@
             <div class="h-full flex flex-col">
                 <div class="flex-1 overflow-y-auto p-6">
                     <nav class="flex flex-col space-y-4">
-                        <a href="/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Начало</a>
-                        <a href="/za-men/" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">За мен</a>
+                        <a href="{{ '/' | url }}" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Начало</a>
+                        <a href="{{ '/za-men/' | url }}" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">За мен</a>
 
                         <!-- Services section -->
                         <div class="accordion-section">
@@ -224,10 +224,10 @@
                             </button>
                             <div id="services-list" class="accordion-content max-h-0 overflow-hidden overflow-x-hidden transition-all duration-500 ease-in-out">
                                 <div class="p-4 bg-primary-sand/10 rounded-2xl space-y-3">
-                                    <a href="/uslugi/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички услуги</a>
+                                    <a href="{{ '/uslugi/' | url }}" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички услуги</a>
                                     <div class="space-y-4">
                                         {% for s in services %}
-                                            <a href="/uslugi/{{ s.slug }}/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ s.name }}</a>
+                                            <a href="{{ ('/uslugi/' ~ s.slug ~ '/') | url }}" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ s.name }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -244,23 +244,23 @@
                             </button>
                             <div id="products-list" class="accordion-content max-h-0 overflow-hidden overflow-x-hidden transition-all duration-500 ease-in-out">
                                 <div class="p-4 bg-primary-sand/10 rounded-2xl space-y-3">
-                                    <a href="/produkti/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички продукти</a>
+                                    <a href="{{ '/produkti/' | url }}" class="block text-lg text-primary-deepsea font-medium hover:text-primary-volcanic transition-colors">Виж всички продукти</a>
                                     <div class="space-y-4">
                                         {% for product in products %}
-                                            <a href="/produkti/{{ product.meta_title }}/" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ product.title }}</a>
+                                            <a href="{{ ('/produkti/' ~ product.meta_title ~ '/') | url }}" class="block text-lg text-primary-deepsea font-medium hover:text-primary-evergreen transition-colors py-1">{{ product.title }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/kontakti" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Контакти</a>
+                        <a href="{{ '/kontakti' | url }}" class="block text-lg font-semibold text-primary-volcanic hover:text-primary-evergreen transition-colors py-5 px-4 bg-primary-sand/20 rounded-2xl">Контакти</a>
                     </nav>
                 </div>
 
                 <!-- CTA Button - Fixed at bottom -->
                 <div class="p-6">
-                    <a href="/kontakti" class="btn-primary w-full text-center">Запази час</a>
+                    <a href="{{ '/kontakti' | url }}" class="btn-primary w-full text-center">Запази час</a>
                 </div>
             </div>
         </div>
@@ -275,7 +275,7 @@
             <div class="max-w-7xl mx-auto py-16 px-4">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="col-span-1 md:col-span-2">
-                        <img src="/assets/images/logo.png" alt="Вега Тест" class="h-16 w-auto mb-4">
+                        <img src="{{ '/assets/images/logo.png' | url }}" alt="Вега Тест" class="h-16 w-auto mb-4">
                         <p class="text-white/90 mb-4 max-w-md">
                             Персонализирани решения, холистични терапии и продукти, които поддържат твоето естествено равновесие.
                         </p>

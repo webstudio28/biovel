@@ -28,10 +28,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
       </p>
 
             <div class="hero-cta flex flex-row gap-2 md:gap-4 relative z-10 w-full">
-                <a href="/kontakti" class="btn-primary flex justify-center items-center">
+                <a href="{{ '/kontakti' | url }}" class="btn-primary flex justify-center items-center">
           Запази час
         </a>
-                <a href="/uslugi/" class="btn-secondary flex justify-center items-center">
+                <a href="{{ '/uslugi/' | url }}" class="btn-secondary flex justify-center items-center">
           Виж всички услуги
         </a>
             </div>
@@ -196,14 +196,14 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         {% if category.services %}
                                             {% for service in category.services %}
                                                 <div class="home-service-card bg-white p-2 flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300 shadow-md">
-                                                    <img src="{{ service.images[0] }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
+                                                    <img src="{{ ('/' ~ service.images[0]) | url }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
                                                     <div class="flex flex-col flex-grow">
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
                                                         <div class="mt-4 ">
                                                             {% for s in services %}
                                                                 {% if s.name == service.name %}
-                                                                    <a href="/uslugi/{{ s.slug }}/" class="block w-full text-center btn-primary text-white font-semibold rounded-3xl py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
+                                                                    <a href="{{ ('/uslugi/' ~ s.slug ~ '/') | url }}" class="block w-full text-center btn-primary text-white font-semibold rounded-3xl py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
                                                                 {% endif %}
                                                             {% endfor %}
                                                         </div>
@@ -265,7 +265,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
                                                 </div>
                                                 <div class="mt-2 product-card-button flex flex-col flex-grow ">
-                                                    <a href="/produkti/{{ product.meta_title }}/" class="block text-center btn-primary  font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
+                                                    <a href="{{ ('/produkti/' ~ product.meta_title ~ '/') | url }}" class="block text-center btn-primary  font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,10 +338,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                     <p class="text-primary-volcanic text-sm font-semibold">Запази час или разгледай нашите продукти</p>
                                     <div class="flex flex-col sm:flex-row gap-4">
 
-                                        <a href="/kontakti" class="text-primary-evergreen flex items-center justify-center gap-2 btn-primary w-full text-center rounded-3xl">
+                                        <a href="{{ '/kontakti' | url }}" class="text-primary-evergreen flex items-center justify-center gap-2 btn-primary w-full text-center rounded-3xl">
                                             <img src="assets/images/booking.png" alt="Clock" class="w-6 h-6 object-contain "> Запази час</a>
 
-                                        <a href="/produkti/" class="flex items-center justify-center gap-2 btn-secondary hover:scale-105 transition-all duration-300 w-full text-center rounded-3xl  !hover:text-accent-evergreen">
+                                        <a href="{{ '/produkti/' | url }}" class="flex items-center justify-center gap-2 btn-secondary hover:scale-105 transition-all duration-300 w-full text-center rounded-3xl  !hover:text-accent-evergreen">
                                             <img src="assets/images/products.png" alt="Clock" class=" w-6 h-6 object-contain ">Продукти</a>
                                     </div>
 

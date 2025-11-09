@@ -25,7 +25,7 @@ eleventyComputed:
                     <!-- Main Image -->
                     {% if product.images and product.images.length > 0 %}
                         <div class="bg-white rounded-2xl shadow-md aspect-square overflow-hidden w-full h-full ">
-                            <img id="product-main-image" src="{{ product.images[0] }}" alt="{{ product.title }}" class="w-full h-full object-cover transition-opacity duration-300">
+                            <img id="product-main-image" src="{{ product.images[0] | url }}" alt="{{ product.title }}" class="w-full h-full object-cover transition-opacity duration-300">
                         </div>
                         
                         <!-- Thumbnails -->
@@ -33,8 +33,8 @@ eleventyComputed:
                             <div class="flex flex-wrap gap-3 justify-center">
                                 {% for image in product.images %}
                                     {% if image %}
-                                        <button class="product-thumbnail flex-shrink-0 w-20 h-20 opacity-60 hover:opacity-100 rounded-lg overflow-hidden transition-opacity cursor-pointer border-0 outline-none" data-image-src="{{ image }}">
-                                            <img src="{{ image }}" alt="{{ product.title }} thumbnail {{ loop.index }}" class="w-full h-full object-cover">
+                                        <button class="product-thumbnail flex-shrink-0 w-20 h-20 opacity-60 hover:opacity-100 rounded-lg overflow-hidden transition-opacity cursor-pointer border-0 outline-none" data-image-src="{{ image | url }}">
+                                            <img src="{{ image | url }}" alt="{{ product.title }} thumbnail {{ loop.index }}" class="w-full h-full object-cover">
                                         </button>
                                     {% endif %}
                                 {% endfor %}
@@ -100,7 +100,7 @@ eleventyComputed:
 <section class="py-6 mt-6 bg-primary-sand/30">
     <div class="max-w-7xl w-full mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6 flex items-center gap-3">
-            <img src="/assets/images/description.png" alt="Описание" class="w-8 h-8 object-contain">
+            <img src="{{ '/assets/images/description.png' | url }}" alt="Описание" class="w-8 h-8 object-contain">
             <span>Описание</span>
         </h2>
         <div class="bg-white/60 rounded-2xl p-6 md:p-8">
@@ -118,7 +118,7 @@ eleventyComputed:
 <section class="py-6 bg-primary-sand/30">
     <div class="max-w-7xl w-full mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6 flex items-center gap-3">
-            <img src="/assets/images/how-use.png" alt="Как да използваме" class="w-8 h-8 object-contain">
+            <img src="{{ '/assets/images/how-use.png' | url }}" alt="Как да използваме" class="w-8 h-8 object-contain">
             <span>Как да използваме</span>
         </h2>
         <div class="bg-white/50 rounded-2xl p-6 md:p-8 space-y-3 shadow-sm">
@@ -143,7 +143,7 @@ eleventyComputed:
 <section class="py-6 bg-primary-sand/30">
     <div class="max-w-7xl w-full mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6 flex items-center gap-3">
-            <img src="/assets/images/important.png" alt="Важна информация" class="w-8 h-8 object-contain">
+            <img src="{{ '/assets/images/important.png' | url }}" alt="Важна информация" class="w-8 h-8 object-contain">
             <span>Важна информация</span>
         </h2>
         <div class="bg-white/50 rounded-2xl p-6 md:p-8 space-y-3 shadow-sm">
@@ -175,7 +175,7 @@ eleventyComputed:
     <div class="max-w-7xl w-full mx-auto px-4 ">
         <div class="flex items-center gap-3 mb-6">
             <span class="flex items-center justify-center w-10 h-10 ">
-                <img src="/assets/images/products.png" alt="Продукти" class="w-6 h-6 object-contain">
+                <img src="{{ '/assets/images/products.png' | url }}" alt="Продукти" class="w-6 h-6 object-contain">
             </span>
             <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen">Разгледай други продукти</h2>
         </div>
@@ -186,7 +186,7 @@ eleventyComputed:
                         <div class="home-product-card h-full p-2 bg-white rounded-3xl relative flex flex-col w-[240px] xl:w-full transition-all duration-300 shadow-md">
                             {% if item.images and item.images.length > 0 %}
                                 <div class="home-product-image flex items-center justify-center overflow-hidden">
-                                    <img src="{{ item.images[0] }}" alt="{{ item.title }}">
+                                    <img src="{{ item.images[0] | url }}" alt="{{ item.title }}">
                                 </div>
                             {% endif %}
                             <div class="pt-2 flex flex-col gap-4 flex-grow">
@@ -201,7 +201,7 @@ eleventyComputed:
                                         <div class="benefit-icons flex flex-row gap-2">
                                             {% for benefit in item.benefits %}
                                                 <div class="relative group benefit-icon-wrapper">
-                                                    <img src="{{ benefit.benefit_icon }}" alt="{{ benefit.benefit_name }}" class="bg-primary-ceramic rounded-full h-8 w-8 object-contain">
+                                                    <img src="{{ benefit.benefit_icon | url }}" alt="{{ benefit.benefit_name }}" class="bg-primary-ceramic rounded-full h-8 w-8 object-contain">
                                                     <span class="benefit-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-primary-deepsea text-white text-xs rounded opacity-0 invisible transition-opacity duration-300 pointer-events-none">
                                                         {{ benefit.benefit_name }}
                                                     </span>
@@ -211,7 +211,7 @@ eleventyComputed:
                                     {% endif %}
                                 </div>
                                 <div class="mt-2 product-card-button flex flex-col flex-grow">
-                                    <a href="/produkti/{{ item.meta_title }}/" class="block text-center btn-primary font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
+                                    <a href="{{ ('/produkti/' ~ item.meta_title ~ '/') | url }}" class="block text-center btn-primary font-semibold rounded-full py-2 mt-auto hover:bg-primary-evergreen/90 transition-colors">Виж продукта</a>
                                 </div>
                             </div>
                         </div>
@@ -241,9 +241,9 @@ eleventyComputed:
                 {% if product.pharmacies and product.pharmacies.length > 0 %}
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {% for pharmacy in product.pharmacies %}
-                            <a href="{{ pharmacy.link }}" class="group bg-primary-sand/40 hover:bg-primary-sand/60 border border-primary-sand/70 rounded-2xl px-5 py-4 flex flex-col items-center gap-3 transition-colors" target="_blank" rel="noopener">
+                            <a href="{{ pharmacy.link | url }}" class="group bg-primary-sand/40 hover:bg-primary-sand/60 border border-primary-sand/70 rounded-2xl px-5 py-4 flex flex-col items-center gap-3 transition-colors" target="_blank" rel="noopener">
                                 <div class="w-20 h-20 flex items-center justify-center">
-                                    <img src="{{ pharmacy.logo }}" alt="{{ pharmacy.name }}" class="w-20 h-20 object-contain">
+                                    <img src="{{ pharmacy.logo | url }}" alt="{{ pharmacy.name }}" class="w-20 h-20 object-contain">
                                 </div>
                                 <span class="text-primary-evergreen font-semibold">{{ pharmacy.name }}</span>
                             </a>
