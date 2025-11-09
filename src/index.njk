@@ -201,13 +201,11 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
                                                         <div class="mt-4 ">
-                                                            {% set serviceSlug = '' %}
                                                             {% for s in services %}
                                                                 {% if s.name == service.name %}
-                                                                    {% set serviceSlug = s.slug %}
+                                                                    <a href="/uslugi/{{ s.slug }}/" class="block w-full text-center btn-primary text-white font-semibold rounded-3xl py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
                                                                 {% endif %}
                                                             {% endfor %}
-                                                            <a href="/uslugi/{{ serviceSlug }}/" class="block w-full text-center btn-primary text-white font-semibold rounded-3xl py-2 hover:bg-primary-forest transition-colors">Научи повече</a>
                                                         </div>
                                                     </div>
                                                 </div>
