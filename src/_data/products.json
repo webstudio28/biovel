@@ -1,12 +1,15 @@
 [
   {
-    "title": "Био вел растителен силиций капки",
+    "title": "Растителен силиций капки 30 мл",
     "meta_title": "bio-vel-rastitelen-silitsiy",
     "short_description": "Капки с растителен силиций за подкрепа на организма.",
-    "long_description": "БИО ВЕЛ Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
-    "images": ["/assets/images/products/sicily-plant34.png", "/assets/images/products/sicily-plant34.png", "/assets/images/products/sicily-plant34.png"],
+    "long_description": "Растителен Силиций е добавка, която допринася за здравето на костите, косата, кожата и ноктите.",
+    "images": ["/assets/images/products/sicily-plant34.png"],
     "package": "30 мл",
-    "sustavki": ["Растителен силиций"],
+    "sustavki": [
+      "Водно-етанолов екстракт 1:3/40% етанол/ на Полски хвощ (Equisetum arvense) 12 мг",
+      "Коприва-лист (Urtica dioica) 12 мг"
+    ],
     "benefits": [
       {
         "benefit_name": "Артерии",
@@ -27,38 +30,30 @@
     ],
     "pharmacies": [
       {
-        "name": "Аптека Партньор 1",
+        "name": "Аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
-      },
-      {
-        "name": "Аптека Партньор 2",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
-      },
-      {
-        "name": "Аптека Партньор 2",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://apteka.framar.bg/30091564/био-вел-растителен-силициев-капки-30-мл"
       }
     ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+    "used_for": "Полският хвощ и копривата са натурални източници на силиций и желязо. Допринася нормалното състояние на артериите, косата, кожата и ноктите.",
+    "how_to_use": "20 капки веднъж дневно в чаша вода.",
+    "dosage": "20 капки веднъж дневно.",
+    "contraindications": "Да не се превишава препоръчаната дневна доза. Не използвайте при индивидуална непоносимост, бременност, кърмене и малки деца.",
+    "storage": "На сухо и защитено от светлина място, при температура под 25°С. Да се съхранява на място, недостъпно за деца!"
   },
   {
-    "title": "Zn (цинк)",
+    "title": "Цинк капки 10 мл",
     "meta_title": "zn-tsink",
-    "short_description": "Капки или капсули с цинк за подпомагане на кожата и борба с акне.",
-    "long_description": "Цинкът е важен минерал за здравето на кожата и имунната система. Подпомага борбата с акне и поддържа организма в баланс.",
-    "images": ["/assets/images/products/cink1.png", "/assets/images/products/zn_2.jpg", "/assets/images/products/cink1.png"],
-    "package": "30 капсули",
-    "sustavki": ["Zinc"],
+    "short_description": "Капки с цинков глюконат за поддържане на здравето.",
+    "long_description": "Цинков Глюконат концентрат. Допринася за поддържане на нормалното състояние на имунната и нервна система, на косата, кожата и ноктите.",
+    "images": ["/assets/images/products/cink1.png"],
+    "package": "10 мл",
+    "sustavki": [
+      "Разтвор в пречистена вода на цинков глюконат."
+    ],
     "benefits": [
       {
-        "benefit_name": "Имунна система",
+        "benefit_name": "Имунитет",
         "benefit_icon": "/assets/images/products/icons/immune-system.png"
       },
       {
@@ -76,33 +71,29 @@
     ],
     "pharmacies": [
       {
-        "name": "Аптека Партньор 1",
+        "name": "Аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
-      },
-      {
-        "name": "Аптека Партньор 2",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://apteka.framar.bg/30091562/био-вел‑цинк‑капки‑10‑мл"
       }
     ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+    "used_for": "Поддържане на имунната и нервна система, косата, кожата и ноктите.",
+    "how_to_use": "От 6 до 10 капки дневно в чаша вода.",
+    "dosage": "10 капки",
+    "contraindications": "Да не се превишава препоръчаната дневна доза. Не използвайте при индивидуална непоносимост, бременност, кърмене и малки деца.",
+    "storage": "На сухо и защитено от светлина място, при температура под 18°С. Да се съхранява на място, недостъпно за деца!",
+    "production": "Произведено за: БИО ВЕЛ ООД, България"
   },
   {
-    "title": "Cu мед (copper honey)",
+    "title": "БИО ВЕЛ МЕД капки 10 мл",
     "meta_title": "cu-med-copper-honey",
-    "short_description": "10 ml капки с мед и меден комплекс за подсилване на имунната система.",
-    "long_description": "Cu Мед е натурален концентрат с мед и меден комплекс, който стимулира имунната система и спомага за неутрализирането на свободните радикали. Подходящ е за ежедневна подкрепа на организма.",
-    "images": ["/assets/images/products/med1.png", "/assets/images/products/cu_med_2.jpg", "/assets/images/products/med1.png"],
-    "package": "10 ml",
-    "sustavki": ["Мед (Honey)", "Cu (Copper)"],
+    "short_description": "Разтвор в пречистена вода на меден глюконат.",
+    "long_description": "Мед капки са жизненоважен източник на мед, необходим за здравето на костите, съединителната тъкан и нервната система. Медта допринася за метаболизма на желязо и защитата на нервните влакна. Участва в производството на миелин, което подпомага неврологичната функция. Колагенът и еластинът, влияещи върху здравето и еластичността на кожата, също се облагодетелстват от мед. Приемът на мед може да предотврати деминерализация на костите и да поддържа нормална функция на сърцето и мозъка. Хората, които консумират големи количества цинк, желязо или витамин С, може да имат нужда от допълнителен прием на мед.",
+    "images": ["/assets/images/products/med1.png", "/assets/images/products/cu_med_2.jpg"],
+    "package": "10 мл",
+    "sustavki": ["Разтвор в пречистена вода на меден глюконат."],
     "benefits": [
       {
-        "benefit_name": "Нервна система",
+        "benefit_name": "Здраве на нервите",
         "benefit_icon": "/assets/images/products/icons/nerve-system.png"
       },
       {
@@ -110,36 +101,39 @@
         "benefit_icon": "/assets/images/products/icons/colagen.png"
       },
       {
-        "benefit_name": "Съединителни тъкани",
+        "benefit_name": "Поддържане на съединителната тъкан",
         "benefit_icon": "/assets/images/products/icons/dna.png"
       }
     ],
     "pharmacies": [
       {
-        "name": "Аптека Партньор 1",
+        "name": "Аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://apteka.framar.bg/30091563/био‑вел‑мед‑капки‑10‑мл"
       },
       {
-        "name": "Аптека Партньор 2",
+        "name": "Аптека Holis Medi",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://holismedi.com/produkt/medkapki/"
       }
     ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+    "used_for": "Поддържане на съединителната тъкан, кости, сърце и нерви.",
+    "how_to_use": "От 5 до 10 капки дневно в чаша вода.",
+    "storage": "На сухо и защитено от светлина място, при температура под 18°C.",
+    "contraindications": "Да не се превишава препоръчаната дневна доза. Не използвайте при индивидуална непоносимост, бременност, кърмене и малки деца."
   },
   {
-    "title": "Паракоктейл",
-    "meta_title": "parakokteyl",
-    "short_description": "Мощна комбинация от студено пресовани масла за общо благополучие.",
-    "long_description": "Паракоктейл комбинира синчено масло, тиквено масло и масло от семена на невен в едно мощно натурално решение. Поддържа организма и подпомага естествените процеси на детоксикация и подхранване.",
-    "images": ["/assets/images/products/parakokteil.png", "/assets/images/products/parakokteyl_2.jpg", "/assets/images/products/parakokteil.png"],
-    "package": "100 ml",
-    "sustavki": ["Синчено масло", "Тиквено масло", "Масло от семена на невен"],
+    "title": "БИО ВЕЛ ПАРАКОКТЕЙЛ 100 мл",
+    "meta_title": "bio-vel-parakokteyl",
+    "short_description": "Микс от студено пресовани натурални масла.",
+    "long_description": "Паракоктейл съчетава синчено масло, тиквено масло и масло от семена на невен. Има мощно антибактериално, антигъбично и антипаразитно действие. Подпомага естествената детоксикация на организма и подкрепя имунната система. Подходящ за нормалното протичане на метаболизма и защита на клетките от оксидативен стрес.",
+    "images": ["/assets/images/products/parakokteil.png", "/assets/images/products/parakokteyl_2.jpg"],
+    "package": "100 мл",
+    "sustavki": [
+      "Синапено масло (медицински) - 45%",
+      "Тиквено масло",
+      "Масло от семена на Невен"
+    ],
     "benefits": [
       {
         "benefit_name": "Имунна система",
@@ -152,61 +146,63 @@
     ],
     "pharmacies": [
       {
-        "name": "Аптека Партньор 1",
+        "name": "Аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://apteka.framar.bg/30116604/био‑вел‑паракоктейл‑100‑мл"
       },
       {
-        "name": "Аптека Партньор 2",
+        "name": "Аптека Holis Medi",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://holismedi.com/produkt/parakoktel/"
+      },
+      {
+        "name": "Аптека Drugstore.bg",
+        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "link": "https://drugstore.bg/био‑вел‑паракоктейл‑100‑мл‑bio‑vel‑paracoctail‑56402"
       }
     ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+    "used_for": "Поддържане на имунната система и естествена детоксикация.",
+    "how_to_use": "1 ч. л. (5 мл.) 2 пъти/ден на гладно.",
+    "storage": "Съхранявайте на сухо място без пряка слънчева светлина, при температура до +18°C.",
+    "contraindications": "Индивидуална непоносимост към съставките. Да не се използва като заместител на разнообразното хранене."
   },
   {
-    "title": "Карамфил",
-    "meta_title": "karamfil",
-    "short_description": "Натурално масло с карамфил за антибактериални и аналгетични свойства.",
-    "long_description": "Карамфиловото масло е естествен антиоксидант с противогъбични, антибактериални и аналгетични свойства. Подходящо за локална употреба и за поддържане на здравето на организма.",
-    "images": ["/assets/images/products/carnation4.png", "/assets/images/products/karamfil_2.jpg", "/assets/images/products/carnation4.png"],
-    "package": "10 ml",
-    "sustavki": ["Clove (Карамфил)"],
+    "title": "БИО ВЕЛ МАСЛО ОТ КАРАМФИЛ 100 мл",
+    "meta_title": "bio-vel-maslo-ot-karamfila-100-ml",
+    "short_description": "Студено пресован маслен извлек от подправката.",
+    "long_description": "БИО ВЕЛ МАСЛО ОТ КАРАМФИЛ е хранителна добавка съдържаща студено пресован маслен извлек от подправката. 20% етерично масло в базово масло от кайсиево. Подпомага нормалното функциониране на стомашно-чревния тракт, укрепва имунната система, тонизира при умора и сънливост.",
+    "images": ["/assets/images/products/carnation3.png", "/assets/images/products/carnation4.jpg"],
+    "package": "100 мл",
+    "sustavki": [
+      "Кайсиево масло - 4,97 мл",
+      "Карамфилово масло - 0,030 мл"
+    ],
     "benefits": [
       {
-        "benefit_name": "Стомах и черва",
+        "benefit_name": "Храносмилателна система",
         "benefit_icon": "/assets/images/products/icons/stomach.png"
       },
       {
         "benefit_name": "Имунна система",
         "benefit_icon": "/assets/images/products/icons/immune-system.png"
-      },
-      {
-        "benefit_name": "Тонизиращо действие",
-        "benefit_icon": "/assets/images/products/icons/tonus.png"
       }
     ],
     "pharmacies": [
       {
-        "name": "Аптека Партньор 1",
+        "name": "Аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://apteka.framar.bg/30116603/био‑вел‑масло‑от‑карамфил‑100‑мл"
       },
       {
-        "name": "Аптека Партньор 2",
+        "name": "Аптека Drugstore.bg",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
-        "link": "/kontakti"
+        "link": "https://drugstore.bg/био‑вел‑масло‑от‑карамфил‑100‑мл‑bio‑vel‑clove‑oil‑56401"
       }
     ],
-    "used_for": "При симптоми на...",
-    "how_to_use": "Приемайте по следния начин...",
-    "dosage": "Препоръчителна доза...",
-    "contraindications": "Не използвайте при...",
-    "storage": "Съхранявайте на сухо и хладно място, недостъпно за деца."
+    "used_for": "Подпомага храносмилането и укрепва имунната система.",
+    "how_to_use": "2 пъти по 1 чаена лъжица (5 мл) на гладно.",
+    "storage": "Съхранявайте на сухо място без пряка слънчева светлина, при температура до +18°C. След отваряне съхранявайте на сухо и прохладно място.",
+    "contraindications": "Не се препоръчва за бременни и при индивидуална непоносимост."
   },
   {
     "title": "Бял трън масло",

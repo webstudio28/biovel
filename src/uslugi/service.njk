@@ -76,7 +76,7 @@ eleventyComputed:
 		<div class="bg-white/60 rounded-2xl p-6 md:p-8">
 			<div class="prose prose-lg max-w-none">
 				<p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
-					{{ service.longDescription }}
+					{{ service.longDescription | safe }}
 				</p>
 			</div>
 		</div>
