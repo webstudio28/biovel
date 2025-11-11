@@ -16,6 +16,7 @@ Thumbs.db
 # OS-specific
 ehthumbs.db
 Icon?
+!src/assets/images/products/icons/
 Desktop.ini
 
 # VS Code
