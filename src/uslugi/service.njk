@@ -28,12 +28,12 @@ eleventyComputed:
 					{% if service.images and service.images.length > 0 %}
 						{% for image in service.images %}
 							<div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out {% if loop.first %}opacity-100{% endif %}">
-								<img src="{{ ('/' ~ image) | url }}" alt="{{ service.name }}" class="w-full h-full object-cover">
+								<img src="{{ image | url }}" alt="{{ service.name }}" class="w-full h-full object-cover">
 							</div>
 						{% endfor %}
 					{% elif service.image %}
 						<div class="carousel-slide opacity-100">
-							<img src="{{ ('/' ~ service.image) | url }}" alt="{{ service.name }}" class="w-full h-full object-cover">
+							<img src="{{ service.image | url }}" alt="{{ service.name }}" class="w-full h-full object-cover">
 						</div>
 					{% endif %}
 					

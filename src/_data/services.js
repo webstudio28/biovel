@@ -1,6 +1,14 @@
 module.exports = () => {
 	const data = require('./homepageServices.json');
 
+	function normalizePath(path) {
+		if (!path) return path;
+		if (typeof path !== 'string') return path;
+		if (/^https?:\/\//i.test(path)) return path;
+		const trimmed = path.replace(/^\/+/, '');
+		return `/${trimmed}`;
+	}
+
 	function transliterateCyrillic(text) {
 		const cyrillicMap = {
 			'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
@@ -58,12 +66,16 @@ module.exports = () => {
 		for (const category of data.categories) {
 			if (Array.isArray(category.services)) {
 				for (const svc of category.services) {
+					const rawImages = svc.images || (svc.image ? [svc.image] : []);
+					const normalizedImages = rawImages.map(normalizePath);
+					const primaryImage = normalizePath(svc.image || normalizedImages[0]);
+
 					services.push({
 						name: svc.name,
 						description: svc.description,
 						longDescription: svc.longDescription || '',
-						image: svc.image || (svc.images && svc.images[0]), // Fallback to first image from array
-						images: svc.images || (svc.image ? [svc.image] : []), // Use images array or create one from single image
+						image: primaryImage || '',
+						images: normalizedImages, // Use images array or create one from single image
 						time: svc.time || '',
 						howItWorks: svc.howItWorks || [],
 						benefits: svc.benefits || [],

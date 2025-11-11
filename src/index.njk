@@ -8,7 +8,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 <!-- Hero Section Only -->
 <section class="relative min-h-[calc(100vh-5rem)] flex items-center pt-2">
     <div class="absolute inset-0"></div>
-    <img src="assets/images/cta.jpg" alt="CTA Image" style="opacity: 0.3;" class="absolute top-[-5rem] left-0 w-full h-screen object-cover object-center md:object-center -z-10">
+    <img src="{{ '/assets/images/cta.jpg' | url }}" alt="CTA Image" style="opacity: 0.3;" class="absolute top-[-5rem] left-0 w-full h-screen object-cover object-center md:object-center -z-10">
     <div class="max-w-7xl w-full mx-auto px-4 relative z-10 flex flex-col-reverse md:flex-row items-center justify-evenly md:justify-center min-h-[60vh]">
         <!-- Left: Text -->
         <div class="flex-1 flex flex-col justify-center items-start text-left md:pr-12 z-20 relative mt-0 md:mt-0 w-full">
@@ -52,7 +52,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 </svg>
                 <!-- Lottie: centered, responsive sizing -->
                 <lottie-player 
-          src="assets/3d/hero1.json" 
+          src="{{ '/assets/3d/hero1.json' | url }}" 
           background="transparent" 
           speed="1" 
           autoplay 
@@ -83,7 +83,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             <div class="order-2 sm:order-1 flex flex-col gap-6">
                 <!-- Feature 1 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
-                    <img src="assets/images/practice.png" alt="Кабинет" class="w-16 h-16 mt-1">
+                    <img src="{{ '/assets/images/practice.png' | url }}" alt="Кабинет" class="w-16 h-16 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Кабинет</h3>
                         <p class="text-primary-dark-gray text-sm">Всичко е подготвено за вашия комфорт още от първата минута.</p>
@@ -91,7 +91,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 </div>
                 <!-- Feature 2 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
-                    <img src="assets/images/care.png" alt="Отношение и внимание" class="w-16 h-16 mt-1">
+                    <img src="{{ '/assets/images/care.png' | url }}" alt="Отношение и внимание" class="w-16 h-16 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Отношение и внимание</h3>
                         <p class="text-primary-dark-gray text-sm">Внимателно изслушваме нуждите и въпросите ви. Подходът е индивидуален, за да получите грижа, която наистина е за вас.</p>
@@ -99,7 +99,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 </div>
                 <!-- Feature 3 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
-                    <img src="assets/images/lab-machine.png" alt="Професионална техника за диагностика" class="w-12 h-12 mt-1">
+                    <img src="{{ '/assets/images/lab-machine.png' | url }}" alt="Професионална техника за диагностика" class="w-12 h-12 mt-1">
                     <div>
                         <h3 class="text-md font-bold text-primary-deepsea mb-2">Професионална техника за диагностика</h3>
                         <p class="text-primary-dark-gray text-sm">Използваме точни и съвременни методи за оценка на здравето. Всичко е безопасно и прецизно, за да получите ясна картина на организма си.</p>
@@ -110,11 +110,11 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             <!-- Right Side: Image -->
             <div id="approach-media" class="order-1 sm:order-2 relative">
                 <div class="decorative-leaves">
-                    <img id="leaf-branch-top" src="assets/images/leaves-branch-top.png" alt="Подход листа декорация" class="w-40 h-40 absolute top-[-25px] left-[-50px] object-cover">
-                    <img id="leaf-branch-bottom" src="assets/images/leaves-branch.png" alt="Подход листа декорация" class="w-40 h-40 absolute bottom-[-25px] right-[-50px] object-cover">
+                    <img id="leaf-branch-top" src="{{ '/assets/images/leaves-branch-top.png' | url }}" alt="Подход листа декорация" class="w-40 h-40 absolute top-[-25px] left-[-50px] object-cover">
+                    <img id="leaf-branch-bottom" src="{{ '/assets/images/leaves-branch.png' | url }}" alt="Подход листа декорация" class="w-40 h-40 absolute bottom-[-25px] right-[-50px] object-cover">
                 </div>
                 <div class="rounded-2xl overflow-hidden shadow-xl">
-                    <img src="assets/images/kabinet.webp" alt="Кабинетът на БиоВел" class=" border-primary-dune rounded-2xl w-full object-cover">
+                    <img src="{{ '/assets/images/kabinet.webp' | url }}" alt="Кабинетът на БиоВел" class=" border-primary-dune rounded-2xl w-full object-cover">
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
             <div class="about-me-left shadow-md bg-[#fafafa] py-16 flex flex-col  items-center justify-center text-center w-full md:w-1/2 rounded-3xl">
 
-                <img src="assets/images/elena-hristova.png" alt="Елена Христова - консултант Vega Test" class="w-[40%] h-auto object-contain">
+                <img src="{{ '/assets/images/elena-hristova.png' | url }}" alt="Елена Христова - консултант Vega Test" class="w-[40%] h-auto object-contain">
                 <h4 class="text-lg mt-4 font-bold text-primary-evergreen">Елена Христова</h4>
                 <p class="text-sm text-primary-deepsea">Професионален нутрициолог и <br>консултант по хранителни добавки</p>
 
@@ -147,7 +147,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 <div class="about-me-text-container w-full shadow-md bg-[#fafafa] p-8 rounded-3xl flex flex-col gap-4">
 
                     <div class="flex flex-row items-center gap-2">
-                        <img src="assets/images/tick.png" alt="Опит" class="inline align-middle w-8 h-8">
+                        <img src="{{ '/assets/images/tick.png' | url }}" alt="Опит" class="inline align-middle w-8 h-8">
                         <span class="text-xl font-semibold text-primary-accent">10 години опит<span></div>
                             <p class="text-sm text-primary-deepsea">С моя натрупан опит в сферата на холистичната диагностика и превенция, аз съм тук, за да Ви напътствам по пътя към по-добро здраве и да Ви помогна да поддържате оптимално състояние САМИ.</p>
 
@@ -196,7 +196,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         {% if category.services %}
                                             {% for service in category.services %}
                                                 <div class="home-service-card bg-white p-2 flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300 shadow-md">
-                                                    <img src="{{ ('/' ~ service.images[0]) | url }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
+                                                    <img src="{{ service.images[0] | url }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
                                                     <div class="flex flex-col flex-grow">
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
@@ -241,7 +241,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         <div class="home-product-card h-full p-2 bg-white rounded-3xl relative flex flex-col w-[260px] md:w-[300px]  transition-all duration-300 shadow-md">
 
                                             <div class="home-product-image flex items-center justify-center overflow-hidden">
-                                                <img src="{{ product.images[0] }}" alt="{{ product.title }}" class=""/>
+                                                <img src="{{ product.images[0] | url }}" alt="{{ product.title }}" class=""/>
                                             </div>
 
                                             <div class="pt-2 flex flex-col gap-4 flex-grow">
@@ -255,7 +255,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                                     <div class="benefit-icons flex flex-row gap-2">
                                                         {% for benefit in product.benefits %}
                                                             <div class="relative group benefit-icon-wrapper">
-                                                                <img src="{{ benefit.benefit_icon }}" alt="{{ benefit.benefit_name }}" class="bg-primary-ceramic rounded-full h-8 w-8 object-contain">
+                                                                <img src="{{ benefit.benefit_icon | url }}" alt="{{ benefit.benefit_name }}" class="bg-primary-ceramic rounded-full h-8 w-8 object-contain">
                                                                 <span class="benefit-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 bg-primary-deepsea text-white text-xs rounded opacity-0 invisible transition-opacity duration-300 pointer-events-none">
                                                                     {{ benefit.benefit_name }}
                                                                 </span>
@@ -305,7 +305,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                             </div>
 
                             <div class="faq-right-side rounded-3xl overflow-hidden order-1 md:order-2 md:sticky md:top-24">
-                                <img src="assets/images/faq.jpg" alt="FAQ Image" class=" object-cover w-full h-auto">
+                                <img src="{{ '/assets/images/faq.jpg' | url }}" alt="FAQ Image" class=" object-cover w-full h-auto">
                             </div>
                         </div>
 
@@ -317,7 +317,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                         <div class="relative h-[500px] md:h-[400px] w-full flex flex-col md:flex-row justify-evenly items-center gap-12 p-8 overflow-hidden rounded-3xl">
 
                             <div class="-z-10 absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                                <img src="assets/images/cta2.jpg" alt="CTA Image" class="w-full h-full object-cover ">
+                                <img src="{{ '/assets/images/cta2.jpg' | url }}" alt="CTA Image" class="w-full h-full object-cover ">
                             </div>
 
                             <div class="cta-left-side w-full sm-w-[50%] flex flex-col justify-center items-center sm:items-center text-center md:text-left">
@@ -339,10 +339,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                     <div class="flex flex-col sm:flex-row gap-4">
 
                                         <a href="{{ '/kontakti' | url }}" class="text-primary-evergreen flex items-center justify-center gap-2 btn-primary w-full text-center rounded-3xl">
-                                            <img src="assets/images/booking.png" alt="Clock" class="w-6 h-6 object-contain "> Запази час</a>
+                                            <img src="{{ '/assets/images/booking.png' | url }}" alt="Clock" class="w-6 h-6 object-contain "> Запази час</a>
 
                                         <a href="{{ '/produkti/' | url }}" class="flex items-center justify-center gap-2 btn-secondary hover:scale-105 transition-all duration-300 w-full text-center rounded-3xl  !hover:text-accent-evergreen">
-                                            <img src="assets/images/products.png" alt="Clock" class=" w-6 h-6 object-contain ">Продукти</a>
+                                            <img src="{{ '/assets/images/products.png' | url }}" alt="Clock" class=" w-6 h-6 object-contain ">Продукти</a>
                                     </div>
 
                                 </div>
