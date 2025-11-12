@@ -78,7 +78,7 @@ eleventyComputed:
                         <div class="flex flex-wrap gap-2">
                             {% for benefit in product.benefits %}
                                 <div class="flex items-center gap-2 bg-white/80 rounded-full px-3 py-1.5">
-                                    <img src="{{ benefit.benefit_icon }}" alt="{{ benefit.benefit_name }}" class="w-4 h-4 object-contain flex-shrink-0">
+                                    <img src="{{ benefit.benefit_icon | url }}" alt="{{ benefit.benefit_name }}" class="w-4 h-4 object-contain flex-shrink-0">
                                     <span class="text-primary-volcanic text-sm">{{ benefit.benefit_name }}</span>
                                 </div>
                             {% endfor %}
