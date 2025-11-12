@@ -112,8 +112,8 @@
         "link": "https://apteka.framar.bg/30091563/био‑вел‑мед‑капки‑10‑мл"
       },
       {
-        "name": "Аптека Holis Medi",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "name": "Аптека Holismedi",
+        "logo": "/assets/images/pharmacies/holismedi.png",
         "link": "https://holismedi.com/produkt/medkapki/"
       }
     ],
@@ -151,13 +151,13 @@
         "link": "https://apteka.framar.bg/30116604/био‑вел‑паракоктейл‑100‑мл"
       },
       {
-        "name": "Аптека Holis Medi",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "name": "Аптека Holismedi",
+        "logo": "/assets/images/pharmacies/holismedi.png",
         "link": "https://holismedi.com/produkt/parakoktel/"
       },
       {
         "name": "Аптека Drugstore.bg",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "logo": "/assets/images/pharmacies/drugstore.png",
         "link": "https://drugstore.bg/био‑вел‑паракоктейл‑100‑мл‑bio‑vel‑paracoctail‑56402"
       }
     ],
@@ -195,7 +195,7 @@
       },
       {
         "name": "Аптека Drugstore.bg",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "logo": "/assets/images/pharmacies/drugstore.png",
         "link": "https://drugstore.bg/био‑вел‑масло‑от‑карамфил‑100‑мл‑bio‑vel‑clove‑oil‑56401"
       }
     ],
@@ -230,18 +230,18 @@
     ],
     "pharmacies": [
       {
-        "name": "Framar Pharmacy",
+        "name": "аптека Фрамар",
         "logo": "/assets/images/pharmacies/default-pharmacy.png",
         "link": "https://apteka.framar.bg/30091564/био-вел-раstitелен-силиций-капки-30-мл"
       },
       {
-        "name": "Holismedi",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "name": "аптека Holismedi",
+        "logo": "/assets/images/pharmacies/holismedi.png",
         "link": "https://holismedi.com/produkt/bialtrunbiovel/"
       },
       {
         "name": "Drugstore.bg",
-        "logo": "/assets/images/pharmacies/default-pharmacy.png",
+        "logo": "/assets/images/pharmacies/drugstore.png",
         "link": "https://drugstore.bg/био-вел-масло-от-бял-трън-250-мл-bio-vel-silybum-marianum-oil-56428"
       }
     ],
