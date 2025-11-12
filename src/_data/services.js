@@ -74,6 +74,7 @@ module.exports = () => {
 						name: svc.name,
 						description: svc.description,
 						longDescription: svc.longDescription || '',
+						price: svc.price || null,
 						image: primaryImage || '',
 						images: normalizedImages, // Use images array or create one from single image
 						time: svc.time || '',
