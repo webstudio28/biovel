@@ -132,42 +132,103 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
             </h2>
         </div>
 
-        <div class="about-me-container flex flex-col md:flex-row gap-8 ">
+        <div class="about-me-container relative flex flex-col md:flex-row md:items-center gap-8 shadow-md rounded-3xl bg-[#fafafa] p-8 md:p-16 w-full overflow-hidden">
 
-            <div class="about-me-left shadow-md bg-[#fafafa] py-16 flex flex-col  items-center justify-center text-center w-full md:w-1/2 rounded-3xl">
+            <!-- Background Image -->
+            <div class="absolute inset-0 opacity-10 z-0">
+                <img src="{{ '/assets/images/about-bg.png' | url }}" alt="" class="w-full h-full object-cover">
+            </div>
 
-                <img src="{{ '/assets/images/elena-hristova.png' | url }}" alt="Елена Христова - консултант Vega Test" class="w-[40%] h-auto object-contain">
-                <h4 class="text-lg mt-4 font-bold text-primary-evergreen">Елена Христова</h4>
-                <p class="text-sm text-primary-deepsea">Професионален нутрициолог и <br>консултант по хранителни добавки</p>
+            <div class="about-me-left relative z-10 flex flex-col items-center justify-center text-center rounded-3xl max-h-[300px]">
+
+                <img src="{{ '/assets/images/elena-hristova.png' | url }}" alt="Елена Христова - консултант Vega Test" class=" max-w-[250px] h-auto object-contain">
+                <h4 class="text-lg mt-2 font-bold text-primary-evergreen">Елена Христова</h4>
 
             </div>
 
-            <div class="about-me-right flex flex-col gap-8 w-full md:w-1/2">
+            <div class="relative z-10 flex flex-col items-center justify-center text-center rounded-3xl max-h-[300px]">
+                <img src="{{ '/assets/images/arrow.png' | url }}" alt=" Стрелка към Елена Христова - консултант Vega Test" class="w-[180px] h-auto object-contain rotate-45 md:rotate-[-10deg]">
+            </div>
 
-                <div class="about-me-text-container w-full shadow-md bg-[#fafafa] p-8 rounded-3xl flex flex-col gap-4">
-
-                    <div class="flex flex-row items-center gap-2">
-                        <img src="{{ '/assets/images/tick.png' | url }}" alt="Опит" class="inline align-middle w-8 h-8">
-                        <span class="text-xl font-semibold text-primary-accent">10 години опит<span></div>
-                            <p class="text-sm text-primary-deepsea">С моя натрупан опит в сферата на холистичната диагностика и превенция, аз съм тук, за да Ви напътствам по пътя към по-добро здраве и да Ви помогна да поддържате оптимално състояние САМИ.</p>
-
-                            <p class="text-sm text-primary-deepsea">Като сертифициран специалист по нутрициология и консултант по хранителни добавки, моята мисия е да Ви помогна да постигнете цялостен рестарт и обновяване на естествените процеси в тялото.</p>
-
+            <!-- Certificates Cards -->
+            <div class="relative z-10 grid items-stretch gap-6 md:grid-cols-3 flex-1">
+            <!-- Certificate 1 -->
+            <div class="about-me-card bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-center justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-40 md:h-48 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate1.jpg' | url }}"
+                            data-certificate-alt="Сертификат 1"
+                        >
+                            <img src="{{ '/assets/images/certificate1.jpg' | url }}" alt="Сертификат 1" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
                         </div>
-
-                        <div class="about-me-sertificates-container shadow-md bg-[#fafafa] p-8 rounded-3xl flex flex-col gap-4 flex-grow">
-
-                            <blockquote class="mt-4 italic text-gray-600">
-                                <p class="text-normal">"Вярвам, че здравето е инвестиция, не разход."</p>
-                            </blockquote>
-                            <a href="/za-men/" class="mt-6 inline-block bg-primary-accent text-white font-bold py-3 px-6 rounded-full transition duration-300 self-end">
-                                Научи повече
-                            </a>
-                        </div>
-
                     </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Флорални есенции – практик.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за въвеждащ курс по австралийски флорални есенции.
+                        </p>
+                    </div>
+                </div>
 
-                </section>
+            <!-- Certificate 2 -->
+            <div class="about-me-card bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-center justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-40 md:h-48 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate2.jpg' | url }}"
+                            data-certificate-alt="Сертификат 2"
+                        >
+                            <img src="{{ '/assets/images/certificate2.jpg' | url }}" alt="Сертификат 2" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Здравословно хранене – консултант.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за обучение като консултант по помощни средства и хранителни добавки.
+                        </p>
+                    </div>
+                </div>
+
+            <!-- Certificate 3 -->
+            <div class="about-me-card bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-start justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-40 md:h-48 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate3.jpg' | url }}"
+                            data-certificate-alt="Сертификат 3"
+                        >
+                            <img src="{{ '/assets/images/certificate3.jpg' | url }}" alt="Сертификат 3" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Нутрициология – специалист.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за завършен курс по нутрициология.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+</section>
 
                 <!-- Services Section -->
                 <section class="py-12 bg-primary-sand/30">
@@ -352,6 +413,80 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                         </div>
                     </div>
                 </section>
+
+                <!-- Certificates Lightbox -->
+                <div
+                    id="certificate-lightbox"
+                    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+                    aria-hidden="true"
+                >
+                    <button
+                        type="button"
+                        id="certificate-lightbox-close"
+                        class="absolute top-4 right-4 rounded-full text-white text-3xl p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80"
+                        aria-label="Затвори изображението"
+                    >
+                        ✕
+                    </button>
+                    <div class="max-w-[95vw] max-h-[80vh] flex items-center justify-center px-4">
+                        <img
+                            id="certificate-lightbox-img"
+                            src=""
+                            alt=""
+                            class="w-full h-full max-w-[95vw] max-h-[80vh] object-contain rounded-2xl shadow-2xl border border-primary-cream/60 bg-black/10"
+                        >
+                    </div>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const lightbox = document.getElementById('certificate-lightbox');
+                        const lightboxImg = document.getElementById('certificate-lightbox-img');
+                        const closeBtn = document.getElementById('certificate-lightbox-close');
+
+                        if (!lightbox || !lightboxImg) return;
+
+                        const openLightbox = (src, alt) => {
+                            lightboxImg.src = src;
+                            lightboxImg.alt = alt || '';
+                            lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                            lightbox.classList.add('opacity-100');
+                            lightbox.setAttribute('aria-hidden', 'false');
+                        };
+
+                        const closeLightbox = () => {
+                            lightbox.classList.add('opacity-0', 'pointer-events-none');
+                            lightbox.classList.remove('opacity-100');
+                            lightbox.setAttribute('aria-hidden', 'true');
+                        };
+
+                        document.querySelectorAll('[data-certificate-full]').forEach((el) => {
+                            el.addEventListener('click', () => {
+                                const src = el.getAttribute('data-certificate-full');
+                                const alt = el.getAttribute('data-certificate-alt');
+                                if (src) {
+                                    openLightbox(src, alt);
+                                }
+                            });
+                        });
+
+                        if (closeBtn) {
+                            closeBtn.addEventListener('click', closeLightbox);
+                        }
+
+                        lightbox.addEventListener('click', (event) => {
+                            if (event.target === lightbox) {
+                                closeLightbox();
+                            }
+                        });
+
+                        document.addEventListener('keydown', (event) => {
+                            if (event.key === 'Escape') {
+                                closeLightbox();
+                            }
+                        });
+                    });
+                </script>
 
                 <!-- tailwind-safelist -->
                 <div class="text-primary-moss text-primary-sage text-primary-ceramic text-primary-forest text-primary-cream text-primary-olive text-primary-dark-gray bg-primary-moss bg-primary-sage bg-primary-ceramic bg-primary-forest bg-primary-cream bg-primary-olive bg-gradient-primary bg-gradient-hero border-primary-moss border-primary-sage border-primary-ceramic border-primary-forest border-primary-cream border-primary-olive hidden"></div>
