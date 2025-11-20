@@ -6,59 +6,53 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 
 
 <!-- Hero Section Only -->
-<section class="relative min-h-[calc(100vh-5rem)] flex items-center pt-2">
+<section class="relative min-h-[calc(100vh-5rem)] flex items-center">
     <div class="absolute inset-0"></div>
     <img src="{{ '/assets/images/cta.jpg' | url }}" alt="CTA Image" style="opacity: 0.3;" class="absolute top-[-5rem] left-0 w-full h-screen object-cover object-center md:object-center -z-10">
-    <div class="max-w-7xl w-full mx-auto px-4 relative z-10 flex flex-col-reverse md:flex-row items-center justify-evenly md:justify-center min-h-[60vh]">
+    <div class="max-w-7xl w-full mx-auto px-4 relative z-10 flex flex-col-reverse md:flex-row gap-4 md:gap-0 items-center justify-evenly md:justify-center min-h-[60vh]">
         <!-- Left: Text -->
-        <div class="flex-1 flex flex-col justify-center items-start text-left md:pr-12 z-20 relative mt-0 md:mt-0 w-full">
+        <div class="flex-1 flex flex-col justify-center gap-4 items-start text-left md:pr-12 z-20 relative mt-0 md:mt-0 w-full">
 
-            <!-- Subtle decorative line -->
-            <div class="absolute top-0 left-0 w-16 h-0.5 bg-gradient-to-r from-primary-evergreen/60 to-transparent z-10"></div>
 
-            <h1 class="text-2xl  w-full md:text-left text-primary-dark-gray md:text-4xl lg:text-5xl font-bold mb-4 relative z-10">
-                <span>Открий пътя към</span>
-                <span class="block text-primary-evergreen  relative text-xl lg:text-4xl mt-2">
-          Твоето оптимално здраве
+            <h1 class="text-2xl  w-full text-center md:text-left text-primary-dark-gray md:text-4xl lg:text-5xl font-bold mb-4 relative z-10">
+                <span>Твоят личен баланс</span>
+                <span class="block text-primary-evergreen  relative text-xl lg:text-4xl ">
+          С моите продукти и услуги
         </span>
             </h1>
 
-            <p class="text-lg md:text-xl text-primary-deepsea mb-4 md:mb-8 max-w-lg relative z-10 leading-relaxed">
+            {# <p class="text-lg md:text-xl text-primary-deepsea mb-4 md:mb-8 max-w-lg relative z-10 leading-relaxed">
         Персонализирани решения, холистични терапии и продукти, които поддържат твоето естествено равновесие.
-      </p>
+      </p> #}
+
+            <div class="flex flex-wrap justify-center md:justify-start gap-2 text-xs md:text-sm text-primary-evergreen mb-4 md:mb-6 relative z-10 text-center md:text-left">
+                {% for category in homepageServices.categories %}
+                    {% for service in category.services %}
+                        {% for s in services %}
+                            {% if s.name == service.name %}
+                                <a href="{{ ('/uslugi/' ~ s.slug ~ '/') | url }}" class="px-3 py-1 rounded-full border border-primary-evergreen/30 bg-white/70 shadow-sm hover:bg-primary-evergreen hover:text-white transition-colors">
+                                    {{ service.name }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
 
             <div class="hero-cta flex flex-row gap-2 md:gap-4 relative z-10 w-full">
                 <a href="viber://chat?number=%2B359885415300" class="btn-primary flex justify-center items-center" target="_blank" rel="noopener">
-          Запази час
+          Всички услуги
         </a>
                 <a href="{{ '/uslugi/' | url }}" class="btn-secondary flex justify-center items-center">
-          Виж всички услуги
+          Всички продукти
         </a>
             </div>
         </div>
         <!-- Right: Playful Blob Card with Lottie Animation -->
         <div class="flex-1 flex justify-center items-center w-full h-full relative md:mt-0 max-w-full overflow-hidden">
-            <div class="relative flex items-center justify-center w-full h-full hero-animation-container">
-                <!-- Playful SVG blob background with wavy outline -->
-                <svg class="hero-blob absolute w-full h-full z-0" viewBox="0 0 420 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                        <linearGradient id="blobGradient" x1="0" y1="0" x2="420" y2="480" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EAE5E1"/>
-                            <stop offset="1" stop-color="#CFC5B8"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M80,120 Q40,260 180,420 Q340,400 380,220 Q400,80 220,40 Q120,20 80,120 Z" fill="url(#blobGradient)" opacity="0.95"/>
-                    <path d="M80,120 Q40,260 180,420 Q340,400 380,220 Q400,80 220,40 Q120,20 80,120 Z" fill="none" stroke="#965939" stroke-width="6" opacity="0.25"/>
-                </svg>
-                <!-- Lottie: centered, responsive sizing -->
-                <lottie-player 
-          src="{{ '/assets/3d/hero1.json' | url }}" 
-          background="transparent" 
-          speed="1" 
-          autoplay 
-          loop 
-          class="hero-lottie-animation"></lottie-player>
-            </div>
+
+                <img src="{{ '/assets/images/hero1.png' | url }}" alt="Вега Тест диагностика" class="shadow-md border border-primary-dune mb-4 w-4/5 sm:w-3/4 lg:w-full rounded-3xl max-w-lg lg:max-w-xl relative z-10 object-contain">
+                </div>
         </div>
     </div>
 </section>
@@ -67,7 +61,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
 <section class="py-12 bg-primary-sand/30 flex">
     <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
         <!-- Header -->
-        <div class="w-full text-left">
+        <div class="w-full text-left z-[100]">
 
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen mb-4">
                 Подход
@@ -169,10 +163,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     </div>
                     <div class="mt-2 flex flex-col gap-1 text-left w-full">
                         <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
-                            Флорални есенции – практик.
+                            Здравословно хранене – консултант.
                         </p>
                         <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
-                            Сертификат за въвеждащ курс по австралийски флорални есенции.
+                            Сертификат за обучение като консултант по помощни средства и хранителни добавки.
                         </p>
                     </div>
                 </div>
@@ -194,10 +188,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     </div>
                     <div class="mt-2 flex flex-col gap-1 text-left w-full">
                         <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
-                            Здравословно хранене – консултант.
+                            Нутрициология – специалист.
                         </p>
                         <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
-                            Сертификат за обучение като консултант по помощни средства и хранителни добавки.
+                            Сертификат за завършен курс по нутрициология.
                         </p>
                     </div>
                 </div>
@@ -219,10 +213,10 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                     </div>
                     <div class="mt-2 flex flex-col gap-1 text-left w-full">
                         <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
-                            Нутрициология – специалист.
+                            Флорални есенции – практик.
                         </p>
                         <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
-                            Сертификат за завършен курс по нутрициология.
+                            Сертификат за въвеждащ курс по австралийски флорални есенции.
                         </p>
                     </div>
                 </div>
