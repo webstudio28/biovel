@@ -76,9 +76,9 @@ eleventyComputed:
 		<div class="bg-white/60 rounded-2xl p-6 md:p-8">
 			<div class="prose prose-lg max-w-none">
 				<p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
-					{{ service.longDescription | safe }}
+					{{ service.longDescription | nl2br | safe }}
 				</p>
-				<p class="text-md font-semibold text-primary-evergreen mt-2">Цена: {{ service.price.lv }} лв / {{ service.price.eur }} €</p>
+				<p class="text-md font-semibold text-primary-evergreen mt-2">Цена: {{ service.price.eur }} € / {{ service.price.lv }} лв</p>
 			</div>
 		</div>
 	</div>
@@ -97,46 +97,6 @@ eleventyComputed:
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 					</svg>
 					<p class="text-primary-deepsea text-sm md:text-base">{{ benefit }}</p>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
-</section>
-{% endif %}
-
-<!-- Процес Section -->
-{% if service.howItWorks and service.howItWorks.length > 0 %}
-<section class="py-12 bg-primary-sand/30">
-	<div class="max-w-7xl w-full mx-auto px-4">
-		<h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-8">Процес</h2>
-		<div class="space-y-6">
-			<!-- Time as First Step -->
-			{% if service.time %}
-				<div class="bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-					<div class="w-10 h-10 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-bold flex-shrink-0">1</div>
-					<div class="flex-1">
-						<div class="flex items-center gap-3 mb-2">
-							
-							<h3 class="text-primary-deepsea ">Времетраене</h3>
-						</div>
-						<p class="text-primary-dark-gray">{{ service.time }}</p>
-					</div>
-				</div>
-			{% endif %}
-			
-			<!-- Other Steps -->
-			{% for step in service.howItWorks %}
-				<div class="bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-					<div class="w-10 h-10 rounded-full bg-primary-sand/80 text-primary-evergreen flex items-center justify-center font-bold flex-shrink-0">
-						{% if service.time %}
-							{{ loop.index + 1 }}
-						{% else %}
-							{{ loop.index }}
-						{% endif %}
-					</div>
-					<div class="flex-1">
-						<p class="text-primary-dark-gray text-base">{{ step.name }}</p>
-					</div>
 				</div>
 			{% endfor %}
 		</div>
