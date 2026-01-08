@@ -245,7 +245,7 @@ eleventyComputed:
                 <form id="order-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                     <input type="hidden" name="access_key" value="4eabcc47-f892-4a07-93b7-a0b089cb73d5">
                     <input type="hidden" name="subject" value="Нова поръчка: {{ product.title }}">
-                    <input type="hidden" name="redirect" value="{{ '/blagodarya/' | url }}">
+                    <input type="hidden" name="redirect" value="{{ '/poruchka-napravena/' | url }}">
                     <input type="hidden" name="product_name" value="{{ product.title }}">
                     <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
 
@@ -271,17 +271,21 @@ eleventyComputed:
                         </div>
                     </div>
 
+                    <!-- Fake fields to confuse autofill -->
+                    <input type="text" name="fake-city" autocomplete="off" tabindex="-1" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                    <input type="text" name="fake-office" autocomplete="off" tabindex="-1" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+
                     <!-- City -->
                     <div>
                         <label for="order-city" class="block text-sm font-semibold text-primary-deepsea mb-2">Град *</label>
-                        <input type="text" id="order-city" required autocomplete="nope" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Въведете град">
+                        <input type="text" id="order-city" required autocomplete="new-password" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" data-browser-autofill="off" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Въведете град">
                         <div id="city-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
                     </div>
 
                     <!-- Office -->
                     <div>
                         <label for="order-office" class="block text-sm font-semibold text-primary-deepsea mb-2">Офис на еконт *</label>
-                        <input type="text" id="order-office" required autocomplete="nope" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Изберете офис">
+                        <input type="text" id="order-office" required autocomplete="new-password" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" data-browser-autofill="off" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Изберете офис">
                         <div id="office-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
                     </div>
 
@@ -339,6 +343,24 @@ eleventyComputed:
     .order-modal::-webkit-scrollbar-thumb {
         background-color: rgba(0, 0, 0, 0.2);
         border-radius: 3px;
+    }
+
+    /* Prevent autofill styling */
+    #order-city:-webkit-autofill,
+    #order-city:-webkit-autofill:hover,
+    #order-city:-webkit-autofill:focus,
+    #order-office:-webkit-autofill,
+    #order-office:-webkit-autofill:hover,
+    #order-office:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0 1000px rgba(243, 236, 222, 0.3) inset !important;
+        -webkit-text-fill-color: #374151 !important;
+        transition: background-color 5000s ease-in-out 0s;
+        background-color: rgba(243, 236, 222, 0.3) !important;
+    }
+
+    #order-city:-webkit-autofill::first-line,
+    #order-office:-webkit-autofill::first-line {
+        -webkit-text-fill-color: #374151 !important;
     }
 </style>
 
@@ -495,15 +517,40 @@ eleventyComputed:
                 }
             });
 
-            // Monitor for autofill and clear it
-            let cityInputInterval = setInterval(() => {
-                if (cityInput.value && !selectedCity && cityInput === document.activeElement) {
-                    // Value was autofilled, clear it
+            // Aggressive autofill prevention for city
+            let cityLastValue = '';
+            function preventCityAutofill() {
+                if (cityInput.value && !selectedCity && cityInput.value !== cityLastValue) {
+                    // Value was changed (likely autofill), clear it
                     cityInput.value = '';
+                    cityInput.blur();
                 }
-            }, 100);
+                cityLastValue = cityInput.value;
+            }
 
-            setTimeout(() => clearInterval(cityInputInterval), 5000);
+            // Monitor continuously for autofill
+            let cityInputInterval = setInterval(preventCityAutofill, 50);
+            
+            // Check on various events
+            cityInput.addEventListener('animationstart', preventCityAutofill);
+            cityInput.addEventListener('webkitAnimationStart', preventCityAutofill);
+            
+            // Use MutationObserver to detect autofill (browsers change styles)
+            const cityObserver = new MutationObserver((mutations) => {
+                preventCityAutofill();
+            });
+            cityObserver.observe(cityInput, {
+                attributes: true,
+                attributeFilter: ['style', 'class'],
+                childList: false,
+                subtree: false
+            });
+
+            // Stop monitoring after 10 seconds
+            setTimeout(() => {
+                clearInterval(cityInputInterval);
+                cityObserver.disconnect();
+            }, 10000);
 
             // Hide suggestions when clicking outside
             document.addEventListener('click', (e) => {
@@ -601,15 +648,42 @@ eleventyComputed:
                 }
             });
 
-            // Monitor for autofill and clear it
-            let officeInputInterval = setInterval(() => {
-                if (officeInput.value && !selectedOffice && officeInput === document.activeElement) {
-                    // Value was autofilled, clear it
+            // Aggressive autofill prevention for office
+            let officeLastValue = '';
+            function preventOfficeAutofill() {
+                if (officeInput.value && !selectedOffice && officeInput.value !== officeLastValue) {
+                    // Value was changed (likely autofill), clear it
                     officeInput.value = '';
+                    officeAddressValue = '';
+                    officeInput.removeAttribute('data-office-address');
+                    officeInput.blur();
                 }
-            }, 100);
+                officeLastValue = officeInput.value;
+            }
 
-            setTimeout(() => clearInterval(officeInputInterval), 5000);
+            // Monitor continuously for autofill
+            let officeInputInterval = setInterval(preventOfficeAutofill, 50);
+            
+            // Check on various events
+            officeInput.addEventListener('animationstart', preventOfficeAutofill);
+            officeInput.addEventListener('webkitAnimationStart', preventOfficeAutofill);
+            
+            // Use MutationObserver to detect autofill (browsers change styles)
+            const officeObserver = new MutationObserver((mutations) => {
+                preventOfficeAutofill();
+            });
+            officeObserver.observe(officeInput, {
+                attributes: true,
+                attributeFilter: ['style', 'class'],
+                childList: false,
+                subtree: false
+            });
+
+            // Stop monitoring after 10 seconds
+            setTimeout(() => {
+                clearInterval(officeInputInterval);
+                officeObserver.disconnect();
+            }, 10000);
 
             // Hide suggestions when clicking outside
             document.addEventListener('click', (e) => {
@@ -628,20 +702,31 @@ eleventyComputed:
             document.body.classList.add('overflow-hidden');
             updatePrice();
             
-            // Clear any autofilled values and set readonly again
-            setTimeout(() => {
-                if (!selectedCity && cityInput.value) {
-                    cityInput.value = '';
-                    cityInput.setAttribute('readonly', '');
-                }
-                
-                if (!selectedOffice && officeInput.value) {
-                    officeInput.value = '';
-                    officeInput.setAttribute('readonly', '');
-                    officeAddressValue = '';
-                    officeInput.removeAttribute('data-office-address');
-                }
-            }, 100);
+            // Immediately clear any autofilled values
+            if (!selectedCity && cityInput.value) {
+                cityInput.value = '';
+            }
+            if (!selectedOffice && officeInput.value) {
+                officeInput.value = '';
+                officeAddressValue = '';
+                officeInput.removeAttribute('data-office-address');
+            }
+            
+            // Aggressively clear autofilled values multiple times
+            [50, 100, 200, 300, 500, 1000, 2000].forEach(delay => {
+                setTimeout(() => {
+                    if (!selectedCity && cityInput.value) {
+                        cityInput.value = '';
+                        cityInput.setAttribute('readonly', '');
+                    }
+                    if (!selectedOffice && officeInput.value) {
+                        officeInput.value = '';
+                        officeInput.setAttribute('readonly', '');
+                        officeAddressValue = '';
+                        officeInput.removeAttribute('data-office-address');
+                    }
+                }, delay);
+            });
         };
 
         const closeModal = () => {
@@ -685,7 +770,11 @@ eleventyComputed:
                 const resultDiv = document.getElementById('order-form-result');
                 
                 submitButton.disabled = true;
-                submitButton.textContent = 'Изпраща...';
+                submitButton.innerHTML = '<svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+
+                // Show spinner in result div
+                resultDiv.innerHTML = '<div class="flex justify-center items-center py-4"><svg class="animate-spin h-8 w-8 text-primary-evergreen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></div>';
+                resultDiv.className = '';
 
                 const quantity = parseInt(quantityInput.value) || 1;
                 const totalPrice = (productPrice * quantity).toFixed(2);
@@ -714,7 +803,7 @@ eleventyComputed:
                 const formData = new FormData();
                 formData.append('access_key', '4eabcc47-f892-4a07-93b7-a0b089cb73d5');
                 formData.append('subject', 'Нова поръчка: {{ product.title }}');
-                formData.append('redirect', '{{ "/blagodarya/" | url }}');
+                formData.append('redirect', '{{ "/poruchka-napravena/" | url }}');
                 formData.append('botcheck', '');
                 formData.append('message', message);
 
@@ -727,20 +816,15 @@ eleventyComputed:
                     const data = await response.json();
 
                     if (data.success) {
-                        resultDiv.textContent = 'Поръчката е изпратена успешно!';
-                        resultDiv.className = 'text-sm text-green-600 text-center';
-                        setTimeout(() => {
-                            window.location.href = '{{ "/blagodarya/" | url }}';
-                        }, 2000);
+                        // Redirect immediately without showing success message
+                        window.location.href = '{{ "/poruchka-napravena/" | url }}';
                     } else {
-                        resultDiv.textContent = 'Грешка при изпращане. Моля опитайте отново.';
-                        resultDiv.className = 'text-sm text-red-600 text-center';
+                        resultDiv.innerHTML = '<p class="text-sm text-red-600 text-center">Грешка при изпращане. Моля опитайте отново.</p>';
                         submitButton.disabled = false;
                         submitButton.textContent = 'Изпрати поръчка';
                     }
                 } catch (error) {
-                    resultDiv.textContent = 'Грешка при изпращане. Моля опитайте отново.';
-                    resultDiv.className = 'text-sm text-red-600 text-center';
+                    resultDiv.innerHTML = '<p class="text-sm text-red-600 text-center">Грешка при изпращане. Моля опитайте отново.</p>';
                     submitButton.disabled = false;
                     submitButton.textContent = 'Изпрати поръчка';
                 }
