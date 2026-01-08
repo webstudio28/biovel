@@ -86,9 +86,9 @@ eleventyComputed:
                     </div>
                 {% endif %}
                 
-                <!-- Buy Now Button -->
-                <button type="button" id="open-pharmacy-modal" class="bg-green-700 hover:bg-green-800 text-white w-full text-center rounded-2xl py-3 font-semibold transition-colors">
-                    Намери в аптека
+                <!-- Order Button -->
+                <button type="button" id="open-order-modal" class="bg-green-700 hover:bg-green-800 text-white w-full text-center rounded-2xl py-3 font-semibold transition-colors">
+                    Поръчай
                 </button>
             </div>
         </div>
@@ -223,72 +223,442 @@ eleventyComputed:
 </section>
 {% endif %}
 
-<!-- Pharmacy Modal -->
-<div id="pharmacy-modal" class="fixed inset-0 z-[99999] hidden">
+<!-- Order Modal -->
+<div id="order-modal" class="fixed inset-0 z-[99999] hidden overflow-y-auto">
     <div class="absolute inset-0 bg-black/60 z-[1]" data-modal-overlay></div>
-    <div class="relative z-[2] flex items-center justify-center min-h-screen p-4">
-        <div class="pharmacy-modal max-h-[80vh] overflow-y-auto bg-white rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.2)] max-w-xl w-full p-8 md:p-10 relative z-[3]">
-            <button type="button" class="absolute top-4 right-4 text-primary-volcanic/60 hover:text-primary-volcanic transition-colors" data-close-modal>
+    <div class="relative z-[2] flex items-center justify-center min-h-screen py-4 md:py-16 px-4">
+        <div class="order-modal w-full max-w-xl bg-white rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.2)] p-6 md:p-8 lg:p-10 relative z-[3]">
+            <button type="button" class="absolute top-4 right-4 text-primary-volcanic/60 hover:text-primary-volcanic transition-colors text-2xl" data-close-modal>
                 <span class="sr-only">Затвори</span>
                 ✕
             </button>
-            <div class="space-y-6 text-center">
-                <div class="space-y-3">
-                    <h3 class="text-2xl md:text-3xl font-bold text-primary-evergreen">Намери в аптека</h3>
-                    <p class="text-primary-deepsea text-base md:text-lg leading-relaxed">Избери предпочитаната аптека.</p>
+            
+            <div class="space-y-6">
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-3 mb-2">
+                        <h3 class="text-2xl md:text-3xl font-bold text-primary-evergreen">Поръчай до офис на еконт</h3>
+                        <img src="{{ '/assets/images/ekont-logo.png' | url }}" alt="Еконт" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover">
+                    </div>
+                    <p class="text-primary-deepsea text-base">{{ product.title }}</p>
                 </div>
 
-                {% if product.pharmacies and product.pharmacies.length > 0 %}
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {% for pharmacy in product.pharmacies %}
-                            <a href="{{ pharmacy.link | url }}" class="group bg-primary-sand/40 hover:bg-primary-sand/60 border border-primary-sand/70 rounded-2xl px-5 py-4 flex flex-col items-center gap-3 transition-colors" target="_blank" rel="noopener">
-                                <div class="w-20 h-20 flex items-center justify-center">
-                                    <img src="{{ pharmacy.logo | url }}" alt="{{ pharmacy.name }}" class="w-20 h-20 object-contain">
-                                </div>
-                                <span class="text-primary-evergreen font-semibold">{{ pharmacy.name }}</span>
-                            </a>
-                        {% endfor %}
+                <form id="order-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    <input type="hidden" name="access_key" value="4eabcc47-f892-4a07-93b7-a0b089cb73d5">
+                    <input type="hidden" name="subject" value="Нова поръчка: {{ product.title }}">
+                    <input type="hidden" name="redirect" value="{{ '/blagodarya/' | url }}">
+                    <input type="hidden" name="product_name" value="{{ product.title }}">
+                    <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+                    <!-- Full Name -->
+                    <div>
+                        <label for="order-name" class="block text-sm font-semibold text-primary-deepsea mb-2">Име и фамилия *</label>
+                        <input type="text" id="order-name" required class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Въведете име и фамилия">
                     </div>
-                {% else %}
-                    <p class="text-primary-deepsea">В момента няма налични аптеки.</p>
-                {% endif %}
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="order-phone" class="block text-sm font-semibold text-primary-deepsea mb-2">Телефон *</label>
+                        <input type="tel" id="order-phone" required class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="0888 888 888">
+                    </div>
+
+                    <!-- Quantity -->
+                    <div>
+                        <label for="order-quantity" class="block text-sm font-semibold text-primary-deepsea mb-2">Количество *</label>
+                        <div class="flex items-center gap-3">
+                            <button type="button" id="decrease-quantity" class="w-10 h-10 rounded-full bg-primary-sand/60 hover:bg-primary-sand/80 text-primary-evergreen font-bold text-lg transition-colors flex items-center justify-center">−</button>
+                            <input type="number" id="order-quantity" value="1" min="1" required readonly class="w-20 text-center rounded-xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic font-semibold focus:outline-none">
+                            <button type="button" id="increase-quantity" class="w-10 h-10 rounded-full bg-primary-sand/60 hover:bg-primary-sand/80 text-primary-evergreen font-bold text-lg transition-colors flex items-center justify-center">+</button>
+                        </div>
+                    </div>
+
+                    <!-- City -->
+                    <div>
+                        <label for="order-city" class="block text-sm font-semibold text-primary-deepsea mb-2">Град *</label>
+                        <input type="text" id="order-city" required autocomplete="nope" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Въведете град">
+                        <div id="city-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
+                    </div>
+
+                    <!-- Office -->
+                    <div>
+                        <label for="order-office" class="block text-sm font-semibold text-primary-deepsea mb-2">Офис на еконт *</label>
+                        <input type="text" id="order-office" required autocomplete="nope" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Изберете офис">
+                        <div id="office-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
+                    </div>
+
+                    <!-- Price Display -->
+                    <div class="bg-primary-sand/30 rounded-2xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-primary-deepsea font-semibold">Единична цена:</span>
+                            <span class="text-primary-evergreen font-bold" id="unit-price">{{ product.price }} €</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary-deepsea font-semibold">Обща сума:</span>
+                            <span class="text-primary-evergreen font-bold text-xl" id="total-price">{{ product.price }} €</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white rounded-2xl py-3 font-semibold transition-colors">
+                        Изпрати поръчка
+                    </button>
+
+                    <p class="text-sm text-primary-dune/80 text-center" id="order-form-result"></p>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-    .pharmacy-modal {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+    #order-modal {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .pharmacy-modal::-webkit-scrollbar {
-        display: none;
+    .order-modal {
+        max-height: 80vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
+    @media (min-width: 768px) {
+        .order-modal {
+            max-height: 90vh;
+        }
+    }
+
+    .order-modal::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .order-modal::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .order-modal::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
     }
 </style>
 
 <script src="{{ '/assets/js/product-carousel.js' | url }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const openButton = document.getElementById('open-pharmacy-modal');
-        const modal = document.getElementById('pharmacy-modal');
+        const openButton = document.getElementById('open-order-modal');
+        const modal = document.getElementById('order-modal');
+        const quantityInput = document.getElementById('order-quantity');
+        const decreaseBtn = document.getElementById('decrease-quantity');
+        const increaseBtn = document.getElementById('increase-quantity');
+        const unitPriceEl = document.getElementById('unit-price');
+        const totalPriceEl = document.getElementById('total-price');
+        const cityInput = document.getElementById('order-city');
+        const officeInput = document.getElementById('order-office');
+        const citySuggestions = document.getElementById('city-suggestions');
+        const officeSuggestions = document.getElementById('office-suggestions');
+        const orderForm = document.getElementById('order-form');
 
         if (!openButton || !modal) {
             return;
         }
 
+        // Load Ekont offices data
+        let ekontOffices = [];
+        fetch('{{ "/assets/data/ekontOffices.json" | url }}')
+            .then(res => res.json())
+            .then(data => {
+                ekontOffices = data;
+            })
+            .catch(err => console.error('Error loading Ekont offices:', err));
+
+        const productPrice = parseFloat('{{ product.price }}' || '10');
+        let selectedCity = '';
+        let selectedOffice = '';
+        let officeAddressValue = '';
+
+        // Update price display
+        function updatePrice() {
+            const quantity = parseInt(quantityInput.value) || 1;
+            const total = (productPrice * quantity).toFixed(2);
+            unitPriceEl.textContent = productPrice.toFixed(2) + ' €';
+            totalPriceEl.textContent = total + ' €';
+            
+            // Update hidden form field
+            const totalInput = document.createElement('input');
+            totalInput.type = 'hidden';
+            totalInput.name = 'total_price';
+            totalInput.value = total;
+            if (document.querySelector('input[name="total_price"]')) {
+                document.querySelector('input[name="total_price"]').value = total;
+            } else {
+                orderForm.appendChild(totalInput);
+            }
+        }
+
+        // Quantity controls
+        if (decreaseBtn && quantityInput) {
+            decreaseBtn.addEventListener('click', () => {
+                const current = parseInt(quantityInput.value) || 1;
+                if (current > 1) {
+                    quantityInput.value = current - 1;
+                    updatePrice();
+                }
+            });
+        }
+
+        if (increaseBtn && quantityInput) {
+            increaseBtn.addEventListener('click', () => {
+                const current = parseInt(quantityInput.value) || 1;
+                quantityInput.value = current + 1;
+                updatePrice();
+            });
+        }
+
+        // City filtering and dropdown
+        if (cityInput && citySuggestions) {
+            function showCityDropdown(searchTerm = '') {
+                if (ekontOffices.length === 0) return;
+                
+                const term = searchTerm.toLowerCase();
+                const filteredCities = term.length > 0 
+                    ? ekontOffices.filter(city => city.city.toLowerCase().includes(term))
+                    : ekontOffices;
+
+                if (filteredCities.length > 0) {
+                    citySuggestions.innerHTML = filteredCities.map(city => 
+                        `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-city="${city.city}">${city.city}</div>`
+                    ).join('');
+                    citySuggestions.classList.remove('hidden');
+                } else {
+                    citySuggestions.classList.add('hidden');
+                }
+            }
+
+            // Show dropdown on click/focus
+            cityInput.addEventListener('click', () => {
+                // Remove readonly if present
+                cityInput.removeAttribute('readonly');
+                // Clear autofilled value if not selected
+                if (!selectedCity && cityInput.value) {
+                    cityInput.value = '';
+                }
+                if (ekontOffices.length > 0) {
+                    showCityDropdown(cityInput.value);
+                }
+            });
+
+            cityInput.addEventListener('focus', () => {
+                // Remove readonly and clear any autofilled value
+                cityInput.removeAttribute('readonly');
+                if (!selectedCity && cityInput.value) {
+                    cityInput.value = '';
+                }
+                if (ekontOffices.length > 0) {
+                    showCityDropdown(cityInput.value);
+                }
+            });
+
+            // Filter while typing
+            cityInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value;
+                if (searchTerm.length === 0) {
+                    officeInput.value = '';
+                    officeSuggestions.classList.add('hidden');
+                    selectedCity = '';
+                    showCityDropdown('');
+                    return;
+                }
+                showCityDropdown(searchTerm);
+            });
+
+            // Handle city selection
+            citySuggestions.addEventListener('click', (e) => {
+                const item = e.target.closest('[data-city]');
+                if (item) {
+                    selectedCity = item.dataset.city;
+                    cityInput.value = selectedCity;
+                    citySuggestions.classList.add('hidden');
+                    officeInput.value = '';
+                    selectedOffice = '';
+                    // Clear office address if city changes
+                    officeAddressValue = '';
+                    officeInput.removeAttribute('data-office-address');
+                    officeInput.focus();
+                    // Focus will trigger the office dropdown to show
+                }
+            });
+
+            // Prevent autofill for city field
+            cityInput.addEventListener('change', () => {
+                if (cityInput.value && !selectedCity) {
+                    cityInput.value = '';
+                }
+            });
+
+            // Monitor for autofill and clear it
+            let cityInputInterval = setInterval(() => {
+                if (cityInput.value && !selectedCity && cityInput === document.activeElement) {
+                    // Value was autofilled, clear it
+                    cityInput.value = '';
+                }
+            }, 100);
+
+            setTimeout(() => clearInterval(cityInputInterval), 5000);
+
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!cityInput.contains(e.target) && !citySuggestions.contains(e.target)) {
+                    citySuggestions.classList.add('hidden');
+                }
+            });
+        }
+
+        // Office filtering and dropdown
+        if (officeInput && officeSuggestions) {
+            function showOfficeDropdown(searchTerm = '') {
+                if (!selectedCity || ekontOffices.length === 0) {
+                    officeSuggestions.classList.add('hidden');
+                    return;
+                }
+
+                const cityData = ekontOffices.find(c => c.city === selectedCity);
+                if (!cityData || !cityData.offices || cityData.offices.length === 0) {
+                    officeSuggestions.classList.add('hidden');
+                    return;
+                }
+
+                const term = searchTerm.toLowerCase();
+                const filteredOffices = term.length > 0
+                    ? cityData.offices.filter(office => 
+                        office.name.toLowerCase().includes(term) ||
+                        office.address.toLowerCase().includes(term)
+                      )
+                    : cityData.offices;
+
+                if (filteredOffices.length > 0) {
+                    officeSuggestions.innerHTML = filteredOffices.map(office => 
+                        `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-office="${office.name}" data-address="${office.address}">
+                            <div class="font-semibold text-primary-evergreen">${office.name}</div>
+                            <div class="text-sm text-primary-dune">${office.address}</div>
+                        </div>`
+                    ).join('');
+                    officeSuggestions.classList.remove('hidden');
+                } else {
+                    officeSuggestions.classList.add('hidden');
+                }
+            }
+
+            // Show dropdown on click/focus
+            officeInput.addEventListener('click', () => {
+                // Remove readonly if present
+                officeInput.removeAttribute('readonly');
+                // Clear autofilled value if not selected
+                if (!selectedOffice && officeInput.value) {
+                    officeInput.value = '';
+                    officeAddressValue = '';
+                }
+                if (selectedCity && ekontOffices.length > 0) {
+                    showOfficeDropdown(officeInput.value);
+                }
+            });
+
+            officeInput.addEventListener('focus', () => {
+                // Remove readonly and clear any autofilled value
+                officeInput.removeAttribute('readonly');
+                if (!selectedOffice && officeInput.value) {
+                    officeInput.value = '';
+                    officeAddressValue = '';
+                    officeInput.removeAttribute('data-office-address');
+                }
+                if (selectedCity && ekontOffices.length > 0) {
+                    showOfficeDropdown(officeInput.value);
+                }
+            });
+
+            // Filter while typing
+            officeInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value;
+                showOfficeDropdown(searchTerm);
+            });
+
+            // Handle office selection
+            officeSuggestions.addEventListener('click', (e) => {
+                const item = e.target.closest('[data-office]');
+                if (item) {
+                    selectedOffice = item.dataset.office;
+                    officeAddressValue = item.dataset.address;
+                    officeInput.value = selectedOffice;
+                    // Store address in data attribute for easy access
+                    officeInput.setAttribute('data-office-address', item.dataset.address);
+                    officeSuggestions.classList.add('hidden');
+                }
+            });
+
+            // Prevent autofill for office field
+            officeInput.addEventListener('change', () => {
+                if (officeInput.value && !selectedOffice) {
+                    officeInput.value = '';
+                }
+            });
+
+            // Monitor for autofill and clear it
+            let officeInputInterval = setInterval(() => {
+                if (officeInput.value && !selectedOffice && officeInput === document.activeElement) {
+                    // Value was autofilled, clear it
+                    officeInput.value = '';
+                }
+            }, 100);
+
+            setTimeout(() => clearInterval(officeInputInterval), 5000);
+
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!officeInput.contains(e.target) && !officeSuggestions.contains(e.target)) {
+                    officeSuggestions.classList.add('hidden');
+                }
+            });
+        }
+
+        // Modal controls
         const overlay = modal.querySelector('[data-modal-overlay]');
         const closeButtons = modal.querySelectorAll('[data-close-modal]');
 
         const openModal = () => {
             modal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
+            updatePrice();
+            
+            // Clear any autofilled values and set readonly again
+            setTimeout(() => {
+                if (!selectedCity && cityInput.value) {
+                    cityInput.value = '';
+                    cityInput.setAttribute('readonly', '');
+                }
+                
+                if (!selectedOffice && officeInput.value) {
+                    officeInput.value = '';
+                    officeInput.setAttribute('readonly', '');
+                    officeAddressValue = '';
+                    officeInput.removeAttribute('data-office-address');
+                }
+            }, 100);
         };
 
         const closeModal = () => {
             modal.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
+            // Reset form
+            orderForm.reset();
+            quantityInput.value = 1;
+            selectedCity = '';
+            selectedOffice = '';
+            officeAddressValue = '';
+            if (officeInput) {
+                officeInput.removeAttribute('data-office-address');
+            }
+            citySuggestions.classList.add('hidden');
+            officeSuggestions.classList.add('hidden');
+            updatePrice();
         };
 
         openButton.addEventListener('click', openModal);
@@ -306,5 +676,78 @@ eleventyComputed:
                 closeModal();
             }
         });
+
+        // Form submission
+        if (orderForm) {
+            orderForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitButton = orderForm.querySelector('button[type="submit"]');
+                const resultDiv = document.getElementById('order-form-result');
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Изпраща...';
+
+                const quantity = parseInt(quantityInput.value) || 1;
+                const totalPrice = (productPrice * quantity).toFixed(2);
+                const nameValue = document.getElementById('order-name').value;
+                const phoneValue = document.getElementById('order-phone').value;
+                const cityValue = cityInput.value;
+                const officeValue = officeInput.value;
+                // Get office address from variable or data attribute
+                const officeAddress = (typeof officeAddressValue !== 'undefined' && officeAddressValue) || officeInput.getAttribute('data-office-address') || '';
+                
+                // Build email message with all order details
+                const message = `Нова поръчка:
+
+Продукт: {{ product.title }}
+Количество: ${quantity}
+Единична цена: ${productPrice.toFixed(2)} €
+Обща сума: ${totalPrice} €
+
+Данни за доставка:
+Име: ${nameValue}
+Телефон: ${phoneValue}
+Град: ${cityValue}
+Офис на Еконт: ${officeValue}${officeAddress ? '\nАдрес на офис: ' + officeAddress : ''}`;
+                
+                // Build FormData manually with only essential fields
+                const formData = new FormData();
+                formData.append('access_key', '4eabcc47-f892-4a07-93b7-a0b089cb73d5');
+                formData.append('subject', 'Нова поръчка: {{ product.title }}');
+                formData.append('redirect', '{{ "/blagodarya/" | url }}');
+                formData.append('botcheck', '');
+                formData.append('message', message);
+
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        resultDiv.textContent = 'Поръчката е изпратена успешно!';
+                        resultDiv.className = 'text-sm text-green-600 text-center';
+                        setTimeout(() => {
+                            window.location.href = '{{ "/blagodarya/" | url }}';
+                        }, 2000);
+                    } else {
+                        resultDiv.textContent = 'Грешка при изпращане. Моля опитайте отново.';
+                        resultDiv.className = 'text-sm text-red-600 text-center';
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Изпрати поръчка';
+                    }
+                } catch (error) {
+                    resultDiv.textContent = 'Грешка при изпращане. Моля опитайте отново.';
+                    resultDiv.className = 'text-sm text-red-600 text-center';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Изпрати поръчка';
+                }
+            });
+        }
+
+        // Initialize price
+        updatePrice();
     });
 </script>
