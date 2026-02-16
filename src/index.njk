@@ -251,7 +251,13 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                                         {% if category.services %}
                                             {% for service in category.services %}
                                                 <div class="home-service-card bg-white p-2 flex-shrink-0 flex flex-col gap-4 w-[260px] md:w-[300px] rounded-3xl group transition-all duration-300 shadow-md">
-                                                    <img src="{{ service.images[0] | url }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
+                                                    {% if service.images and service.images.length > 0 and service.images[0] %}
+                                                        <img src="{{ service.images[0] | url }}" alt="{{ service.name }}" class="w-full min-h-[200px] max-h-[200px] object-cover rounded-2xl"/>
+                                                    {% else %}
+                                                        <div class="w-full min-h-[200px] max-h-[200px] rounded-2xl bg-primary-sand/40 flex items-center justify-center px-4 text-center">
+                                                            <span class="text-primary-evergreen font-bold text-lg">{{ service.name }}</span>
+                                                        </div>
+                                                    {% endif %}
                                                     <div class="flex flex-col flex-grow">
                                                         <h3 class="text-primary-deepsea font-bold text-lg">{{ service.name }}</h3>
                                                         <p class="text-gray-600 mt-2 text-sm flex-grow">{{ service.description }}</p>
@@ -332,7 +338,7 @@ description: ВЕГА ТЕСТ - компютърна диагностика з�
                 </section>
 
                 <!-- Faq -->
-                <section class="py-12 bg-primary-sand/30">
+                <section class="py-12 bg-primary-sand/30 hidden">
                     <div class="max-w-7xl w-full mx-auto px-4 flex flex-col justify-center items-center gap-12 md:gap-14">
                         <!-- Header -->
                         <div class="w-full text-left">

@@ -261,6 +261,12 @@ eleventyComputed:
                         <input type="tel" id="order-phone" required class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="0888 888 888">
                     </div>
 
+                    <!-- Email -->
+                    <div>
+                        <label for="order-email" class="block text-sm font-semibold text-primary-deepsea mb-2">Имейл *</label>
+                        <input type="email" id="order-email" required class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="name@example.com">
+                    </div>
+
                     <!-- Quantity -->
                     <div>
                         <label for="order-quantity" class="block text-sm font-semibold text-primary-deepsea mb-2">Количество *</label>
@@ -285,7 +291,7 @@ eleventyComputed:
                     <!-- Office -->
                     <div>
                         <label for="order-office" class="block text-sm font-semibold text-primary-deepsea mb-2">Офис на еконт *</label>
-                        <input type="text" id="order-office" required autocomplete="new-password" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" data-browser-autofill="off" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Изберете офис">
+                        <input type="text" id="order-office" required autocomplete="new-password" data-lpignore="true" data-form-type="other" data-autocomplete-off="true" data-prevent-autofill="true" data-browser-autofill="off" readonly class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition" placeholder="Търсете по име или адрес на офис">
                         <div id="office-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
                     </div>
 
@@ -365,6 +371,7 @@ eleventyComputed:
 </style>
 
 <script src="{{ '/assets/js/product-carousel.js' | url }}"></script>
+<script>window.ECONT_OFFICES = {{ econtOffices.offices | json | safe }};</script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const openButton = document.getElementById('open-order-modal');
@@ -384,14 +391,9 @@ eleventyComputed:
             return;
         }
 
-        // Load Ekont offices data
-        let ekontOffices = [];
-        fetch('{{ "/assets/data/ekontOffices.json" | url }}')
-            .then(res => res.json())
-            .then(data => {
-                ekontOffices = data;
-            })
-            .catch(err => console.error('Error loading Ekont offices:', err));
+        // Bulgarian Econt offices (from Eleventy global data)
+        const allOffices = Array.isArray(window.ECONT_OFFICES) ? window.ECONT_OFFICES : [];
+        const uniqueCities = [...new Set(allOffices.map(o => (o.address && o.address.city && o.address.city.name) ? o.address.city.name : '').filter(Boolean))].sort();
 
         const productPrice = parseFloat('{{ product.price }}' || '10');
         let selectedCity = '';
@@ -436,19 +438,24 @@ eleventyComputed:
             });
         }
 
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
         // City filtering and dropdown
         if (cityInput && citySuggestions) {
             function showCityDropdown(searchTerm = '') {
-                if (ekontOffices.length === 0) return;
-                
-                const term = searchTerm.toLowerCase();
-                const filteredCities = term.length > 0 
-                    ? ekontOffices.filter(city => city.city.toLowerCase().includes(term))
-                    : ekontOffices;
-
-                if (filteredCities.length > 0) {
-                    citySuggestions.innerHTML = filteredCities.map(city => 
-                        `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-city="${city.city}">${city.city}</div>`
+                if (uniqueCities.length === 0) return;
+                const term = (searchTerm || '').toLowerCase().trim();
+                const filtered = term.length > 0
+                    ? uniqueCities.filter(city => city.toLowerCase().includes(term))
+                    : uniqueCities;
+                if (filtered.length > 0) {
+                    citySuggestions.innerHTML = filtered.map(city =>
+                        `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-city="${escapeHtml(city)}">${escapeHtml(city)}</div>`
                     ).join('');
                     citySuggestions.classList.remove('hidden');
                 } else {
@@ -456,28 +463,16 @@ eleventyComputed:
                 }
             }
 
-            // Show dropdown on click/focus
             cityInput.addEventListener('click', () => {
-                // Remove readonly if present
                 cityInput.removeAttribute('readonly');
-                // Clear autofilled value if not selected
-                if (!selectedCity && cityInput.value) {
-                    cityInput.value = '';
-                }
-                if (ekontOffices.length > 0) {
-                    showCityDropdown(cityInput.value);
-                }
+                if (!selectedCity && cityInput.value) cityInput.value = '';
+                if (uniqueCities.length > 0) showCityDropdown(cityInput.value);
             });
 
             cityInput.addEventListener('focus', () => {
-                // Remove readonly and clear any autofilled value
                 cityInput.removeAttribute('readonly');
-                if (!selectedCity && cityInput.value) {
-                    cityInput.value = '';
-                }
-                if (ekontOffices.length > 0) {
-                    showCityDropdown(cityInput.value);
-                }
+                if (!selectedCity && cityInput.value) cityInput.value = '';
+                if (uniqueCities.length > 0) showCityDropdown(cityInput.value);
             });
 
             // Filter while typing
@@ -560,66 +555,49 @@ eleventyComputed:
             });
         }
 
-        // Office filtering and dropdown
+        // Office filtering and dropdown (by city + name or address)
         if (officeInput && officeSuggestions) {
             function showOfficeDropdown(searchTerm = '') {
-                if (!selectedCity || ekontOffices.length === 0) {
+                if (!selectedCity || allOffices.length === 0) {
                     officeSuggestions.classList.add('hidden');
                     return;
                 }
-
-                const cityData = ekontOffices.find(c => c.city === selectedCity);
-                if (!cityData || !cityData.offices || cityData.offices.length === 0) {
-                    officeSuggestions.classList.add('hidden');
-                    return;
-                }
-
-                const term = searchTerm.toLowerCase();
-                const filteredOffices = term.length > 0
-                    ? cityData.offices.filter(office => 
-                        office.name.toLowerCase().includes(term) ||
-                        office.address.toLowerCase().includes(term)
-                      )
-                    : cityData.offices;
-
-                if (filteredOffices.length > 0) {
-                    officeSuggestions.innerHTML = filteredOffices.map(office => 
-                        `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-office="${office.name}" data-address="${office.address}">
-                            <div class="font-semibold text-primary-evergreen">${office.name}</div>
-                            <div class="text-sm text-primary-dune">${office.address}</div>
-                        </div>`
-                    ).join('');
+                const byCity = allOffices.filter(o => (o.address && o.address.city && o.address.city.name) && o.address.city.name === selectedCity);
+                const term = (searchTerm || '').toLowerCase().trim();
+                const filtered = term.length > 0
+                    ? byCity.filter(o => {
+                        const name = (o.name || '').toLowerCase();
+                        const nameEn = (o.nameEn || '').toLowerCase();
+                        const addr = (o.address && o.address.fullAddress ? o.address.fullAddress : '').toLowerCase();
+                        const addrEn = (o.address && o.address.fullAddressEn ? o.address.fullAddressEn : '').toLowerCase();
+                        return name.includes(term) || nameEn.includes(term) || addr.includes(term) || addrEn.includes(term);
+                      })
+                    : byCity;
+                if (filtered.length > 0) {
+                    officeSuggestions.innerHTML = filtered.map(o => {
+                        const name = o.name || o.nameEn || '';
+                        const addr = (o.address && o.address.fullAddress) ? o.address.fullAddress.trim() : '';
+                        return `<div class="p-3 hover:bg-primary-sand/40 cursor-pointer border-b border-primary-sand/30 last:border-b-0" data-office="${escapeHtml(name)}" data-address="${escapeHtml(addr)}">
+                            <div class="font-semibold text-primary-evergreen">${escapeHtml(name)}</div>
+                            ${addr ? `<div class="text-sm text-primary-dune">${escapeHtml(addr)}</div>` : ''}
+                        </div>`;
+                    }).join('');
                     officeSuggestions.classList.remove('hidden');
                 } else {
                     officeSuggestions.classList.add('hidden');
                 }
             }
 
-            // Show dropdown on click/focus
             officeInput.addEventListener('click', () => {
-                // Remove readonly if present
                 officeInput.removeAttribute('readonly');
-                // Clear autofilled value if not selected
-                if (!selectedOffice && officeInput.value) {
-                    officeInput.value = '';
-                    officeAddressValue = '';
-                }
-                if (selectedCity && ekontOffices.length > 0) {
-                    showOfficeDropdown(officeInput.value);
-                }
+                if (!selectedOffice && officeInput.value) { officeInput.value = ''; officeAddressValue = ''; }
+                if (selectedCity && allOffices.length > 0) showOfficeDropdown(officeInput.value);
             });
 
             officeInput.addEventListener('focus', () => {
-                // Remove readonly and clear any autofilled value
                 officeInput.removeAttribute('readonly');
-                if (!selectedOffice && officeInput.value) {
-                    officeInput.value = '';
-                    officeAddressValue = '';
-                    officeInput.removeAttribute('data-office-address');
-                }
-                if (selectedCity && ekontOffices.length > 0) {
-                    showOfficeDropdown(officeInput.value);
-                }
+                if (!selectedOffice && officeInput.value) { officeInput.value = ''; officeAddressValue = ''; officeInput.removeAttribute('data-office-address'); }
+                if (selectedCity && allOffices.length > 0) showOfficeDropdown(officeInput.value);
             });
 
             // Filter while typing
@@ -780,6 +758,7 @@ eleventyComputed:
                 const totalPrice = (productPrice * quantity).toFixed(2);
                 const nameValue = document.getElementById('order-name').value;
                 const phoneValue = document.getElementById('order-phone').value;
+                const emailValue = document.getElementById('order-email').value;
                 const cityValue = cityInput.value;
                 const officeValue = officeInput.value;
                 // Get office address from variable or data attribute
@@ -796,6 +775,7 @@ eleventyComputed:
 Данни за доставка:
 Име: ${nameValue}
 Телефон: ${phoneValue}
+Имейл: ${emailValue}
 Град: ${cityValue}
 Офис на Еконт: ${officeValue}${officeAddress ? '\nАдрес на офис: ' + officeAddress : ''}`;
                 

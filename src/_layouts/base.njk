@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            {% if title %}{{ title }} | {% endif %}БиоВел Диагностика и хранителни добавки
-        </title>
-        <meta name="description" content="{% if description %}{{ description }}{% else %}ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене с най-подходящите храни за вашия организъм{% endif %}">
+        {% set fullTitle = (title + " | БиоВел Диагностика и хранителни добавки") if title else "БиоВел Диагностика и хранителни добавки" %}
+        {% set metaDesc = description if description else "ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене с най-подходящите храни за вашия организъм. БиоВел - персонализирани решения, холистични терапии и хранителни добавки за твоето здраве." %}
+        <title>{{ fullTitle }}</title>
+        <meta name="description" content="{{ metaDesc }}">
 
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | url }}">
@@ -21,10 +21,14 @@
         <link rel="stylesheet" href="{{ '/assets/css/custom-styles.css' | url }}">
         <link rel="stylesheet" href="{{ '/assets/css/home.css' | url }}">
 
-        <!-- Open Graph meta tags -->
-        <meta property="og:title" content="{% if title %}{{ title }}{% else %}БиоВел Диагностика и хранителни добавки{% endif %}"/>
-        <meta property="og:description" content="{% if description %}{{ description }}{% else %}ВЕГА ТЕСТ - компютърна диагностика за здравословно хранене{% endif %}"/>
+        <!-- Open Graph meta tags (absolute URLs for social previews) -->
+        <meta property="og:title" content="{{ fullTitle }}"/>
+        <meta property="og:description" content="{{ metaDesc }}"/>
         <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://www.biovel.bg/og-image.png"/>
+        <meta property="og:url" content="https://www.biovel.bg{{ page.url | url }}"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="630"/>
 
         <script src="{{ '/assets/js/gsap.min.js' | url }}"></script>
         <script src="{{ '/assets/js/ScrollTrigger.min.js' | url }}"></script>

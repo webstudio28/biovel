@@ -5,6 +5,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
+    "fetch-offices": "node scripts/fetch-econt-offices.js",
     "css:build": "tailwindcss -i ./src/assets/css/tailwind.css -o ./_site/assets/css/styles.css --minify",
     "css:watch": "tailwindcss -i ./src/assets/css/tailwind.css -o ./_site/assets/css/styles.css --watch",
     "dev": "npm-run-all --parallel css:watch start",
