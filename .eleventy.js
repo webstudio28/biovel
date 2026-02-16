@@ -7,6 +7,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   // OG image at site root for social previews (https://www.biovel.bg/og-image.png)
   eleventyConfig.addPassthroughCopy({ "src/og-image.png": "og-image.png" });
+  // cPanel: .htaccess for Apache (routing, security headers)
+  eleventyConfig.addPassthroughCopy(".htaccess");
  
   // Expose env vars if needed in templates (keep debug optional)
   if (process.env.MAIL_KEY) {
@@ -25,12 +27,8 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(value);
   });
 
-  // Determine pathPrefix: prefer explicit env; fallback to GH repo name if available
-  const explicitPrefix = process.env.PATH_PREFIX || process.env.ELEVENTY_PATH_PREFIX;
-  const repoPrefix = process.env.GITHUB_REPOSITORY
-    ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}`
-    : "/";
-  const pathPrefix = explicitPrefix || repoPrefix || "/";
+  // pathPrefix: root for cPanel (use PATH_PREFIX env to override if needed)
+  const pathPrefix = process.env.PATH_PREFIX || process.env.ELEVENTY_PATH_PREFIX || "/";
  
   return {
     pathPrefix,

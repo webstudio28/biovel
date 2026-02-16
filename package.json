@@ -9,7 +9,7 @@
     "css:build": "tailwindcss -i ./src/assets/css/tailwind.css -o ./_site/assets/css/styles.css --minify",
     "css:watch": "tailwindcss -i ./src/assets/css/tailwind.css -o ./_site/assets/css/styles.css --watch",
     "dev": "npm-run-all --parallel css:watch start",
-    "deploy": "echo 'Use GitHub Actions instead'"
+    "deploy": "npm run build && echo 'Upload _site/ to cPanel public_html/ via FTP or use GitHub Actions Deploy workflow'"
   },
   "keywords": [
     "11ty",
