@@ -27,6 +27,9 @@ pagination:
                         <div class="flex flex-col gap-2 justify-between">
                             <h3 class="text-md font-bold">{{ product.title }}</h3>
                             <p class="text-sm">{{ product.short_description }}</p>
+                            {% if product.price %}
+                            <p class="text-base font-semibold text-primary-evergreen">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</p>
+                            {% endif %}
                         </div>
 
                         <div class="product-card-benefits">

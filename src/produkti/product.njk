@@ -50,6 +50,11 @@ eleventyComputed:
                 <div class="w-full hidden md:block">
                     <h1 class="text-xl md:text-3xl font-bold text-primary-evergreen">{{ product.title }}</h1>
                 </div>
+
+                <!-- Price (standalone): first after title on desktop, first after images on mobile, centered on mobile -->
+                {% if product.price %}
+                    <p class="text-xl font-semibold text-primary-evergreen text-center md:text-left">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</p>
+                {% endif %}
                 
                 <!-- Package Container -->
                 {% if product.package %}
@@ -195,6 +200,9 @@ eleventyComputed:
                                     {% if item.short_description %}
                                         <p class="text-sm">{{ item.short_description }}</p>
                                     {% endif %}
+                                    {% if item.price %}
+                                    <p class="text-base font-semibold text-primary-evergreen">{{ item.price }} €{% if item.price_bgn %} / {{ item.price_bgn }} лв{% endif %}</p>
+                                    {% endif %}
                                 </div>
                                 <div class="product-card-benefits">
                                     {% if item.benefits and item.benefits.length > 0 %}
@@ -299,11 +307,11 @@ eleventyComputed:
                     <div class="bg-primary-sand/30 rounded-2xl p-4">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-primary-deepsea font-semibold">Единична цена:</span>
-                            <span class="text-primary-evergreen font-bold" id="unit-price">{{ product.price }} €</span>
+                            <span class="text-primary-evergreen font-bold" id="unit-price">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-primary-deepsea font-semibold">Обща сума:</span>
-                            <span class="text-primary-evergreen font-bold text-xl" id="total-price">{{ product.price }} €</span>
+                            <span class="text-primary-evergreen font-bold text-xl" id="total-price">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</span>
                         </div>
                     </div>
 
@@ -396,16 +404,18 @@ eleventyComputed:
         const uniqueCities = [...new Set(allOffices.map(o => (o.address && o.address.city && o.address.city.name) ? o.address.city.name : '').filter(Boolean))].sort();
 
         const productPrice = parseFloat('{{ product.price }}' || '10');
+        const productPriceBgn = parseFloat('{{ product.price_bgn }}' || '0') || null;
         let selectedCity = '';
         let selectedOffice = '';
         let officeAddressValue = '';
 
-        // Update price display
+        // Update price display (Euro first, then BGN if available)
         function updatePrice() {
             const quantity = parseInt(quantityInput.value) || 1;
             const total = (productPrice * quantity).toFixed(2);
-            unitPriceEl.textContent = productPrice.toFixed(2) + ' €';
-            totalPriceEl.textContent = total + ' €';
+            const totalStr = total + ' €' + (productPriceBgn ? ' / ' + (productPriceBgn * quantity).toFixed(2) + ' лв' : '');
+            unitPriceEl.textContent = productPrice.toFixed(2) + ' €' + (productPriceBgn ? ' / ' + productPriceBgn.toFixed(2) + ' лв' : '');
+            totalPriceEl.textContent = totalStr;
             
             // Update hidden form field
             const totalInput = document.createElement('input');
@@ -756,6 +766,7 @@ eleventyComputed:
 
                 const quantity = parseInt(quantityInput.value) || 1;
                 const totalPrice = (productPrice * quantity).toFixed(2);
+                const totalBgn = productPriceBgn ? (productPriceBgn * quantity).toFixed(2) : null;
                 const nameValue = document.getElementById('order-name').value;
                 const phoneValue = document.getElementById('order-phone').value;
                 const emailValue = document.getElementById('order-email').value;
@@ -769,8 +780,8 @@ eleventyComputed:
 
 Продукт: {{ product.title }}
 Количество: ${quantity}
-Единична цена: ${productPrice.toFixed(2)} €
-Обща сума: ${totalPrice} €
+Единична цена: ${productPrice.toFixed(2)} €${productPriceBgn ? ' / ' + productPriceBgn.toFixed(2) + ' лв' : ''}
+Обща сума: ${totalPrice} €${totalBgn ? ' / ' + totalBgn + ' лв' : ''}
 
 Данни за доставка:
 Име: ${nameValue}
