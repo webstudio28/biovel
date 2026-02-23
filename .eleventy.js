@@ -16,6 +16,10 @@ module.exports = function(eleventyConfig) {
   }
   eleventyConfig.addGlobalData("mailKey", process.env.MAIL_KEY || "");
 
+  // SEO: base URL and build date for sitemap/robots
+  eleventyConfig.addGlobalData("siteUrl", process.env.SITE_URL || "https://www.biovel.bg");
+  eleventyConfig.addGlobalData("sitemapBuildDate", () => new Date().toISOString().split("T")[0]);
+
   // Add filter to convert newlines to <br> tags
   eleventyConfig.addNunjucksFilter("nl2br", function(value) {
     if (!value) return "";
