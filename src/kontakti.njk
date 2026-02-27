@@ -59,7 +59,8 @@ description: Свържете се с мен за въпроси или за д�
     <div class="max-w-7xl w-full mx-auto px-4">
         <div class="bg-white/80 rounded-3xl shadow-md p-8 md:p-10">
             <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6">Форма за контакт</h2>
-            <form action="https://api.web3forms.com/submit/caa418c8-6872-46c7-9ed2-60345a5e870b" method="POST" class="space-y-5" id="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5" id="contact-form">
+                <input type="hidden" name="access_key" value="caa418c8-6872-46c7-9ed2-60345a5e870b">
                 <input type="hidden" name="subject" value="Ново запитване от сайта">
                 <input type="hidden" name="redirect" value="{{ '/blagodarya/' | url }}">
                 <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
@@ -83,3 +84,53 @@ description: Свържете се с мен за въпроси или за д�
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contact-form');
+    const resultEl = document.getElementById('contact-form-result');
+    if (!contactForm || !resultEl) return;
+
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const redirectUrl = contactForm.querySelector('input[name="redirect"]').value;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+        resultEl.textContent = '';
+        resultEl.className = 'text-sm text-primary-dune/80';
+
+        const formData = new FormData();
+        formData.append('access_key', 'caa418c8-6872-46c7-9ed2-60345a5e870b');
+        formData.append('subject', contactForm.querySelector('input[name="subject"]').value);
+        formData.append('redirect', redirectUrl);
+        formData.append('botcheck', '');
+        formData.append('name', document.getElementById('contact-name').value);
+        formData.append('email', document.getElementById('contact-email').value);
+        formData.append('message', document.getElementById('contact-message').value);
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                window.location.href = redirectUrl;
+            } else {
+                resultEl.textContent = 'Грешка при изпращане. Моля опитайте отново.';
+                resultEl.className = 'text-sm text-red-600';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Изпрати';
+            }
+        } catch (err) {
+            resultEl.textContent = 'Грешка при изпращане. Моля опитайте отново.';
+            resultEl.className = 'text-sm text-red-600';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Изпрати';
+        }
+    });
+});
+</script>
