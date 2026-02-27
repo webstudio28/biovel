@@ -251,7 +251,7 @@ eleventyComputed:
                 </div>
 
                 <form id="order-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
-                    <input type="hidden" name="access_key" value="4eabcc47-f892-4a07-93b7-a0b089cb73d5">
+                    <input type="hidden" name="access_key" value="caa418c8-6872-46c7-9ed2-60345a5e870b">
                     <input type="hidden" name="subject" value="Нова поръчка: {{ product.title }}">
                     <input type="hidden" name="redirect" value="{{ '/poruchka-napravena/' | url }}">
                     <input type="hidden" name="product_name" value="{{ product.title }}">
@@ -303,16 +303,23 @@ eleventyComputed:
                         <div id="office-suggestions" class="mt-2 hidden max-h-48 overflow-y-auto border border-gray-200 rounded-xl bg-white shadow-lg"></div>
                     </div>
 
+                    <!-- Comment (optional) -->
+                    <div>
+                        <label for="order-comment" class="block text-sm font-semibold text-primary-deepsea mb-2">Коментар към поръчката</label>
+                        <textarea id="order-comment" name="order_comment" rows="3" class="w-full rounded-2xl border-0 bg-primary-sand/30 px-4 py-3 text-primary-volcanic placeholder:text-primary-dune/60 focus:outline-none focus:ring-2 focus:ring-primary-evergreen/50 transition resize-none" placeholder="По избор"></textarea>
+                    </div>
+
                     <!-- Price Display -->
                     <div class="bg-primary-sand/30 rounded-2xl p-4">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-primary-deepsea font-semibold">Единична цена:</span>
                             <span class="text-primary-evergreen font-bold" id="unit-price">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</span>
                         </div>
-                        <div class="flex justify-between items-center">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-primary-deepsea font-semibold">Обща сума:</span>
                             <span class="text-primary-evergreen font-bold text-xl" id="total-price">{{ product.price }} €{% if product.price_bgn %} / {{ product.price_bgn }} лв{% endif %}</span>
                         </div>
+                        <p class="text-sm text-primary-dune/90 mt-2">Общата сума не включва услугата на куриера.</p>
                     </div>
 
                     <!-- Submit Button -->
@@ -772,11 +779,12 @@ eleventyComputed:
                 const emailValue = document.getElementById('order-email').value;
                 const cityValue = cityInput.value;
                 const officeValue = officeInput.value;
+                const commentValue = (document.getElementById('order-comment') && document.getElementById('order-comment').value) ? document.getElementById('order-comment').value.trim() : '';
                 // Get office address from variable or data attribute
                 const officeAddress = (typeof officeAddressValue !== 'undefined' && officeAddressValue) || officeInput.getAttribute('data-office-address') || '';
                 
                 // Build email message with all order details
-                const message = `Нова поръчка:
+                let message = `Нова поръчка:
 
 Продукт: {{ product.title }}
 Количество: ${quantity}
@@ -789,10 +797,13 @@ eleventyComputed:
 Имейл: ${emailValue}
 Град: ${cityValue}
 Офис на Еконт: ${officeValue}${officeAddress ? '\nАдрес на офис: ' + officeAddress : ''}`;
+                if (commentValue) {
+                    message += `\n\nКоментар към поръчката: ${commentValue}`;
+                }
                 
                 // Build FormData manually with only essential fields
                 const formData = new FormData();
-                formData.append('access_key', '4eabcc47-f892-4a07-93b7-a0b089cb73d5');
+                formData.append('access_key', 'caa418c8-6872-46c7-9ed2-60345a5e870b');
                 formData.append('subject', 'Нова поръчка: {{ product.title }}');
                 formData.append('redirect', '{{ "/poruchka-napravena/" | url }}');
                 formData.append('botcheck', '');
