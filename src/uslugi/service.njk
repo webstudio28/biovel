@@ -81,7 +81,26 @@ eleventyComputed:
 					{{ service.longDescription | nl2br | safe }}
 				</p>
 				<p class="text-md font-semibold text-primary-evergreen mt-2">Цена: {{ service.price.eur }} € / {{ service.price.lv }} лв</p>
+				<p class="text-xs md:text-sm text-primary-deepsea mt-4 italic">
+					При наличие на здравословен проблем, се консултирайте с медицински специалист. Тази услуга не замества медицински преглед или лечение.
+				</p>
 			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+
+<!-- Принцип на работа (Биорезонанс) -->
+{% if service.principle %}
+<section class="py-12 bg-primary-sand/30">
+	<div class="max-w-7xl w-full mx-auto px-4">
+		<h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6">
+			На какъв принцип работят биорезонансните апарати?
+		</h2>
+		<div class="bg-white/60 rounded-2xl p-6 md:p-8">
+			<p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
+				{{ service.principle | nl2br | safe }}
+			</p>
 		</div>
 	</div>
 </section>

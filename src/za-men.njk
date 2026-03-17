@@ -1,0 +1,229 @@
+---
+layout: base.njk
+title: За мен
+description: Научи повече за Елена Христова, моя подход и какво да очакваш.
+---
+
+<section class="py-12 bg-primary-sand/30">
+    <div class="max-w-7xl w-full mx-auto px-4 flex flex-col gap-10 md:gap-12">
+        <div class="w-full text-left">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-evergreen">За мен</h1>
+        </div>
+
+        <div class="relative shadow-md rounded-3xl bg-[#fafafa] p-8 md:p-12 w-full overflow-hidden">
+            <div class="absolute inset-0 opacity-10 z-0">
+                <img src="{{ '/assets/images/about-bg.png' | url }}" alt="" class="w-full h-full object-cover">
+            </div>
+
+            <div class="relative z-10 grid md:grid-cols-[320px_1fr] gap-8 md:gap-12 items-start">
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <img
+                        src="{{ '/assets/images/elena-hristova-about.jpg' | url }}"
+                        alt="Елена Христова"
+                        class="w-full max-w-[320px] rounded-3xl shadow-md border border-primary-dune/40 object-cover bg-primary-sand/40"
+                    >
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <p class="text-primary-deepsea text-base md:text-lg leading-relaxed font-medium">
+                        Определям се като усмихнат, благодарен и търсещ човек. В работата си използвам биорезонансни апарати като част от холистичен подход за подкрепа на общото благосъстояние.
+                    </p>
+                    <p class="text-primary-dark-gray text-sm md:text-base leading-relaxed">
+                        Моят подход съчетава различни принципи и методи, съобразени индивидуално с всеки човек. Дори малки промени в ежедневните навици могат да имат голямо значение – хранене, попълване на витамини и минерали, хидратация, детоксикация, сън, физическа активност и мотивация.
+                    </p>
+                    <p class="text-primary-dark-gray text-sm md:text-base leading-relaxed">
+                        Работя със съобразяване към естествения биоритъм на тялото и циркадните цикли на природата, с цел постигане на по-добър баланс и устойчиво усещане за благосъстояние.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white/80 rounded-3xl shadow-md p-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-4">
+                Какво можете да очаквате при работа с мен?
+            </h2>
+
+            <ul class="space-y-4 text-primary-deepsea">
+                <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-primary-evergreen flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Индивидуален подход, съобразен с нуждите на всеки човек</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-primary-evergreen flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Холистична насоченост към баланс и общо благосъстояние</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-primary-evergreen flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Подкрепа за малки, но устойчиви промени в ежедневните навици</span>
+                </li>
+            </ul>
+
+            <div class="mt-6 bg-primary-sand/40 rounded-3xl p-6 border border-primary-dune/30">
+                <p class="text-primary-deepsea leading-relaxed">
+                    За мен най-голямото удовлетворение е, когато човек усети положителната промяна в себе си.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen">Сертификати</h2>
+        </div>
+
+        <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-center justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-44 md:h-56 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate1.jpg' | url }}"
+                            data-certificate-alt="Сертификат 1"
+                        >
+                            <img src="{{ '/assets/images/certificate1.jpg' | url }}" alt="Сертификат 1" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Здравословно хранене – консултант.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за обучение като консултант по помощни средства и хранителни добавки.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-center justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-44 md:h-56 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate2.jpg' | url }}"
+                            data-certificate-alt="Сертификат 2"
+                        >
+                            <img src="{{ '/assets/images/certificate2.jpg' | url }}" alt="Сертификат 2" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Нутрициология – специалист.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за завършен курс по нутрициология.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/90 rounded-3xl shadow-md p-3 flex flex-col h-full">
+                    <div class="rounded-2xl border border-primary-cream/60 overflow-hidden bg-primary-sand/40 w-full flex items-center justify-center relative">
+                        <button
+                            type="button"
+                            class="w-full h-44 md:h-56 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-sand/30"
+                            data-certificate-full="{{ '/assets/images/certificate3.jpg' | url }}"
+                            data-certificate-alt="Сертификат 3"
+                        >
+                            <img src="{{ '/assets/images/certificate3.jpg' | url }}" alt="Сертификат 3" class="w-full h-full object-cover">
+                        </button>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white text-[11px] md:text-xs px-3 py-2 flex items-end justify-start">
+                            <span class="tracking-wide text-left">Виж</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex flex-col gap-1 text-left w-full">
+                        <p class="text-xs md:text-[11px] text-primary-deepsea font-semibold">
+                            Флорални есенции – практик.
+                        </p>
+                        <p class="text-[11px] md:text-[10px] text-primary-deepsea/80">
+                            Сертификат за въвеждащ курс по австралийски флорални есенции.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certificates Lightbox -->
+<div
+    id="certificate-lightbox"
+    class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+>
+    <button
+        type="button"
+        id="certificate-lightbox-close"
+        class="absolute top-4 right-4 rounded-full text-white text-3xl p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-evergreen/80"
+        aria-label="Затвори изображението"
+    >
+        ✕
+    </button>
+    <div class="max-w-[95vw] max-h-[80vh] flex items-center justify-center px-4">
+        <img
+            id="certificate-lightbox-img"
+            src=""
+            alt=""
+            class="w-full h-full max-w-[95vw] max-h-[80vh] object-contain rounded-2xl shadow-2xl border border-primary-cream/60 bg-black/10"
+        >
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const lightbox = document.getElementById('certificate-lightbox');
+    const lightboxImg = document.getElementById('certificate-lightbox-img');
+    const closeBtn = document.getElementById('certificate-lightbox-close');
+
+    if (!lightbox || !lightboxImg) return;
+
+    const openLightbox = (src, alt) => {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        lightbox.classList.add('opacity-100');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.add('opacity-0', 'pointer-events-none');
+        lightbox.classList.remove('opacity-100');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-certificate-full]').forEach((el) => {
+        el.addEventListener('click', () => {
+            const src = el.getAttribute('data-certificate-full');
+            const alt = el.getAttribute('data-certificate-alt');
+            if (src) {
+                openLightbox(src, alt);
+            }
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+});
+</script>

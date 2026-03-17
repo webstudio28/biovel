@@ -101,7 +101,7 @@ eleventyComputed:
 </section>
 
 <!-- Описание Section -->
-{% if product.long_description %}
+{% if product.long_description or product.additional_info or product.additional_info_bullets %}
 <section class="py-6 mt-6 bg-primary-sand/30">
     <div class="max-w-7xl w-full mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold text-primary-evergreen mb-6 flex items-center gap-3">
@@ -110,9 +110,30 @@ eleventyComputed:
         </h2>
         <div class="bg-white/60 rounded-2xl p-6 md:p-8">
             <div class="prose prose-lg max-w-none">
+                {% if product.long_description %}
                 <p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
                     {{ product.long_description }}
                 </p>
+                {% endif %}
+                {% if product.additional_info or product.additional_info_bullets %}
+                <div class="mt-6">
+                    <p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
+                        <strong>Допълнителна информация:</strong>
+                    </p>
+                    {% if product.additional_info %}
+                    <p class="text-primary-deepsea leading-relaxed text-base md:text-lg">
+                        {{ product.additional_info }}
+                    </p>
+                    {% endif %}
+                    {% if product.additional_info_bullets and product.additional_info_bullets.length > 0 %}
+                    <ul class="text-primary-deepsea leading-relaxed text-base md:text-lg list-disc pl-6 space-y-2">
+                        {% for item in product.additional_info_bullets %}
+                        <li>{{ item | safe }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
